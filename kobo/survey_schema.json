@@ -1,0 +1,188 @@
+{
+  "title": "Censo de Informalidad Laboral en Villarrica - UNVES 2026",
+  "name": "encuesta_informalidad_villarrica_2026",
+  "version": "v2026_09_oficial",
+  "id_string": "encuesta_informalidad_villarrica_2026",
+  "type": "survey",
+  "default_language": "es",
+  "deployment_url": "https://kf.kobotoolbox.org/#/forms/encuesta_informalidad_villarrica_2026",
+  "server": "KoboToolbox Server (Non-Profit / Academic EU Cluster)",
+  "children": [
+    {
+      "name": "consentimiento_informado",
+      "type": "acknowledge",
+      "label": "¿El entrevistado consiente voluntariamente participar en el estudio académico UNVES?",
+      "required": true
+    },
+    {
+      "name": "geolocalizacion",
+      "type": "geopoint",
+      "label": "Capture la coordenada GPS exacta del punto de trabajo",
+      "required": true
+    },
+    {
+      "name": "barrio",
+      "type": "select_one",
+      "label": "Seleccione el barrio censal de Villarrica",
+      "required": true,
+      "choices": ["Centro", "Ybaroty", "San Miguel", "Santa Librada", "Estación", "Lomas Valentinas", "Tuyutimí"]
+    },
+    {
+      "name": "edad",
+      "type": "integer",
+      "label": "¿Cuál es su edad en años cumplidos?",
+      "required": true,
+      "constraint": ". >= 18 and . <= 85"
+    },
+    {
+      "name": "genero",
+      "type": "select_one",
+      "label": "Género del entrevistado",
+      "required": true,
+      "choices": ["masculino", "femenino"]
+    },
+    {
+      "name": "actividad_economica",
+      "type": "select_one",
+      "label": "Oficio o labor principal desarrollada",
+      "required": true,
+      "choices": [
+        "Confección y bordado artesanal (Ao Po'i / Prendas)",
+        "Comercio al paso / Copetín / Venta de alimentos",
+        "Construcción / Albañilería / Pintura",
+        "Mototaxi / Reparto y delivery en motocicleta",
+        "Taller mecánico menor / Gomería / Chapa y pintura",
+        "Venta ambulante / Feria municipal / Mercaderías",
+        "Servicios domésticos y limpieza informal",
+        "Carpintería / Herrería / Mantenimiento general",
+        "Zapatería y reparación de calzado / Marroquinería"
+      ]
+    },
+    {
+      "name": "antiguedad_oficio_anios",
+      "type": "integer",
+      "label": "¿Cuántos años lleva desempeñando esta actividad?",
+      "required": true,
+      "constraint": ". >= 0 and . <= 50"
+    },
+    {
+      "name": "ingreso_mensual_estimado_pyg",
+      "type": "integer",
+      "label": "¿Cuál es su ingreso promedio mensual estimado en Guaraníes?",
+      "required": true,
+      "constraint": ". >= 300000 and . <= 15000000"
+    },
+    {
+      "name": "horas_semanales_trabajadas",
+      "type": "integer",
+      "label": "¿Cuántas horas trabaja habitualmente por semana?",
+      "required": true,
+      "constraint": ". >= 4 and . <= 98"
+    },
+    {
+      "name": "cobertura_ips",
+      "type": "select_one",
+      "label": "¿Cuenta actualmente con seguro social o cobertura médica en IPS?",
+      "required": true,
+      "choices": ["si", "no"]
+    },
+    {
+      "name": "motivo_no_ips",
+      "type": "select_one",
+      "label": "¿Cuál es el motivo principal por el que no aporta a IPS?",
+      "relevant": "${datos_encuesta/cobertura_ips} = 'no'",
+      "required": true,
+      "choices": [
+        "Ingreso insuficiente para afrontar el costo mensual",
+        "Mala atención y falta de medicamentos en hospital regional de IPS",
+        "Desconocimiento sobre trámites del régimen de independientes",
+        "Falta de confianza en el retorno jubilatorio futuro",
+        "El empleador o patrón no realiza el trámite de inscripción"
+      ]
+    },
+    {
+      "name": "nivel_educativo",
+      "type": "select_one",
+      "label": "Máximo nivel educativo formal alcanzado",
+      "required": true,
+      "choices": [
+        "Primaria incompleta",
+        "Primaria completa",
+        "Secundaria incompleta",
+        "Secundaria completa (Bachiller)",
+        "Terciario / Universitario incompleto"
+      ]
+    },
+    {
+      "name": "personas_a_cargo",
+      "type": "integer",
+      "label": "¿Cuántas personas dependen económicamente de usted en el hogar?",
+      "required": true,
+      "constraint": ". >= 0 and . <= 15"
+    },
+    {
+      "name": "tenencia_vivienda",
+      "type": "select_one",
+      "label": "La vivienda donde reside habitualmente es:",
+      "required": true,
+      "choices": ["propia", "alquilada", "prestada_familiar"]
+    },
+    {
+      "name": "posee_smartphone",
+      "type": "select_one",
+      "label": "¿Posee teléfono celular inteligente (Smartphone)?",
+      "required": true,
+      "choices": ["si", "no"]
+    },
+    {
+      "name": "tipo_acceso_internet",
+      "type": "select_one",
+      "label": "¿Cómo se conecta a internet habitualmente?",
+      "relevant": "${datos_encuesta/posee_smartphone} = 'si'",
+      "required": true,
+      "choices": [
+        "Paquetes de datos móviles prepagos diarios",
+        "Conexión WiFi fija domiciliaria",
+        "Sin acceso a internet propio"
+      ]
+    },
+    {
+      "name": "medios_pago_cobro",
+      "type": "select_multiple",
+      "label": "¿Qué medios de cobro o pago utiliza habitualmente?",
+      "required": true,
+      "choices": [
+        "efectivo",
+        "tigo_money",
+        "billetera_zimple",
+        "sipap_transferencia",
+        "qr_bancario"
+      ]
+    },
+    {
+      "name": "conoce_resimple",
+      "type": "select_one",
+      "label": "¿Conoce el régimen de tributación simplificada RESIMPLE de la DNIT?",
+      "required": true,
+      "choices": ["si", "no"]
+    },
+    {
+      "name": "interes_capacitacion_formalizacion",
+      "type": "select_one",
+      "label": "¿Qué tan interesado estaría en recibir asesoría para formalizar su actividad?",
+      "required": true,
+      "choices": [
+        "Muy interesado",
+        "Interesado",
+        "Poco interesado",
+        "No interesado"
+      ]
+    },
+    {
+      "name": "unidad_productiva_id",
+      "type": "text",
+      "label": "Si trabaja en un taller, comercio o puesto fijo, indique código del local",
+      "required": false
+    }
+  ]
+}
