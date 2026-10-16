@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Gerencial e Interactivo | UNVES 2026 - Formalización Laboral Villarrica</title>
+  <meta name="description" content="Sistema de Información Gerencial para el diagnóstico social de informalidad laboral, gestión de MYPEs y monitoreo de la campaña de marketing social en Villarrica, Paraguay.">
+  
+  <!-- Tipografía Google Fonts: Outfit e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS para Mapas Geoespaciales -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <!-- FontAwesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* ==========================================================================
+       VARIABLES Y SISTEMA DE DISEÑO (HIGH-END MODERN GLASSMORPHISM)
+       ========================================================================== */
+    :root {
+      --bg-base: #0a0f1d;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #1f2937;
+      --bg-card: rgba(31, 41, 55, 0.72);
+      --bg-glass: rgba(17, 24, 39, 0.82);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.4);
+      
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --text-sub: #6b7280;
+      
+      --accent-primary: #6366f1; /* Indigo */
+      --accent-primary-light: #818cf8;
+      --accent-secondary: #06b6d4; /* Cyan */
+      --accent-success: #10b981; /* Emerald */
+      --accent-warning: #f59e0b; /* Amber */
+      --accent-danger: #ef4444; /* Crimson */
+      --accent-purple: #8b5cf6;
+      
+      --salario-minimo-color: #10b981;
+      
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.25);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      
+      --transition-fast: 0.15s ease;
+      --transition-normal: 0.25s ease;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f3f4f6;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f9fafb;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-glass: rgba(255, 255, 255, 0.95);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.5);
+      
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --text-sub: #6b7280;
+      
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+      --shadow-glow: 0 0 15px rgba(99, 102, 241, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      overflow-x: hidden;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== */
+    .app-header {
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.75rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .brand-info h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .legal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #10b981;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .theme-toggle-btn, .action-btn {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all var(--transition-fast);
+    }
+
+    .theme-toggle-btn:hover, .action-btn:hover {
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       TABS NAVIGATION
+       ========================================================================== */
+    .tabs-nav-wrapper {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.25rem 1.5rem 0;
+    }
+
+    .tabs-nav-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs-nav-container::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.85rem 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      color: var(--accent-primary-light);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      border-radius: 3px 3px 0 0;
+      box-shadow: 0 0 10px var(--accent-primary);
+    }
+
+    .tab-pill {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.08);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .tab-btn.active .tab-pill {
+      background: rgba(99, 102, 241, 0.25);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       UNIVERSAL FILTER BAR
+       ========================================================================== */
+    .filter-bar-wrapper {
+      background: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+    }
+
+    .filter-bar-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .filters-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .filter-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.82rem;
+    }
+
+    .filter-item label {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .filter-item select {
+      background: transparent;
+      color: var(--text-main);
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+      padding: 0.25rem 0.2rem;
+    }
+
+    .filter-item select option {
+      background-color: #1f2937;
+      color: #f9fafb;
+    }
+
+    .filter-reset-btn {
+      background: transparent;
+      color: var(--text-sub);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-reset-btn:hover {
+      color: var(--accent-danger);
+      border-color: var(--accent-danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .filter-status-chip {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge-count {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--accent-primary-light);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT CONTAINER & GRID LAYOUT
+       ========================================================================== */
+    .main-container {
+      max-width: 1600px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       CARDS AND KPI METRICS (EXECUTIVE SUMMARY)
+       ========================================================================== */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-fast);
+    }
+
+    .kpi-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--card-accent, var(--accent-primary)), transparent);
+    }
+
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .kpi-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .kpi-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--card-accent, var(--accent-primary-light));
+    }
+
+    .kpi-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi-subtext {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .kpi-subtext .highlight {
+      font-weight: 700;
+      color: var(--card-accent, var(--accent-primary-light));
+    }
+
+    /* ==========================================================================
+       DASHBOARD PANELS AND GRIDS
+       ========================================================================== */
+    .dashboard-row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .col-12 { grid-column: span 12; }
+    .col-8 { grid-column: span 8; }
+    .col-7 { grid-column: span 7; }
+    .col-6 { grid-column: span 6; }
+    .col-5 { grid-column: span 5; }
+    .col-4 { grid-column: span 4; }
+
+    @media (max-width: 1024px) {
+      .col-8, .col-7, .col-6, .col-5, .col-4 {
+        grid-column: span 12;
+      }
+    }
+
+    .content-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .panel-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panel-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .chart-container {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      min-height: 280px;
+    }
+
+    /* ==========================================================================
+       MAP PANEL (LEAFLET STYLES)
+       ========================================================================== */
+    #villarricaMap {
+      width: 100%;
+      height: 480px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .map-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .map-legend {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: #111827 !important;
+      color: #f9fafb !important;
+      border-radius: var(--radius-sm) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      box-shadow: var(--shadow-lg) !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.82rem !important;
+    }
+    .leaflet-popup-tip {
+      background: #111827 !important;
+    }
+
+    /* ==========================================================================
+       TABLES AND MICRODATA EXPLORER
+       ========================================================================== */
+    .table-container {
+      overflow-x: auto;
+      max-height: 520px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    .modern-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.82rem;
+    }
+
+    .modern-table th {
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    .modern-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    .modern-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .badge-success { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .badge-warning { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .badge-danger { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+    .badge-info { background: rgba(6, 182, 212, 0.15); color: #06b6d4; }
+    .badge-purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .app-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 1.25rem 1.5rem;
+      margin-top: auto;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+    }
+
+    .footer-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- ========================================================================
+       HEADER
+       ======================================================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-section">
+        <div class="brand-logo-badge" title="UNVES - FCE">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div class="brand-info">
+          <h1>
+            <span>UNVES 2026</span>
+            <span style="font-weight: 300; opacity: 0.6;">|</span>
+            <span>Sistema de Información Gerencial</span>
+          </h1>
+          <p>Diagnóstico Social, Gestión de MYPEs y Marketing Social • Villarrica, Guairá</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <div class="legal-badge" title="Salario Mínimo Legal Vigente en Paraguay (Julio 2026)">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <span>SML Ref: Gs. 3.044.000</span>
+        </div>
+        
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Alternar Modo Oscuro / Claro">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeToggleText">Tema</span>
+        </button>
+
+        <button id="exportReportBtn" class="action-btn" title="Exportar Resumen Analítico">
+          <i class="fa-solid fa-download"></i>
+          <span>Exportar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       TABS NAVIGATION
+       ======================================================================== -->
+  <nav class="tabs-nav-wrapper">
+    <div class="tabs-nav-container">
+      <button class="tab-btn active" data-tab="tab-social">
+        <i class="fa-solid fa-users"></i>
+        <span>1. Diagnóstico Social y Territorio</span>
+        <span class="tab-pill">N=420</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-mypes">
+        <i class="fa-solid fa-building-wheat"></i>
+        <span>2. Gestión Productiva y MYPEs</span>
+        <span class="tab-pill">N=135</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-marketing">
+        <i class="fa-solid fa-bullhorn"></i>
+        <span>3. Marketing Social "Trabajo Formal"</span>
+        <span class="tab-pill">4 Canales</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-explorer">
+        <i class="fa-solid fa-database"></i>
+        <span>4. Explorador de Microdatos y Vistas</span>
+        <span class="tab-pill">PostgreSQL 3FN</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       CROSS-FILTER BAR (UNIVERSAL)
+       ======================================================================== -->
+  <section class="filter-bar-wrapper">
+    <div class="filter-bar-container">
+      <div class="filters-group">
+        <!-- Filtro Barrio -->
+        <div class="filter-item">
+          <label for="filterBarrio"><i class="fa-solid fa-location-dot"></i> Barrio:</label>
+          <select id="filterBarrio">
+            <option value="all">Todos los Barrios (7)</option>
+            <option value="Centro">Centro</option>
+            <option value="Ybaroty">Ybaroty</option>
+            <option value="San Miguel">San Miguel</option>
+            <option value="Santa Librada">Santa Librada</option>
+            <option value="Estación">Estación</option>
+            <option value="Lomas Valentinas">Lomas Valentinas</option>
+            <option value="Tuyutimí">Tuyutimí</option>
+          </select>
+        </div>
+
+        <!-- Filtro Género -->
+        <div class="filter-item">
+          <label for="filterGenero"><i class="fa-solid fa-venus-mars"></i> Género:</label>
+          <select id="filterGenero">
+            <option value="all">Todos los Géneros</option>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+          </select>
+        </div>
+
+        <!-- Filtro Oficio / Rubro -->
+        <div class="filter-item">
+          <label for="filterRubro"><i class="fa-solid fa-briefcase"></i> Oficio / Rubro:</label>
+          <select id="filterRubro">
+            <option value="all">Todos los Rubros</option>
+          </select>
+        </div>
+
+        <!-- Filtro Canal de Marketing -->
+        <div class="filter-item">
+          <label for="filterCanal"><i class="fa-solid fa-share-nodes"></i> Canal Mkt:</label>
+          <select id="filterCanal">
+            <option value="all">Todos los Canales (4)</option>
+            <option value="META_ADS">Meta Ads (Facebook/Instagram)</option>
+            <option value="WHATSAPP">WhatsApp Business Asistido</option>
+            <option value="PUNTOS_PRESENCIALES">Puntos Presenciales / Ferias</option>
+            <option value="AFICHES_QR">Afiches con QR y Medios Locales</option>
+          </select>
+        </div>
+
+        <!-- Botón Reset -->
+        <button id="resetFiltersBtn" class="filter-reset-btn" title="Restablecer todos los filtros">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span>Limpiar Filtros</span>
+        </button>
+      </div>
+
+      <div class="filter-status-chip">
+        <i class="fa-solid fa-filter"></i>
+        <span>Mostrando: <strong id="chipCountTrabajadores" class="badge-count">420</strong> trabajadores | <strong id="chipCountUnidades" class="badge-count">135</strong> MYPEs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MAIN DASHBOARD BODY
+       ======================================================================== -->
+  <main class="main-container">
+
+    <!-- --------------------------------------------------------------------
+         PESTAÑA 1: DIAGNÓSTICO SOCIAL Y TERRITORIO
+         -------------------------------------------------------------------- -->
+    <div id="tab-social" class="tab-content active">
+      
+      <!-- KPIs Ejecutivos Sociales -->
+      <div class="kpi-grid">
+        <div class="kpi-card" style="--card-accent: var(--accent-danger);">
+          <div class="kpi-header">
+            <span class="kpi-title">Informalidad Laboral</span>
+            <div class="kpi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiInformalidadPct">100%</div>
+          <div class="kpi-subtext">
+            <span>Cobertura IPS: </span>
+            <span class="highlight" id="kpiCoberturaIps">0% asegurados</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-secondary);">
+          <div class="kpi-header">
+            <span class="kpi-title">Ingreso Medio Mensual</span>
+            <div class="kpi-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiIngresoMedio">Gs. 0</div>
+          <div class="kpi-subtext">
+            <span>Brecha vs SML: </span>
+            <span id="kpiBrechaSml" class="highlight">-Gs. 0</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-warning);">
+          <div class="kpi-header">
+            <span class="kpi-title">Bajo Salario Mínimo</span>
+            <div class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiPctBajoMinimo">0%</div>
+          <div class="kpi-subtext">
+            <span>Trabajadores: </span>
+            <span id="kpiCountBajoMinimo" class="highlight">0 de 420</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-purple);">
+          <div class="kpi-header">
+            <span class="kpi-title">Índice Vulnerabilidad</span>
+            <div class="kpi-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiIndiceVuln">0 / 100</div>
+          <div class="kpi-subtext">
+            <span>Clasificación: </span>
+            <span id="kpiClasifVuln" class="highlight">Vulnerabilidad Alta</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 1: Mapa Geoespacial de los 7 Barrios y Gráfico de Brecha Salarial -->
+      <div class="dashboard-row">
+        <!-- Mapa Geoespacial Leaflet -->
+        <div class="col-7 content-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title"><i class="fa-solid fa-map-location-dot"></i> Distribución Territorial de la Informalidad (Villarrica)</h2>
+              <p class="panel-subtitle">Georreferenciación de 420 trabajadores en los 7 barrios censales de Villarrica (Guairá)</p>
+            </div>
+            <div class="map-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div><span>Baja</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div><span>Media</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#ea580c;"></div><span>Alta</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#dc2626;"></div><span>Crítica</span></div>
+            </div>
+          </div>
+          <div id="villarricaMap"></div>
+          <div class="map-controls-bar">
+            <span><i class="fa-solid fa-circle-info"></i> Haga clic en cualquier punto para examinar oficio, ingreso, brecha y medios de pago.</span>
+            <span id="mapPointCounter">420 puntos cargados</span>
+          </div>
+        </div>
+
+        <!-- Gráfico de Dispersión / Brecha Salarial vs Gs. 3.044.000 -->
+        <div class="col-5 content-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title"><i class="fa-solid fa-chart-column"></i> Brecha Salarial vs. Salario Mínimo</h2>
+              <p class="panel-subtitle">Ingreso mensual medio por barrio vs. parámetro legal (Gs. 3.044.000)</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartBrechaSalarialBarrio"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 2: 10 Indicadores Sociales (Vulnerabilidad, Brecha Digital, Jornada y Motivos No IPS) -->
+      <div class="dashboard-row">
+        <!-- Gráfico de Vulnerabilidad Social -->
+        <div class="col-4 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-chart-pie"></i> Vulnerabilidad Social</h3>
+              <p class="panel-subtitle">Distribución categórica (Baja, Media, Alta, Crítica)</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartVulnerabilidadCat"></canvas>
+          </div>
+        </div>
+
+        <!-- Inclusión Financiera y Digital -->
+        <div class="col-4 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-mobile-screen-button"></i> Inclusión Digital y Medios de Pago</h3>
+              <p class="panel-subtitle">Tenencia de smartphone y billeteras digitales</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartInclusionDigital"></canvas>
+          </div>
+        </div>
+
+        <!-- Barreras al Seguro Social IPS -->
+        <div class="col-4 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-hospital-user"></i> Causas de No Aporte a IPS</h3>
+              <p class="panel-subtitle">Motivos declarados por trabajadores informales</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartMotivosNoIps"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- --------------------------------------------------------------------
+         PESTAÑA 2: GESTIÓN PRODUCTIVA Y MYPES
+         -------------------------------------------------------------------- -->
+    <div id="tab-mypes" class="tab-content">
+      
+      <!-- KPIs Ejecutivos MYPEs -->
+      <div class="kpi-grid">
+        <div class="kpi-card" style="--card-accent: var(--accent-primary);">
+          <div class="kpi-header">
+            <span class="kpi-title">MYPEs Relevadas</span>
+            <div class="kpi-icon"><i class="fa-solid fa-store"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiTotalMypes">0</div>
+          <div class="kpi-subtext">
+            <span>Cobertura: </span>
+            <span class="highlight">7 Barrios de Villarrica</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-danger);">
+          <div class="kpi-header">
+            <span class="kpi-title">Informalidad Patronal</span>
+            <div class="kpi-icon"><i class="fa-solid fa-user-xmark"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiTasaInformalidadMypes">0%</div>
+          <div class="kpi-subtext">
+            <span>Personal sin IPS: </span>
+            <span id="kpiSinIpsMypes" class="highlight">0 trabajadores</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-success);">
+          <div class="kpi-header">
+            <span class="kpi-title">Facturación Promedio</span>
+            <div class="kpi-icon"><i class="fa-solid fa-cash-register"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiFacturacionMedia">Gs. 0</div>
+          <div class="kpi-subtext">
+            <span>Ingreso mensual: </span>
+            <span class="highlight">Microempresarial</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-warning);">
+          <div class="kpi-header">
+            <span class="kpi-title">Estado Tributario RUC</span>
+            <div class="kpi-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiPctSinRuc">0%</div>
+          <div class="kpi-subtext">
+            <span>Régimen DNIT: </span>
+            <span id="kpiResimpleCount" class="highlight">0 en RESIMPLE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 1: Tasa de Informalidad por Rubro y Facturación según RUC -->
+      <div class="dashboard-row">
+        <!-- Informalidad Patronal por Rubro -->
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title"><i class="fa-solid fa-chart-bar"></i> Tasa de Informalidad Laboral por Rubro</h2>
+              <p class="panel-subtitle">% de trabajadores no registrados en IPS según sector de actividad</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartInformalidadRubro"></canvas>
+          </div>
+        </div>
+
+        <!-- Facturación según Situación RUC -->
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title"><i class="fa-solid fa-scale-unbalanced-flip"></i> Facturación Mensual según Situación RUC</h2>
+              <p class="panel-subtitle">Comparativa entre unidades Sin RUC, RESIMPLE y RUC General (DNIT)</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartFacturacionRuc"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 2: Barreras al Aporte a IPS y Medios de Pago -->
+      <div class="dashboard-row">
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-ban"></i> Barreras Patronales al Aporte a IPS</h3>
+              <p class="panel-subtitle">Razones expresadas por empleadores y dueños de talleres</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartBarrerasIpsPatronal"></canvas>
+          </div>
+        </div>
+
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-handshake-angle"></i> Disposición Patronal a Formalizarse</h3>
+              <p class="panel-subtitle">Nivel de receptividad hacia asesorías de SUACE y RESIMPLE</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartDisposicionFormalizar"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- --------------------------------------------------------------------
+         PESTAÑA 3: MARKETING SOCIAL "TRABAJO FORMAL, FUTURO SEGURO"
+         -------------------------------------------------------------------- -->
+    <div id="tab-marketing" class="tab-content">
+      
+      <!-- KPIs Ejecutivos Marketing -->
+      <div class="kpi-grid">
+        <div class="kpi-card" style="--card-accent: var(--accent-secondary);">
+          <div class="kpi-header">
+            <span class="kpi-title">Alcance Total Acumulado</span>
+            <div class="kpi-icon"><i class="fa-solid fa-eye"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiMarketingAlcance">0</div>
+          <div class="kpi-subtext">
+            <span>Interacciones: </span>
+            <span id="kpiMarketingCtr" class="highlight">0 (CTR 0%)</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-primary);">
+          <div class="kpi-header">
+            <span class="kpi-title">Consultas de Formalización</span>
+            <div class="kpi-icon"><i class="fa-solid fa-comments"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiMarketingConsultas">0</div>
+          <div class="kpi-subtext">
+            <span>Temas: </span>
+            <span id="kpiConsultasTemas" class="highlight">RESIMPLE vs IPS</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-success);">
+          <div class="kpi-header">
+            <span class="kpi-title">Derivaciones Efectivas</span>
+            <div class="kpi-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiMarketingDerivaciones">0</div>
+          <div class="kpi-subtext">
+            <span>Destino: </span>
+            <span class="highlight">SUACE Villarrica e IPS</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" style="--card-accent: var(--accent-warning);">
+          <div class="kpi-header">
+            <span class="kpi-title">Inversión & CAC Promedio</span>
+            <div class="kpi-icon"><i class="fa-solid fa-receipt"></i></div>
+          </div>
+          <div class="kpi-value" id="kpiMarketingCac">Gs. 0</div>
+          <div class="kpi-subtext">
+            <span>Presupuesto total: </span>
+            <span id="kpiPresupuestoTotal" class="highlight">Gs. 0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 1: Embudo Multicanal y Evolución Temporal Diaria -->
+      <div class="dashboard-row">
+        <!-- Embudo Multicanal -->
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title"><i class="fa-solid fa-filter-circle-dollar"></i> Embudo Multicanal de Conversión</h2>
+              <p class="panel-subtitle">Alcance → Clics → Consultas Iniciadas → Derivaciones Efectivas</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartEmbudoMarketing"></canvas>
+          </div>
+        </div>
+
+        <!-- Evolución Temporal Diaria (42 días de campaña) -->
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title"><i class="fa-solid fa-chart-line"></i> Evolución Diaria de Consultas y Derivaciones</h2>
+              <p class="panel-subtitle">Monitoreo continuo de 42 jornadas de campaña (Setiembre - Octubre 2026)</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartEvolucionMarketing"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 2: ROI / CAC por Canal y Matriz de Articulación con Programas -->
+      <div class="dashboard-row">
+        <!-- Costo por Derivación Efectiva (CAC) -->
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-coins"></i> Costo de Adquisición Ciudadana (CAC) por Canal</h3>
+              <p class="panel-subtitle">Presupuesto invertido por cada derivación formal completada</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartCacCanales"></canvas>
+          </div>
+        </div>
+
+        <!-- Articulación con Programas de Formalización -->
+        <div class="col-6 content-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-network-wired"></i> Articulación con Programas Públicos</h3>
+              <p class="panel-subtitle">Canalización de demanda hacia RESIMPLE, IPS y SUACE</p>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartArticulacionProgramas"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- --------------------------------------------------------------------
+         PESTAÑA 4: EXPLORADOR DE MICRODATOS Y VISTAS SQL
+         -------------------------------------------------------------------- -->
+    <div id="tab-explorer" class="tab-content">
+      
+      <div class="content-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title"><i class="fa-solid fa-table"></i> Explorador Interactivo de Vistas Normalizadas</h2>
+            <p class="panel-subtitle">Consulta de registros individuales sincronizados desde PostgreSQL (3FN)</p>
+          </div>
+          
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <select id="explorerDatasetSelect" class="action-btn" style="padding: 0.4rem 0.75rem;">
+              <option value="trabajadores">vw_trabajadores_consolidado (N=420)</option>
+              <option value="unidades">vw_unidades_productivas_consolidado (N=135)</option>
+              <option value="marketing">vw_marketing_resumen_canales (N=4)</option>
+              <option value="programas">vw_articulacion_programas_formalizacion (N=3)</option>
+            </select>
+            
+            <input type="text" id="explorerSearchInput" placeholder="Buscar en tabla..." class="action-btn" style="width: 200px; padding: 0.4rem 0.6rem;">
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="modern-table" id="explorerTable">
+            <thead>
+              <tr id="explorerTableHead">
+                <!-- Se llena dinámicamente -->
+              </tr>
+            </thead>
+            <tbody id="explorerTableBody">
+              <!-- Se llena dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
+          <span id="explorerRowCount">Mostrando 0 registros</span>
+          <span>Base de Datos: unves_sig_2026 • Motor: PostgreSQL 16</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div>
+        <strong>Universidad Nacional de Villarrica del Espíritu Santo (UNVES)</strong> • Facultad de Ciencias Económicas  
+        <div style="margin-top: 0.2rem;">Proyecto Interdisciplinario 2026: <em>Transformación Digital y Diagnóstico Social en la Gestión Organizacional</em></div>
+      </div>
+      <div>
+        <span>Cátedras: Sistema de Información Gerencial | Análisis de la Realidad Social | Marketing Social</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SCRIPTS: LEAFLET, CHART.JS Y LÓGICA REACTIVA DEL DASHBOARD
+       ======================================================================== -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Chart.js v4.4.1 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Carga de Datos Locales para fallback sin CORS -->
+  <script src="dashboard_data.js"></script>
+
+  <script>
+    /* ==========================================================================
+       ESTADO GLOBAL DEL DASHBOARD REACTIVO (INMUTABILIDAD Y REACTIVIDAD)
+       ========================================================================== */
+    const AppState = {
+      rawData: null,
+      filteredWorkers: [],
+      filteredUnits: [],
+      filteredMarketing: [],
+      filters: {
+        barrio: 'all',
+        genero: 'all',
+        rubro: 'all',
+        canal: 'all'
+      },
+      map: null,
+      markersLayer: null,
+      polygonsLayer: null,
+      charts: {},
+      theme: 'dark'
+    };
+
+    const SALARIO_MINIMO_LEGAL = 3044000;
+
+    // Coordenadas de los 7 barrios de Villarrica
+    const BARRIOS_BOUNDS = {
+      "Centro": { lat: -25.7530, lon: -56.4480, color: "#3b82f6" },
+      "Ybaroty": { lat: -25.7500, lon: -56.4570, color: "#10b981" },
+      "San Miguel": { lat: -25.7415, lon: -56.4415, color: "#f59e0b" },
+      "Santa Librada": { lat: -25.7630, lon: -56.4510, color: "#ef4444" },
+      "Estación": { lat: -25.7645, lon: -56.4370, color: "#8b5cf6" },
+      "Lomas Valentinas": { lat: -25.7480, lon: -56.4340, color: "#06b6d4" },
+      "Tuyutimí": { lat: -25.7715, lon: -56.4610, color: "#ec4899" }
+    };
+
+    // Formateador de Moneda Guaraníes (PYG)
+    function formatPYG(num) {
+      if (num === null || num === undefined || isNaN(num)) return "Gs. 0";
+      return "Gs. " + Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    function formatNumber(num) {
+      if (num === null || num === undefined || isNaN(num)) return "0";
+      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    /* ==========================================================================
+       INICIALIZACIÓN DEL SISTEMA
+       ========================================================================== */
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        await loadDashboardData();
+        populateRubroFilter();
+        setupEventListeners();
+        initMap();
+        applyFilters();
+      } catch (err) {
+        console.error("Error al inicializar dashboard:", err);
+      }
+    });
+
+    // Carga de datos con fallback local
+    async function loadDashboardData() {
+      if (window.UNVES_DASHBOARD_DATA) {
+        AppState.rawData = window.UNVES_DASHBOARD_DATA;
+        return;
+      }
+      try {
+        const resp = await fetch('dashboard_data.json');
+        if (resp.ok) {
+          AppState.rawData = await resp.json();
+          return;
+        }
+      } catch (e) {
+        console.warn("fetch falló (probablemente file://), verificando datos globales:", e);
+      }
+      if (!AppState.rawData) {
+        alert("Atención: No se pudo cargar dashboard_data.json ni dashboard_data.js.");
+      }
+    }
+
+    // Llenar select de rubros dinámicamente
+    function populateRubroFilter() {
+      if (!AppState.rawData || !AppState.rawData.trabajadores) return;
+      const rubroSelect = document.getElementById("filterRubro");
+      const oficios = [...new Set(AppState.rawData.trabajadores.map(t => t.oficio_rubro))].sort();
+      
+      rubroSelect.innerHTML = '<option value="all">Todos los Rubros / Oficios</option>';
+      oficios.forEach(oficio => {
+        const opt = document.createElement("option");
+        opt.value = oficio;
+        opt.textContent = oficio;
+        rubroSelect.appendChild(opt);
+      });
+    }
+
+    /* ==========================================================================
+       MANEJADORES DE EVENTOS Y FILTROS
+       ========================================================================== */
+    function setupEventListeners() {
+      // Pestañas
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+          document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+          
+          btn.classList.add("active");
+          const tabId = btn.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+
+          if (tabId === "tab-social" && AppState.map) {
+            setTimeout(() => AppState.map.invalidateSize(), 200);
+          }
+        });
+      });
+
+      // Filtros
+      document.getElementById("filterBarrio").addEventListener("change", (e) => {
+        AppState.filters = { ...AppState.filters, barrio: e.target.value };
+        applyFilters();
+      });
+
+      document.getElementById("filterGenero").addEventListener("change", (e) => {
+        AppState.filters = { ...AppState.filters, genero: e.target.value };
+        applyFilters();
+      });
+
+      document.getElementById("filterRubro").addEventListener("change", (e) => {
+        AppState.filters = { ...AppState.filters, rubro: e.target.value };
+        applyFilters();
+      });
+
+      document.getElementById("filterCanal").addEventListener("change", (e) => {
+        AppState.filters = { ...AppState.filters, canal: e.target.value };
+        applyFilters();
+      });
+
+      document.getElementById("resetFiltersBtn").addEventListener("click", () => {
+        AppState.filters = { barrio: 'all', genero: 'all', rubro: 'all', canal: 'all' };
+        document.getElementById("filterBarrio").value = "all";
+        document.getElementById("filterGenero").value = "all";
+        document.getElementById("filterRubro").value = "all";
+        document.getElementById("filterCanal").value = "all";
+        applyFilters();
+      });
+
+      // Toggle Tema
+      document.getElementById("themeToggleBtn").addEventListener("click", () => {
+        const currentTheme = document.body.getAttribute("data-theme");
+        const nextTheme = currentTheme === "dark" ? "light" : "dark";
+        document.body.setAttribute("data-theme", nextTheme);
+        AppState.theme = nextTheme;
+        
+        const icon = document.querySelector("#themeToggleBtn i");
+        if (nextTheme === "dark") {
+          icon.className = "fa-solid fa-moon";
+        } else {
+          icon.className = "fa-solid fa-sun";
+        }
+        
+        // Re-renderizar gráficos para adaptar colores
+        updateAllCharts();
+      });
+
+      // Exportar Resumen
+      document.getElementById("exportReportBtn").addEventListener("click", () => {
+        window.print();
+      });
+
+      // Explorador de microdatos
+      document.getElementById("explorerDatasetSelect").addEventListener("change", renderExplorerTable);
+      document.getElementById("explorerSearchInput").addEventListener("input", renderExplorerTable);
+    }
+
+    /* ==========================================================================
+       APLICACIÓN DE FILTROS CRUZADOS (REACTIVIDAD)
+       ========================================================================== */
+    function applyFilters() {
+      if (!AppState.rawData) return;
+
+      const { barrio, genero, rubro, canal } = AppState.filters;
+
+      // Filtrar Trabajadores
+      AppState.filteredWorkers = AppState.rawData.trabajadores.filter(t => {
+        if (barrio !== 'all' && t.barrio !== barrio) return false;
+        if (genero !== 'all' && t.genero !== genero) return false;
+        if (rubro !== 'all' && t.oficio_rubro !== rubro) return false;
+        return true;
+      });
+
+      // Mapeo coherente de oficios de trabajadores a rubros de MYPEs
+      const oficioToMypeRubro = {
+        "Confección y bordado artesanal (Ao Po'i / Prendas)": "Confección textil y talleres de Ao Po'i",
+        "Comercio al paso / Copetín / Venta de alimentos": "Gastronomía, copetines y rotiserías",
+        "Construcción / Albañilería / Pintura": "Servicios técnicos, talleres y gomerías",
+        "Mototaxi / Reparto y delivery en motocicleta": "Transporte de cargas livianas y fletes",
+        "Taller mecánico menor / Gomería / Chapa y pintura": "Servicios técnicos, talleres y gomerías",
+        "Venta ambulante / Feria municipal / Mercaderías": "Comercio minorista y despensa de barrio",
+        "Servicios domésticos y limpieza informal": "Comercio minorista y despensa de barrio",
+        "Carpintería / Herrería / Mantenimiento general": "Servicios técnicos, talleres y gomerías",
+        "Zapatería y reparación de calzado / Marroquinería": "Confección textil y talleres de Ao Po'i"
+      };
+
+      // Filtrar Unidades Productivas (MYPEs)
+      AppState.filteredUnits = AppState.rawData.unidades_productivas.filter(u => {
+        if (barrio !== 'all' && u.barrio !== barrio) return false;
+        if (rubro !== 'all') {
+          const mypeTarget = oficioToMypeRubro[rubro] || rubro;
+          if (u.rubro_actividad !== mypeTarget && !u.rubro_actividad.toLowerCase().includes(mypeTarget.toLowerCase())) return false;
+        }
+        return true;
+      });
+
+      // Filtrar Marketing
+      AppState.filteredMarketing = AppState.rawData.marketing_resumen.filter(m => {
+        if (canal !== 'all' && m.codigo_canal !== canal) return false;
+        return true;
+      });
+
+      // Actualizar Chips de Conteo
+      document.getElementById("chipCountTrabajadores").textContent = AppState.filteredWorkers.length;
+      document.getElementById("chipCountUnidades").textContent = AppState.filteredUnits.length;
+
+      // Actualizar Tableros
+      updateTab1_Social();
+      updateTab2_MYPEs();
+      updateTab3_Marketing();
+      updateMapMarkers();
+      renderExplorerTable();
+    }
+
+    /* ==========================================================================
+       PESTAÑA 1: DIAGNÓSTICO SOCIAL Y TERRITORIO
+       ========================================================================== */
+    function updateTab1_Social() {
+      const workers = AppState.filteredWorkers;
+      const total = workers.length;
+
+      if (total === 0) {
+        document.getElementById("kpiIngresoMedio").textContent = "Gs. 0";
+        document.getElementById("kpiBrechaSml").textContent = "Gs. 0";
+        document.getElementById("kpiPctBajoMinimo").textContent = "0%";
+        document.getElementById("kpiCountBajoMinimo").textContent = "0 de 0";
+        document.getElementById("kpiIndiceVuln").textContent = "0 / 100";
+        document.getElementById("kpiInformalidadPct").textContent = "0%";
+        document.getElementById("kpiCoberturaIps").textContent = "0% asegurados";
+        return;
+      }
+
+      // Informalidad Laboral (sin cobertura IPS)
+      const countConIps = workers.filter(t => t.cobertura_ips === "Con seguro IPS").length;
+      const pctConIps = (countConIps / total) * 100;
+      document.getElementById("kpiInformalidadPct").textContent = (100 - pctConIps).toFixed(1) + "%";
+      document.getElementById("kpiCoberturaIps").textContent = `${pctConIps.toFixed(1)}% asegurados`;
+
+      // Ingreso Medio
+      const sumIngreso = workers.reduce((acc, t) => acc + Number(t.ingreso_mensual_pyg || 0), 0);
+      const avgIngreso = sumIngreso / total;
+      const brecha = avgIngreso - SALARIO_MINIMO_LEGAL;
+      
+      document.getElementById("kpiIngresoMedio").textContent = formatPYG(avgIngreso);
+      document.getElementById("kpiBrechaSml").textContent = (brecha < 0 ? "-" : "+") + formatPYG(Math.abs(brecha));
+      document.getElementById("kpiBrechaSml").style.color = brecha < 0 ? "var(--accent-danger)" : "var(--accent-success)";
+
+      // Bajo Salario Mínimo
+      const countBajoMin = workers.filter(t => Number(t.ingreso_mensual_pyg) < SALARIO_MINIMO_LEGAL).length;
+      const pctBajoMin = (countBajoMin / total) * 100;
+      document.getElementById("kpiPctBajoMinimo").textContent = pctBajoMin.toFixed(1) + "%";
+      document.getElementById("kpiCountBajoMinimo").textContent = `${countBajoMin} de ${total}`;
+
+      // Índice de Vulnerabilidad
+      const sumVuln = workers.reduce((acc, t) => acc + Number(t.indice_vulnerabilidad_social || 0), 0);
+      const avgVuln = sumVuln / total;
+      document.getElementById("kpiIndiceVuln").textContent = avgVuln.toFixed(1) + " / 100";
+
+      let clasifText = "Vulnerabilidad Baja";
+      if (avgVuln >= 70) clasifText = "Vulnerabilidad Crítica";
+      else if (avgVuln >= 50) clasifText = "Vulnerabilidad Alta";
+      else if (avgVuln >= 30) clasifText = "Vulnerabilidad Media";
+      document.getElementById("kpiClasifVuln").textContent = clasifText;
+
+      // Renderizar Gráficos de Pestaña 1
+      renderChartBrechaSalarialBarrio();
+      renderChartVulnerabilidadCat();
+      renderChartInclusionDigital();
+      renderChartMotivosNoIps();
+    }
+
+    // Gráfico 1: Brecha Salarial por Barrio
+    function renderChartBrechaSalarialBarrio() {
+      const ctx = document.getElementById("chartBrechaSalarialBarrio");
+      if (!ctx) return;
+
+      const workers = AppState.filteredWorkers;
+      const barriosList = Object.keys(BARRIOS_BOUNDS);
+      
+      const avgIngresos = barriosList.map(b => {
+        const subset = workers.filter(t => t.barrio === b);
+        if (subset.length === 0) return 0;
+        return Math.round(subset.reduce((a, c) => a + Number(c.ingreso_mensual_pyg), 0) / subset.length);
+      });
+
+      if (AppState.charts.brechaBarrio) AppState.charts.brechaBarrio.destroy();
+
+      AppState.charts.brechaBarrio = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: barriosList,
+          datasets: [
+            {
+              label: 'Ingreso Promedio (Gs.)',
+              data: avgIngresos,
+              backgroundColor: avgIngresos.map(v => v < SALARIO_MINIMO_LEGAL ? 'rgba(239, 68, 68, 0.75)' : 'rgba(16, 185, 129, 0.75)'),
+              borderColor: avgIngresos.map(v => v < SALARIO_MINIMO_LEGAL ? '#ef4444' : '#10b981'),
+              borderWidth: 1,
+              borderRadius: 6
+            },
+            {
+              type: 'line',
+              label: 'Salario Mínimo Legal (Gs. 3.044.000)',
+              data: Array(barriosList.length).fill(SALARIO_MINIMO_LEGAL),
+              borderColor: '#10b981',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { color: getTextColor(), font: { size: 11 } } },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.dataset.label}: ${formatPYG(ctx.raw)}`
+              }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: getGridColor() },
+              ticks: { color: getTextColor(), callback: (v) => (v / 1e6).toFixed(1) + "M" }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: getTextColor() }
+            }
+          }
+        }
+      });
+    }
+
+    // Gráfico 2: Categorías de Vulnerabilidad Social
+    function renderChartVulnerabilidadCat() {
+      const ctx = document.getElementById("chartVulnerabilidadCat");
+      if (!ctx) return;
+
+      const workers = AppState.filteredWorkers;
+      const cats = { "Vulnerabilidad Baja": 0, "Vulnerabilidad Media": 0, "Vulnerabilidad Alta": 0, "Vulnerabilidad Crítica": 0 };
+      
+      workers.forEach(t => {
+        const c = t.clasificacion_vulnerabilidad || "Vulnerabilidad Media";
+        cats[c] = (cats[c] || 0) + 1;
+      });
+
+      if (AppState.charts.vulnCat) AppState.charts.vulnCat.destroy();
+
+      AppState.charts.vulnCat = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(cats),
+          datasets: [{
+            data: Object.values(cats),
+            backgroundColor: ['#10b981', '#f59e0b', '#ea580c', '#dc2626'],
+            borderColor: AppState.theme === 'dark' ? '#111827' : '#ffffff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: getTextColor(), boxWidth: 12 } }
+          },
+          cutout: '65%'
+        }
+      });
+    }
+
+    // Gráfico 3: Inclusión Digital y Medios de Pago
+    function renderChartInclusionDigital() {
+      const ctx = document.getElementById("chartInclusionDigital");
+      if (!ctx) return;
+
+      const workers = AppState.filteredWorkers;
+      const total = workers.length || 1;
+
+      const conSmartphone = workers.filter(t => t.posee_smartphone === 'si').length;
+      const conPagosDig = workers.filter(t => t.acepta_pagos_digitales === 'si').length;
+      const conoceResimple = workers.filter(t => t.conoce_resimple === 'si').length;
+      const interesForm = workers.filter(t => ['Muy interesado', 'Interesado', 'Interes medio'].includes(t.interes_formalizacion)).length;
+
+      if (AppState.charts.inclusionDig) AppState.charts.inclusionDig.destroy();
+
+      AppState.charts.inclusionDig = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Smartphone', 'Pagos Digitales', 'Conoce RESIMPLE', 'Interés Formalización'],
+          datasets: [{
+            label: '% de Trabajadores',
+            data: [
+              Math.round((conSmartphone / total) * 100),
+              Math.round((conPagosDig / total) * 100),
+              Math.round((conoceResimple / total) * 100),
+              Math.round((interesForm / total) * 100)
+            ],
+            backgroundColor: ['#6366f1', '#06b6d4', '#10b981', '#8b5cf6'],
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (c) => `${c.raw}% de la muestra` } }
+          },
+          scales: {
+            y: {
+              max: 100,
+              grid: { color: getGridColor() },
+              ticks: { color: getTextColor(), callback: (v) => v + "%" }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: getTextColor() }
+            }
+          }
+        }
+      });
+    }
+
+    // Gráfico 4: Motivos No Aporte a IPS
+    function renderChartMotivosNoIps() {
+      const ctx = document.getElementById("chartMotivosNoIps");
+      if (!ctx) return;
+
+      const workers = AppState.filteredWorkers;
+      const counts = {};
+      workers.forEach(t => {
+        const m = t.motivo_no_ips || "Sin especificar";
+        counts[m] = (counts[m] || 0) + 1;
+      });
+
+      const sortedMotivos = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+      if (AppState.charts.motivosIps) AppState.charts.motivosIps.destroy();
+
+      AppState.charts.motivosIps = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sortedMotivos.map(m => m[0].length > 25 ? m[0].substring(0, 25) + "..." : m[0]),
+          datasets: [{
+            label: 'Trabajadores',
+            data: sortedMotivos.map(m => m[1]),
+            backgroundColor: 'rgba(239, 68, 68, 0.7)',
+            borderColor: '#ef4444',
+            borderWidth: 1,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: getGridColor() }, ticks: { color: getTextColor() } },
+            y: { grid: { display: false }, ticks: { color: getTextColor(), font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    /* ==========================================================================
+       PESTAÑA 2: GESTIÓN PRODUCTIVA Y MYPES
+       ========================================================================== */
+    function updateTab2_MYPEs() {
+      const units = AppState.filteredUnits;
+      const total = units.length;
+
+      document.getElementById("kpiTotalMypes").textContent = total;
+
+      if (total === 0) {
+        document.getElementById("kpiTasaInformalidadMypes").textContent = "0%";
+        document.getElementById("kpiSinIpsMypes").textContent = "0 trab.";
+        document.getElementById("kpiFacturacionMedia").textContent = "Gs. 0";
+        document.getElementById("kpiPctSinRuc").textContent = "0%";
+        document.getElementById("kpiResimpleCount").textContent = "0 en RESIMPLE";
+        return;
+      }
+
+      // Tasa Informalidad Media
+      const sumTasa = units.reduce((a, u) => a + Number(u.tasa_informalidad_laboral_pct || 0), 0);
+      const avgTasa = sumTasa / total;
+      const sumSinIps = units.reduce((a, u) => a + Number(u.trabajadores_sin_ips || 0), 0);
+      
+      document.getElementById("kpiTasaInformalidadMypes").textContent = avgTasa.toFixed(1) + "%";
+      document.getElementById("kpiSinIpsMypes").textContent = `${sumSinIps} trabajadores`;
+
+      // Facturación Media
+      const sumFact = units.reduce((a, u) => a + Number(u.ingreso_mensual_estimado_pyg || 0), 0);
+      const avgFact = sumFact / total;
+      document.getElementById("kpiFacturacionMedia").textContent = formatPYG(avgFact);
+
+      // Estado RUC
+      const sinRucCount = units.filter(u => u.estado_tributario_ruc === 'Sin RUC (Totalmente informal)').length;
+      const resimpleCount = units.filter(u => u.estado_tributario_ruc === 'Inscripto en RESIMPLE (DNIT)').length;
+      const pctSinRuc = (sinRucCount / total) * 100;
+      
+      document.getElementById("kpiPctSinRuc").textContent = pctSinRuc.toFixed(1) + "%";
+      document.getElementById("kpiResimpleCount").textContent = `${resimpleCount} en RESIMPLE`;
+
+      // Gráficos MYPEs
+      renderChartInformalidadRubro();
+      renderChartFacturacionRuc();
+      renderChartBarrerasIpsPatronal();
+      renderChartDisposicionFormalizar();
+    }
+
+    function renderChartInformalidadRubro() {
+      const ctx = document.getElementById("chartInformalidadRubro");
+      if (!ctx) return;
+
+      const units = AppState.filteredUnits;
+      const rubroStats = {};
+
+      units.forEach(u => {
+        const r = u.rubro_actividad;
+        if (!rubroStats[r]) rubroStats[r] = { count: 0, sumTasa: 0 };
+        rubroStats[r].count += 1;
+        rubroStats[r].sumTasa += Number(u.tasa_informalidad_laboral_pct);
+      });
+
+      const sorted = Object.entries(rubroStats)
+        .map(([k, v]) => ({ rubro: k, tasa: (v.sumTasa / v.count).toFixed(1) }))
+        .sort((a, b) => b.tasa - a.tasa);
+
+      if (AppState.charts.informalidadRubro) AppState.charts.informalidadRubro.destroy();
+
+      AppState.charts.informalidadRubro = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.rubro.length > 22 ? s.rubro.substring(0, 22) + "..." : s.rubro),
+          datasets: [{
+            label: 'Tasa de Informalidad Media (%)',
+            data: sorted.map(s => s.tasa),
+            backgroundColor: 'rgba(99, 102, 241, 0.8)',
+            borderRadius: 6
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { max: 100, grid: { color: getGridColor() }, ticks: { color: getTextColor(), callback: (v) => v + "%" } },
+            y: { grid: { display: false }, ticks: { color: getTextColor() } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    function renderChartFacturacionRuc() {
+      const ctx = document.getElementById("chartFacturacionRuc");
+      if (!ctx) return;
+
+      const units = AppState.filteredUnits;
+      const rucGroups = {};
+
+      units.forEach(u => {
+        const r = u.estado_tributario_ruc;
+        if (!rucGroups[r]) rucGroups[r] = { count: 0, sumFact: 0 };
+        rucGroups[r].count += 1;
+        rucGroups[r].sumFact += Number(u.ingreso_mensual_estimado_pyg);
+      });
+
+      const labels = Object.keys(rucGroups);
+      const avgs = labels.map(l => Math.round(rucGroups[l].sumFact / rucGroups[l].count));
+
+      if (AppState.charts.facturacionRuc) AppState.charts.facturacionRuc.destroy();
+
+      AppState.charts.facturacionRuc = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels.map(l => l.replace(" (DNIT)", "").replace(" (Totalmente informal)", "")),
+          datasets: [{
+            label: 'Facturación Mensual Media',
+            data: avgs,
+            backgroundColor: ['#ef4444', '#10b981', '#3b82f6'],
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              grid: { color: getGridColor() },
+              ticks: { color: getTextColor(), callback: (v) => (v / 1e6).toFixed(1) + "M Gs" }
+            },
+            x: { grid: { display: false }, ticks: { color: getTextColor() } }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (c) => formatPYG(c.raw) } }
+          }
+        }
+      });
+    }
+
+    function renderChartBarrerasIpsPatronal() {
+      const ctx = document.getElementById("chartBarrerasIpsPatronal");
+      if (!ctx) return;
+
+      const units = AppState.filteredUnits;
+      const counts = {};
+      units.forEach(u => {
+        const b = u.motivo_no_aporte_ips || "Sin especificar";
+        counts[b] = (counts[b] || 0) + 1;
+      });
+
+      if (AppState.charts.barrerasPatronal) AppState.charts.barrerasPatronal.destroy();
+
+      AppState.charts.barrerasPatronal = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(counts),
+          datasets: [{
+            data: Object.values(counts),
+            backgroundColor: ['#ef4444', '#f59e0b', '#06b6d4', '#8b5cf6', '#10b981'],
+            borderColor: AppState.theme === 'dark' ? '#111827' : '#ffffff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: getTextColor(), boxWidth: 10, font: { size: 10 } } }
+          },
+          cutout: '60%'
+        }
+      });
+    }
+
+    function renderChartDisposicionFormalizar() {
+      const ctx = document.getElementById("chartDisposicionFormalizar");
+      if (!ctx) return;
+
+      const units = AppState.filteredUnits;
+      const counts = {};
+      units.forEach(u => {
+        const d = u.disposicion_formalizar || "Sin dato";
+        counts[d] = (counts[d] || 0) + 1;
+      });
+
+      if (AppState.charts.disposicionForm) AppState.charts.disposicionForm.destroy();
+
+      AppState.charts.disposicionForm = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(counts),
+          datasets: [{
+            data: Object.values(counts),
+            backgroundColor: ['#10b981', '#f59e0b', '#ef4444', '#6366f1'],
+            borderColor: AppState.theme === 'dark' ? '#111827' : '#ffffff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: getTextColor(), boxWidth: 10, font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    /* ==========================================================================
+       PESTAÑA 3: MARKETING SOCIAL "TRABAJO FORMAL, FUTURO SEGURO"
+       ========================================================================== */
+    function updateTab3_Marketing() {
+      const canales = AppState.filteredMarketing;
+      
+      const totalAlcance = canales.reduce((a, c) => a + Number(c.total_alcance || 0), 0);
+      const totalInterac = canales.reduce((a, c) => a + Number(c.total_interacciones || 0), 0);
+      const totalConsultas = canales.reduce((a, c) => a + Number(c.total_consultas || 0), 0);
+      const totalDeriv = canales.reduce((a, c) => a + Number(c.total_derivaciones || 0), 0);
+      const totalPresupuesto = canales.reduce((a, c) => a + Number(c.presupuesto_total_pyg || 0), 0);
+
+      const ctrPromedio = totalAlcance > 0 ? ((totalInterac / totalAlcance) * 100).toFixed(2) : 0;
+      const cacPromedio = totalDeriv > 0 ? Math.round(totalPresupuesto / totalDeriv) : 0;
+
+      document.getElementById("kpiMarketingAlcance").textContent = formatNumber(totalAlcance);
+      document.getElementById("kpiMarketingCtr").textContent = `${formatNumber(totalInterac)} (CTR ${ctrPromedio}%)`;
+      document.getElementById("kpiMarketingConsultas").textContent = formatNumber(totalConsultas);
+      document.getElementById("kpiMarketingDerivaciones").textContent = formatNumber(totalDeriv);
+      document.getElementById("kpiMarketingCac").textContent = formatPYG(cacPromedio);
+      document.getElementById("kpiPresupuestoTotal").textContent = formatPYG(totalPresupuesto);
+
+      // Gráficos Marketing
+      renderChartEmbudoMarketing();
+      renderChartEvolucionMarketing();
+      renderChartCacCanales();
+      renderChartArticulacionProgramas();
+    }
+
+    function renderChartEmbudoMarketing() {
+      const ctx = document.getElementById("chartEmbudoMarketing");
+      if (!ctx) return;
+
+      const canales = AppState.filteredMarketing;
+
+      const totalAlcance = canales.reduce((a, c) => a + Number(c.total_alcance || 0), 0);
+      const totalInterac = canales.reduce((a, c) => a + Number(c.total_interacciones || 0), 0);
+      const totalConsultas = canales.reduce((a, c) => a + Number(c.total_consultas || 0), 0);
+      const totalDeriv = canales.reduce((a, c) => a + Number(c.total_derivaciones || 0), 0);
+
+      if (AppState.charts.embudoMkt) AppState.charts.embudoMkt.destroy();
+
+      AppState.charts.embudoMkt = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['1. Alcance / Personas', '2. Interacciones / Clics', '3. Consultas Iniciadas', '4. Derivaciones a SUACE/IPS'],
+          datasets: [{
+            label: 'Volumen',
+            data: [totalAlcance, totalInterac, totalConsultas, totalDeriv],
+            backgroundColor: ['#3b82f6', '#06b6d4', '#10b981', '#f59e0b'],
+            borderRadius: 6
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              type: 'logarithmic',
+              grid: { color: getGridColor() },
+              ticks: { color: getTextColor(), callback: (v) => formatNumber(v) }
+            },
+            y: { grid: { display: false }, ticks: { color: getTextColor() } }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (c) => formatNumber(c.raw) + " registros" } }
+          }
+        }
+      });
+    }
+
+    function renderChartEvolucionMarketing() {
+      const ctx = document.getElementById("chartEvolucionMarketing");
+      if (!ctx || !AppState.rawData || !AppState.rawData.marketing_diario) return;
+
+      const series = AppState.rawData.marketing_diario;
+      const { canal } = AppState.filters;
+
+      const filteredSeries = canal === 'all' ? series : series.filter(s => s.codigo_canal === canal);
+
+      // Agrupar por fecha
+      const datesMap = {};
+      filteredSeries.forEach(s => {
+        if (!datesMap[s.fecha]) {
+          datesMap[s.fecha] = { consultas: 0, derivaciones: 0 };
+        }
+        datesMap[s.fecha].consultas += Number(s.consultas_iniciadas || 0);
+        datesMap[s.fecha].derivaciones += Number(s.derivaciones_totales_formalizacion || 0);
+      });
+
+      const dates = Object.keys(datesMap).sort();
+      const dataConsultas = dates.map(d => datesMap[d].consultas);
+      const dataDerivaciones = dates.map(d => datesMap[d].derivaciones);
+
+      if (AppState.charts.evolucionMkt) AppState.charts.evolucionMkt.destroy();
+
+      AppState.charts.evolucionMkt = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates.map(d => d.slice(5)), // MM-DD
+          datasets: [
+            {
+              label: 'Consultas Ciudadanas',
+              data: dataConsultas,
+              borderColor: '#06b6d4',
+              backgroundColor: 'rgba(6, 182, 212, 0.15)',
+              tension: 0.3,
+              fill: true,
+              pointRadius: 2
+            },
+            {
+              label: 'Derivaciones SUACE / IPS',
+              data: dataDerivaciones,
+              borderColor: '#10b981',
+              backgroundColor: 'rgba(16, 185, 129, 0.15)',
+              tension: 0.3,
+              fill: true,
+              pointRadius: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { color: getTextColor(), font: { size: 10 } } }
+          },
+          scales: {
+            y: { grid: { color: getGridColor() }, ticks: { color: getTextColor() } },
+            x: { grid: { display: false }, ticks: { color: getTextColor(), maxTicksLimit: 14 } }
+          }
+        }
+      });
+    }
+
+    function renderChartCacCanales() {
+      const ctx = document.getElementById("chartCacCanales");
+      if (!ctx) return;
+
+      const canales = AppState.filteredMarketing;
+
+      if (AppState.charts.cacCanales) AppState.charts.cacCanales.destroy();
+
+      AppState.charts.cacCanales = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: canales.map(c => c.canal_nombre.split(" ")[0]),
+          datasets: [
+            {
+              label: 'Costo por Consulta (PYG)',
+              data: canales.map(c => Number(c.costo_promedio_por_consulta_pyg)),
+              backgroundColor: 'rgba(6, 182, 212, 0.75)',
+              borderRadius: 6
+            },
+            {
+              label: 'CAC: Costo por Derivación (PYG)',
+              data: canales.map(c => Number(c.costo_por_derivacion_efectiva_pyg)),
+              backgroundColor: 'rgba(245, 158, 11, 0.75)',
+              borderRadius: 6
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { grid: { color: getGridColor() }, ticks: { color: getTextColor(), callback: (v) => formatPYG(v) } },
+            x: { grid: { display: false }, ticks: { color: getTextColor() } }
+          },
+          plugins: {
+            legend: { position: 'top', labels: { color: getTextColor() } },
+            tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${formatPYG(c.raw)}` } }
+          }
+        }
+      });
+    }
+
+    function renderChartArticulacionProgramas() {
+      const ctx = document.getElementById("chartArticulacionProgramas");
+      if (!ctx || !AppState.rawData || !AppState.rawData.programas) return;
+
+      const programas = AppState.rawData.programas;
+
+      if (AppState.charts.articulacion) AppState.charts.articulacion.destroy();
+
+      AppState.charts.articulacion = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: programas.map(p => p.id_programa),
+          datasets: [
+            {
+              label: 'Derivaciones Registradas',
+              data: programas.map(p => Number(p.total_derivaciones_registradas || 0)),
+              backgroundColor: '#3b82f6',
+              borderRadius: 6,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Unidades Productivas Vinculadas',
+              data: programas.map(p => Number(p.unidades_vinculadas_actualmente || 0)),
+              backgroundColor: '#10b981',
+              borderRadius: 6,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { position: 'left', title: { display: true, text: 'Derivaciones', color: getTextColor() }, grid: { color: getGridColor() }, ticks: { color: getTextColor() } },
+            y1: { position: 'right', title: { display: true, text: 'MYPEs vinculadas', color: getTextColor() }, grid: { display: false }, ticks: { color: getTextColor() } },
+            x: { grid: { display: false }, ticks: { color: getTextColor() } }
+          },
+          plugins: {
+            legend: { position: 'top', labels: { color: getTextColor() } }
+          }
+        }
+      });
+    }
+
+    /* ==========================================================================
+       MAPA GEOESPACIAL CON LEAFLET
+       ========================================================================== */
+    function initMap() {
+      const mapContainer = document.getElementById("villarricaMap");
+      if (!mapContainer || AppState.map) return;
+
+      // Centrado en Villarrica del Espíritu Santo
+      AppState.map = L.map('villarricaMap', {
+        center: [-25.7530, -56.4480],
+        zoom: 14,
+        zoomControl: true
+      });
+
+      // Esri Canvas Tiles (sin API key; funcionan también al abrir el archivo localmente)
+      const tileUrl = AppState.theme === 'dark'
+        ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+        : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+
+      L.tileLayer(tileUrl, {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap',
+        maxZoom: 16
+      }).addTo(AppState.map);
+
+      AppState.markersLayer = L.layerGroup().addTo(AppState.map);
+      AppState.polygonsLayer = L.layerGroup().addTo(AppState.map);
+
+      // Dibujar círculos perimetrales de los 7 barrios
+      Object.entries(BARRIOS_BOUNDS).forEach(([barrioName, b]) => {
+        const circle = L.circle([b.lat, b.lon], {
+          color: b.color,
+          fillColor: b.color,
+          fillOpacity: 0.12,
+          radius: 450,
+          weight: 1.5,
+          dashArray: '4, 4'
+        }).addTo(AppState.polygonsLayer);
+
+        circle.bindTooltip(`<strong>Barrio ${barrioName}</strong>`, { permanent: false, direction: 'top' });
+      });
+    }
+
+    function updateMapMarkers() {
+      if (!AppState.map || !AppState.markersLayer) return;
+
+      AppState.markersLayer.clearLayers();
+      const workers = AppState.filteredWorkers;
+      document.getElementById("mapPointCounter").textContent = `${workers.length} puntos cargados`;
+
+      workers.forEach(t => {
+        if (!t.latitud || !t.longitud) return;
+
+        let markerColor = '#10b981'; // Baja
+        const v = Number(t.indice_vulnerabilidad_social || 50);
+        if (v >= 75) markerColor = '#dc2626'; // Crítica
+        else if (v >= 55) markerColor = '#ea580c'; // Alta
+        else if (v >= 35) markerColor = '#f59e0b'; // Media
+
+        const marker = L.circleMarker([Number(t.latitud), Number(t.longitud)], {
+          radius: 5,
+          fillColor: markerColor,
+          color: '#ffffff',
+          weight: 0.8,
+          opacity: 0.9,
+          fillOpacity: 0.85
+        });
+
+        const popupContent = `
+          <div style="font-size:0.82rem; min-width:180px;">
+            <div style="font-weight:700; color:#818cf8; margin-bottom:4px;">${t.id_trabajador} • ${t.barrio}</div>
+            <div><strong>Oficio:</strong> ${t.oficio_rubro}</div>
+            <div><strong>Ingreso:</strong> ${formatPYG(t.ingreso_mensual_pyg)}</div>
+            <div><strong>Brecha vs Mínimo:</strong> <span style="color:${t.ingreso_mensual_pyg < SALARIO_MINIMO_LEGAL ? '#ef4444' : '#10b981'}">${formatPYG(t.brecha_salario_pyg)}</span></div>
+            <div><strong>Vulnerabilidad:</strong> ${t.indice_vulnerabilidad_social} (${t.clasificacion_vulnerabilidad})</div>
+            <div><strong>Smartphone:</strong> ${t.posee_smartphone} | <strong>Pagos Dig:</strong> ${t.acepta_pagos_digitales}</div>
+          </div>
+        `;
+        marker.bindPopup(popupContent);
+        AppState.markersLayer.addLayer(marker);
+      });
+    }
+
+    /* ==========================================================================
+       PESTAÑA 4: EXPLORADOR DE MICRODATOS Y VISTAS SQL
+       ========================================================================== */
+    function renderExplorerTable() {
+      const select = document.getElementById("explorerDatasetSelect");
+      const search = document.getElementById("explorerSearchInput").value.toLowerCase();
+      const thead = document.getElementById("explorerTableHead");
+      const tbody = document.getElementById("explorerTableBody");
+      const rowCount = document.getElementById("explorerRowCount");
+
+      if (!AppState.rawData) return;
+
+      let dataset = [];
+      let datasetName = select.value;
+
+      if (datasetName === "trabajadores") dataset = AppState.filteredWorkers;
+      else if (datasetName === "unidades") dataset = AppState.filteredUnits;
+      else if (datasetName === "marketing") dataset = AppState.filteredMarketing;
+      else if (datasetName === "programas") dataset = AppState.rawData.programas || [];
+
+      // Filtrado por texto libre
+      if (search) {
+        dataset = dataset.filter(row => {
+          return Object.values(row).some(val => String(val).toLowerCase().includes(search));
+        });
+      }
+
+      rowCount.textContent = `Mostrando ${dataset.length} registros`;
+
+      if (dataset.length === 0) {
+        thead.innerHTML = "<th>Sin datos</th>";
+        tbody.innerHTML = "<tr><td style='text-align:center; padding:1.5rem; color:var(--text-muted);'>No se encontraron registros con los filtros actuales.</td></tr>";
+        return;
+      }
+
+      // Columnas principales a mostrar
+      const sample = dataset[0];
+      const keys = Object.keys(sample).slice(0, 10); // Limitar a las 10 columnas más relevantes
+
+      thead.innerHTML = keys.map(k => `<th>${k.replace(/_/g, ' ').toUpperCase()}</th>`).join("");
+      
+      const rowsHtml = dataset.slice(0, 100).map(row => {
+        return `<tr>${keys.map(k => {
+          let val = row[k];
+          if (typeof val === 'number' && String(k).includes('pyg')) val = formatPYG(val);
+          return `<td>${val ?? '-'}</td>`;
+        }).join("")}</tr>`;
+      }).join("");
+
+      tbody.innerHTML = rowsHtml;
+    }
+
+    /* ==========================================================================
+       UTILITARIOS DE ESTILO Y TEMAS
+       ========================================================================== */
+    function getTextColor() {
+      return AppState.theme === 'dark' ? '#9ca3af' : '#4b5563';
+    }
+
+    function getGridColor() {
+      return AppState.theme === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
+    }
+
+    function updateAllCharts() {
+      if (AppState.charts.brechaBarrio) renderChartBrechaSalarialBarrio();
+      if (AppState.charts.vulnCat) renderChartVulnerabilidadCat();
+      if (AppState.charts.inclusionDig) renderChartInclusionDigital();
+      if (AppState.charts.motivosIps) renderChartMotivosNoIps();
+      if (AppState.charts.informalidadRubro) renderChartInformalidadRubro();
+      if (AppState.charts.facturacionRuc) renderChartFacturacionRuc();
+      if (AppState.charts.barrerasPatronal) renderChartBarrerasIpsPatronal();
+      if (AppState.charts.disposicionForm) renderChartDisposicionFormalizar();
+      if (AppState.charts.embudoMkt) renderChartEmbudoMarketing();
+      if (AppState.charts.evolucionMkt) renderChartEvolucionMarketing();
+      if (AppState.charts.cacCanales) renderChartCacCanales();
+      if (AppState.charts.articulacion) renderChartArticulacionProgramas();
+    }
+  </script>
+</body>
+</html>
