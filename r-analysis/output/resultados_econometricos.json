@@ -1,0 +1,188 @@
+{
+  "metadatos": {
+    "institucion": "UNVES - Facultad de Ciencias Económicas",
+    "proyecto": "Transformación Digital y Diagnóstico Social en la Gestión Organizacional",
+    "fecha_ejecucion": "2026-10-16 17:10:15",
+    "muestra_trabajadores": 420,
+    "muestra_unidades": 135,
+    "salario_minimo_legal": 3044000
+  },
+  "descriptivos_trabajadores": {
+    "ingreso": {
+      "n": 420,
+      "media": 2345059.5238,
+      "desv_est": 725693.6826,
+      "mediana": 2332500,
+      "iqr": 1061250,
+      "min": 1200000,
+      "max": 4160000
+    },
+    "escolaridad": {
+      "n": 420,
+      "media": 8.9571,
+      "desv_est": 3.4906,
+      "mediana": 9,
+      "iqr": 6,
+      "min": 4,
+      "max": 15
+    },
+    "edad": {
+      "n": 420,
+      "media": 42.581,
+      "desv_est": 14.3836,
+      "mediana": 43,
+      "iqr": 25,
+      "min": 18,
+      "max": 67
+    },
+    "vulnerabilidad": {
+      "n": 420,
+      "media": 51.7762,
+      "desv_est": 14.881,
+      "mediana": 52.5,
+      "iqr": 20,
+      "min": 10,
+      "max": 96
+    },
+    "proporciones": {
+      "pct_bajo_minimo": 85.2381,
+      "pct_sin_ips": 95.2381,
+      "pct_posee_smartphone": 86.1905,
+      "pct_conoce_resimple": 32.1429,
+      "pct_interes_formalizar": 68.5714
+    }
+  },
+  "correlacion_escolaridad_ingreso": {
+    "pearson": {
+      "r": 0.0163,
+      "t_statistic": 0.3337,
+      "df": 418,
+      "p_value": 0.7388,
+      "ci_95": [-0.0795, 0.1118]
+    },
+    "spearman": {
+      "rho": 0.0091,
+      "statistic": 12235080.35,
+      "p_value": 0.8519
+    },
+    "mincer_model": {
+      "r_squared": 0.0022,
+      "adj_r_squared": -0.0074,
+      "f_statistic": 0.2272,
+      "p_value": 0.9231
+    }
+  },
+  "vulnerabilidad_por_barrio": {
+    "shapiro_wilk": {
+      "w": 0.9942,
+      "p_value": 0.1084
+    },
+    "bartlett": {
+      "statistic": 8.0323,
+      "p_value": 0.2357
+    },
+    "anova": {
+      "f_stat": 1.4494,
+      "p_value": 0.1944
+    },
+    "kruskal_wallis": {
+      "chi_squared": 8.6318,
+      "df": 6,
+      "p_value": 0.1954
+    },
+    "descriptivos_barrio": [
+      {
+        "barrio": "Centro",
+        "n": 90,
+        "media_vuln": 54.9556,
+        "sd_vuln": 13.685,
+        "mediana_vuln": 57,
+        "iqr_vuln": 18,
+        "media_ingreso": 2232833.3333,
+        "sd_ingreso": 665982.4415,
+        "pct_bajo_minimo": 91.1111
+      },
+      {
+        "barrio": "San Miguel",
+        "n": 63,
+        "media_vuln": 52.6825,
+        "sd_vuln": 13.5799,
+        "mediana_vuln": 52,
+        "iqr_vuln": 15.5,
+        "media_ingreso": 2359365.0794,
+        "sd_ingreso": 731789.9465,
+        "pct_bajo_minimo": 87.3016
+      },
+      {
+        "barrio": "Estación",
+        "n": 51,
+        "media_vuln": 52.6471,
+        "sd_vuln": 16.0447,
+        "mediana_vuln": 52,
+        "iqr_vuln": 20.5,
+        "media_ingreso": 2256078.4314,
+        "sd_ingreso": 751996.2192,
+        "pct_bajo_minimo": 82.3529
+      },
+      {
+        "barrio": "Ybaroty",
+        "n": 68,
+        "media_vuln": 51.3971,
+        "sd_vuln": 17.3404,
+        "mediana_vuln": 53,
+        "iqr_vuln": 26.75,
+        "media_ingreso": 2448823.5294,
+        "sd_ingreso": 799412.1523,
+        "pct_bajo_minimo": 76.4706
+      },
+      {
+        "barrio": "Lomas Valentinas",
+        "n": 32,
+        "media_vuln": 50,
+        "sd_vuln": 12.5493,
+        "mediana_vuln": 47.5,
+        "iqr_vuln": 17.5,
+        "media_ingreso": 2316562.5,
+        "sd_ingreso": 645907.0111,
+        "pct_bajo_minimo": 87.5
+      },
+      {
+        "barrio": "Tuyutimí",
+        "n": 39,
+        "media_vuln": 49.2308,
+        "sd_vuln": 15.4383,
+        "mediana_vuln": 48,
+        "iqr_vuln": 23.5,
+        "media_ingreso": 2520000,
+        "sd_ingreso": 766179.8607,
+        "pct_bajo_minimo": 82.0513
+      },
+      {
+        "barrio": "Santa Librada",
+        "n": 77,
+        "media_vuln": 49.1039,
+        "sd_vuln": 14.4246,
+        "mediana_vuln": 52,
+        "iqr_vuln": 22,
+        "media_ingreso": 2355064.9351,
+        "sd_ingreso": 708410.6997,
+        "pct_bajo_minimo": 87.013
+      }
+    ]
+  },
+  "brecha_genero": {
+    "media_femenino": 2373106.7961,
+    "media_masculino": 2335946.3722,
+    "diferencial_pyg": -37160.4239,
+    "brecha_porcentaje": -1.5908,
+    "t_test": {
+      "t": 0.4486,
+      "df": 171.5999,
+      "p_value": 0.6543
+    },
+    "wilcox_test": {
+      "w": 16906.5,
+      "p_value": 0.5875
+    }
+  }
+}

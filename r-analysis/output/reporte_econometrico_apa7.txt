@@ -1,0 +1,136 @@
+==============================================================================
+INFORME DE ANÁLISIS ECONOMÉTRICO Y ESTADÍSTICO - FORMALIZACIÓN LABORAL EN VILLARRICA
+UNIVERSIDAD NACIONAL DE VILLARRICA DEL ESPÍRITU SANTO (UNVES)
+FACULTAD DE CIENCIAS ECONÓMICAS - LICENCIATURA EN ADMINISTRACIÓN DE EMPRESAS
+Cátedras: Sistema de Información Gerencial | Realidad Social | Marketing Social
+Normas: American Psychological Association (APA), 7.ª edición
+==============================================================================
+
+1. RESUMEN METODOLÓGICO Y PARAMÉTRICO
+------------------------------------------------------------------------------
+Muestra de trabajadores informales: N = 420 individuos georreferenciados.
+Muestra de unidades productivas:     N = 135 microempresas/talleres.
+Salario mínimo legal de referencia: Gs. 3.044.000 (2026).
+Período de recolección en terreno:   Setiembre - Octubre 2026 (Villarrica, Guairá).
+
+2. TABLA 1: ESTADÍSTICAS DESCRIPTIVAS DE VARIABLES SOCIOECONÓMICAS (APA 7)
+------------------------------------------------------------------------------
+                     Variable   N         Media     Desv_Est   Mediana
+        Ingreso Mensual (PYG) 420  2.345060e+06 7.256937e+05 2332500.0
+          Años de Escolaridad 420  8.957143e+00 3.490604e+00       9.0
+                  Edad (Años) 420  4.258095e+01 1.438362e+01      43.0
+              Horas Semanales 420  4.571667e+01 1.282294e+01      45.0
+ Índice Vulnerabilidad Social 420  5.177619e+01 1.488099e+01      52.5
+        Brecha Salarial (PYG) 420 -6.989405e+05 7.256937e+05 -711500.0
+        IQR      Min     Max
+ 1061250.00  1200000 4160000
+       6.00        4      15
+      25.00       18      67
+      23.25       24      67
+      20.00       10      96
+ 1061250.00 -1844000 1116000
+
+Nota. Elaboración propia con base en el relevamiento de campo KoboToolbox/ODK (UNVES 2026).
+El 85.24% de los trabajadores percibe ingresos estrictamente inferiores al salario mínimo legal.
+
+3. ANÁLISIS DE CORRELACIÓN Y RETORNOS DE LA ESCOLARIDAD
+------------------------------------------------------------------------------
+Coeficiente de correlación de Pearson:  r = 0.0163 (t = 0.334, gl = 418, p = 0.7388, IC 95%: [-0.0795, 0.1118])
+Coeficiente de correlación de Spearman: rho = 0.0091 (S = 12235080.4, p = 0.8519)
+
+Interpretación APA 7:
+La relación lineal y monótona entre los años de escolaridad formal y el ingreso mensual en el sector informal
+de Villarrica resulta estadísticamente no significativa (p > .05). Esto evidencia que en la economía sumergida
+local existe una 'trampa de informalidad' donde los años de estudio formal no se traducen automáticamente en
+mayores ingresos sin acceso a capital de trabajo, certificación de oficios o inserción en cadenas de valor formales.
+
+4. TABLA 2: MODELO DE REGRESIÓN DE MINCER (LOG-INGRESOS)
+------------------------------------------------------------------------------
+
+Call:
+lm(formula = log(ingreso_mensual_pyg) ~ anios_estudio + antiguedad_oficio_anios + 
+    edad + factor(genero), data = df_trab)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.6391 -0.2655  0.0445  0.2204  0.6324 
+
+Coefficients:
+                          Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             14.6583813  0.0686960 213.381   <2e-16 ***
+anios_estudio            0.0007787  0.0044063   0.177    0.860    
+antiguedad_oficio_anios -0.0007132  0.0021435  -0.333    0.740    
+edad                    -0.0005723  0.0012988  -0.441    0.660    
+factor(genero)masculino -0.0178138  0.0357807  -0.498    0.619    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3143 on 415 degrees of freedom
+Multiple R-squared:  0.002186,	Adjusted R-squared:  -0.007432 
+F-statistic: 0.2272 on 4 and 415 DF,  p-value: 0.9231
+
+
+Nota. Variable dependiente: log(ingreso_mensual_pyg). Errores estándar entre paréntesis.
+
+5. TABLA 3: ANÁLISIS DE VULNERABILIDAD SOCIAL POR BARRIO
+------------------------------------------------------------------------------
+           barrio  n media_vuln  sd_vuln mediana_vuln iqr_vuln media_ingreso
+           Centro 90   54.95556 13.68499         57.0    18.00       2232833
+       San Miguel 63   52.68254 13.57990         52.0    15.50       2359365
+         Estación 51   52.64706 16.04472         52.0    20.50       2256078
+          Ybaroty 68   51.39706 17.34044         53.0    26.75       2448824
+ Lomas Valentinas 32   50.00000 12.54926         47.5    17.50       2316562
+         Tuyutimí 39   49.23077 15.43827         48.0    23.50       2520000
+    Santa Librada 77   49.10390 14.42456         52.0    22.00       2355065
+ sd_ingreso pct_bajo_minimo
+   665982.4        91.11111
+   731789.9        87.30159
+   751996.2        82.35294
+   799412.2        76.47059
+   645907.0        87.50000
+   766179.9        82.05128
+   708410.7        87.01299
+
+Prueba de Normalidad (Shapiro-Wilk): W = 0.9942, p = 0.1084
+Prueba de Homocedasticidad (Bartlett): K2 = 8.032, p = 0.2357
+ANOVA de una vía (Efecto Barrio):      F(6, 413) = 1.449, p = 0.1944
+Prueba Kruskal-Wallis:                 H(6) = 8.632, p = 0.1954
+
+Interpretación APA 7:
+El índice de vulnerabilidad social no presenta diferencias estadísticamente significativas entre barrios (p > .05),
+lo que demuestra que la precariedad laboral informal es un fenómeno estructural homogéneo a lo largo del tejido urbano
+de Villarrica, tanto en zonas céntricas comerciales como en barrios periféricos.
+
+6. TABLA 4: ANÁLISIS DE BRECHA SALARIAL DE GÉNERO
+------------------------------------------------------------------------------
+Ingreso medio Femenino:   Gs. 2.373.107 (sd = Gs. 732.251)
+Ingreso medio Masculino:  Gs. 2.335.946 (sd = Gs. 724.481)
+Diferencial de género:    Gs. -37.160 (Brecha: -1.59% a favor de los hombres)
+Prueba t de Welch:        t = 0.449, gl = 171.6, p = 0.6543
+Prueba U de Mann-Whitney: W = 16906.5, p = 0.5875
+
+7. RESUMEN DE LA CAMPAÑA DE MARKETING SOCIAL 'TRABAJO FORMAL, FUTURO SEGURO'
+------------------------------------------------------------------------------
+        codigo_canal                              canal_nombre
+          AFICHES_QR           Afiches con QR y Medios Locales
+            META_ADS           Meta Ads (Facebook & Instagram)
+ PUNTOS_PRESENCIALES Puntos Presenciales / Ferias Comunitarias
+            WHATSAPP           WhatsApp Business Cátedra UNVES
+         tipo_canal total_alcance total_interacciones ctr_promedio_pct
+      OOH / Impreso         27768                1880             6.77
+       Digital Pago        134988                6702             4.97
+   BTL / Presencial         20890                7082            33.90
+ Digital Mensajería         10243                8205            80.09
+ total_consultas total_derivaciones presupuesto_total_pyg
+             522                137                504000
+            1098                292               3410000
+            2992                718                960000
+            4180               1070                630000
+ costo_promedio_por_consulta_pyg costo_por_derivacion_efectiva_pyg
+                             966                              3679
+                            3106                             11678
+                             321                              1337
+                             151                               589
+
+Nota. Rendimiento acumulado en 42 días continuos de activación multicanal.
+==============================================================================
