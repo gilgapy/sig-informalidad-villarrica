@@ -1,0 +1,16 @@
+# Sistema operativo
+.DS_Store
+
+# Archivos temporales de Microsoft Office
+~$*
+
+# Python
+__pycache__/
+*.pyc
+
+# Node / TypeScript (servidor MCP)
+node_modules/
+*.log
+
+# Documento institucional de la facultad (no se redistribuye)
+PROYECTO INTERDISCIPLINARIO*.pdf
