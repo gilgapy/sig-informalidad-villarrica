@@ -1,0 +1,169 @@
+fecha,canal_id,codigo_canal,canal_nombre,tipo_canal,impresiones_alcance,clics_interacciones,ctr_interaccion_pct,consultas_iniciadas,consultas_tema_resimple,consultas_tema_ips,derivaciones_suace_villarrica,derivaciones_ips_regional,derivaciones_totales_formalizacion,presupuesto_invertido_pyg,costo_por_consulta_pyg
+2026-09-01,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2811,140,4.98,23,14,9,4,2,6,71020,3088.0
+2026-09-02,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3355,167,4.98,27,16,11,4,3,7,84740,3139.0
+2026-09-03,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3532,175,4.95,29,18,11,5,3,8,89219,3077.0
+2026-09-04,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3203,159,4.96,26,16,10,4,3,7,80903,3112.0
+2026-09-05,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3781,188,4.97,31,19,12,5,3,8,95502,3081.0
+2026-09-06,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2584,128,4.95,21,13,8,4,2,6,65288,3109.0
+2026-09-07,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2437,121,4.97,20,12,8,3,2,5,61565,3078.0
+2026-09-08,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3337,166,4.97,27,16,11,4,3,7,84302,3122.0
+2026-09-09,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3690,183,4.96,30,18,12,5,3,8,93224,3107.0
+2026-09-10,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4045,201,4.97,33,20,13,5,4,9,102195,3097.0
+2026-09-11,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2220,110,4.95,18,11,7,3,2,5,56084,3116.0
+2026-09-12,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3828,190,4.96,31,19,12,5,3,8,96711,3120.0
+2026-09-13,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,1963,97,4.94,16,10,6,2,2,4,49582,3099.0
+2026-09-14,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2310,115,4.98,19,12,7,3,2,5,58350,3071.0
+2026-09-15,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3206,159,4.96,26,16,10,4,3,7,80976,3114.0
+2026-09-16,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4338,215,4.96,35,21,14,5,4,9,109582,3131.0
+2026-09-17,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4466,222,4.97,36,22,14,6,4,10,112810,3134.0
+2026-09-18,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2942,146,4.96,24,15,9,4,2,6,74310,3096.0
+2026-09-19,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3004,149,4.96,24,15,9,4,2,6,75877,3162.0
+2026-09-20,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3176,158,4.97,26,16,10,4,3,7,80224,3086.0
+2026-09-21,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2576,128,4.97,21,13,8,4,2,6,65080,3099.0
+2026-09-22,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3768,187,4.96,31,19,12,5,3,8,95193,3071.0
+2026-09-23,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3993,198,4.96,32,19,13,5,4,9,100873,3152.0
+2026-09-24,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2117,105,4.96,17,10,7,3,2,5,53474,3146.0
+2026-09-25,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3705,184,4.97,30,18,12,5,3,8,93585,3120.0
+2026-09-26,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3278,163,4.97,27,16,11,4,3,7,82810,3067.0
+2026-09-27,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3266,162,4.96,27,16,11,4,3,7,82508,3056.0
+2026-09-28,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3378,168,4.97,27,16,11,4,3,7,85342,3161.0
+2026-09-29,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2349,117,4.98,19,12,7,3,2,5,59336,3123.0
+2026-09-30,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3670,182,4.96,30,18,12,5,3,8,92698,3090.0
+2026-10-01,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3812,189,4.96,31,19,12,5,3,8,96303,3107.0
+2026-10-02,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4136,205,4.96,34,21,13,5,4,9,104492,3073.0
+2026-10-03,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2934,146,4.98,24,15,9,4,2,6,74105,3088.0
+2026-10-04,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2118,105,4.96,17,10,7,3,2,5,53509,3148.0
+2026-10-05,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4086,203,4.97,33,20,13,5,4,9,103209,3128.0
+2026-10-06,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3287,163,4.96,27,16,11,4,3,7,83026,3075.0
+2026-10-07,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2948,146,4.95,24,15,9,4,2,6,74483,3103.0
+2026-10-08,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3156,157,4.97,26,16,10,4,3,7,79713,3066.0
+2026-10-09,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3963,197,4.97,32,19,13,5,4,9,100109,3128.0
+2026-10-10,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4137,205,4.96,34,21,13,5,4,9,104495,3073.0
+2026-10-11,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,1968,98,4.98,16,10,6,2,2,4,49712,3107.0
+2026-10-12,1,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2115,105,4.96,17,10,7,3,2,5,53481,3146.0
+2026-09-01,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,198,159,80.3,81,49,32,13,8,21,12181,150.0
+2026-09-02,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,216,173,80.09,88,53,35,14,9,23,13262,151.0
+2026-09-03,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,267,214,80.15,109,66,43,17,11,28,16416,151.0
+2026-09-04,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,300,241,80.33,123,75,48,19,12,31,18467,150.0
+2026-09-05,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,165,132,80.0,67,41,26,10,7,17,10123,151.0
+2026-09-06,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,180,144,80.0,73,44,29,12,7,19,11062,152.0
+2026-09-07,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,332,266,80.12,136,83,53,21,14,35,20426,150.0
+2026-09-08,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,149,119,79.87,61,37,24,10,6,16,9174,150.0
+2026-09-09,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,241,193,80.08,98,59,39,15,10,25,14794,151.0
+2026-09-10,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,318,255,80.19,130,79,51,20,13,33,19579,151.0
+2026-09-11,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,254,203,79.92,104,63,41,16,11,27,15618,150.0
+2026-09-12,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,235,188,80.0,96,58,38,15,10,25,14435,150.0
+2026-09-13,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,329,264,80.24,134,81,53,21,13,34,20246,151.0
+2026-09-14,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,178,142,79.78,72,44,28,12,7,19,10926,152.0
+2026-09-15,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,244,195,79.92,99,60,39,15,10,25,14977,151.0
+2026-09-16,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,196,157,80.1,80,49,31,13,8,21,12081,151.0
+2026-09-17,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,184,147,79.89,75,46,29,12,7,19,11313,151.0
+2026-09-18,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,263,211,80.23,107,65,42,16,11,27,16173,151.0
+2026-09-19,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,331,265,80.06,135,82,53,21,14,35,20384,151.0
+2026-09-20,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,335,269,80.3,137,83,54,21,14,35,20634,151.0
+2026-09-21,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,256,205,80.08,104,63,41,16,11,27,15735,151.0
+2026-09-22,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,240,192,80.0,98,59,39,15,10,25,14737,150.0
+2026-09-23,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,273,219,80.22,111,67,44,18,11,29,16784,151.0
+2026-09-24,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,247,198,80.16,101,61,40,16,10,26,15213,151.0
+2026-09-25,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,156,125,80.13,64,39,25,10,6,16,9623,150.0
+2026-09-26,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,270,216,80.0,110,67,43,17,11,28,16609,151.0
+2026-09-27,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,224,180,80.36,92,56,36,14,9,23,13801,150.0
+2026-09-28,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,233,187,80.26,95,58,37,15,9,24,14341,151.0
+2026-09-29,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,229,183,79.91,93,56,37,15,9,24,14084,151.0
+2026-09-30,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,255,204,80.0,104,63,41,16,11,27,15684,151.0
+2026-10-01,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,188,150,79.79,77,47,30,12,8,20,11544,150.0
+2026-10-02,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,237,190,80.17,97,59,38,15,10,25,14568,150.0
+2026-10-03,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,196,157,80.1,80,49,31,13,8,21,12073,151.0
+2026-10-04,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,238,191,80.25,97,59,38,15,10,25,14654,151.0
+2026-10-05,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,342,274,80.12,139,84,55,22,14,36,21016,151.0
+2026-10-06,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,251,201,80.08,102,62,40,16,10,26,15445,151.0
+2026-10-07,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,267,214,80.15,109,66,43,17,11,28,16401,150.0
+2026-10-08,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,153,123,80.39,63,38,25,10,6,16,9429,150.0
+2026-10-09,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,259,207,79.92,106,64,42,16,11,27,15911,150.0
+2026-10-10,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,231,185,80.09,94,57,37,15,9,24,14223,151.0
+2026-10-11,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,326,261,80.06,133,81,52,21,13,34,20021,151.0
+2026-10-12,2,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,257,206,80.16,106,64,42,15,9,24,15833,149.0
+2026-09-01,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,389,132,33.93,56,34,22,8,5,13,17873,319.0
+2026-09-02,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,425,144,33.88,61,37,24,9,6,15,19517,320.0
+2026-09-03,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,632,214,33.86,90,55,35,13,9,22,29029,323.0
+2026-09-04,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,474,161,33.97,68,41,27,10,6,16,21787,320.0
+2026-09-05,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,542,184,33.95,78,47,31,12,7,19,24924,320.0
+2026-09-06,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,557,189,33.93,80,49,31,12,7,19,25590,320.0
+2026-09-07,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,644,218,33.85,92,56,36,13,9,22,29576,321.0
+2026-09-08,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,604,205,33.94,86,52,34,13,8,21,27747,323.0
+2026-09-09,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,387,131,33.85,55,33,22,8,5,13,17798,324.0
+2026-09-10,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,489,166,33.95,70,42,28,10,7,17,22486,321.0
+2026-09-11,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,613,208,33.93,88,53,35,13,8,21,28181,320.0
+2026-09-12,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,511,173,33.86,73,44,29,11,7,18,23474,322.0
+2026-09-13,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,586,199,33.96,84,51,33,12,8,20,26930,321.0
+2026-09-14,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,433,147,33.95,62,38,24,9,6,15,19916,321.0
+2026-09-15,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,580,197,33.97,83,50,33,12,8,20,26643,321.0
+2026-09-16,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,624,212,33.97,89,54,35,13,8,21,28694,322.0
+2026-09-17,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,643,218,33.9,92,56,36,13,9,22,29551,321.0
+2026-09-18,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,506,171,33.79,72,44,28,10,7,17,23241,323.0
+2026-09-19,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,564,191,33.87,81,49,32,12,7,19,25930,320.0
+2026-09-20,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,394,134,34.01,56,34,22,9,5,14,18113,323.0
+2026-09-21,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,375,127,33.87,54,33,21,8,5,13,17248,319.0
+2026-09-22,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,445,151,33.93,64,39,25,9,6,15,20452,320.0
+2026-09-23,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,401,136,33.92,57,35,22,9,5,14,18438,323.0
+2026-09-24,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,562,190,33.81,80,49,31,12,7,19,25807,323.0
+2026-09-25,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,389,132,33.93,56,34,22,8,5,13,17880,319.0
+2026-09-26,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,372,126,33.87,53,32,21,8,5,13,17101,323.0
+2026-09-27,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,447,152,34.0,64,39,25,9,6,15,20537,321.0
+2026-09-28,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,451,153,33.92,65,39,26,9,6,15,20722,319.0
+2026-09-29,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,581,197,33.91,83,50,33,12,8,20,26702,322.0
+2026-09-30,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,366,124,33.88,52,32,20,8,5,13,16818,323.0
+2026-10-01,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,471,160,33.97,67,41,26,10,6,16,21641,323.0
+2026-10-02,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,632,214,33.86,90,55,35,13,9,22,29036,323.0
+2026-10-03,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,562,191,33.99,81,49,32,12,7,19,25837,319.0
+2026-10-04,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,327,111,33.94,47,29,18,7,4,11,15008,319.0
+2026-10-05,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,526,178,33.84,75,46,29,11,7,18,24156,322.0
+2026-10-06,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,327,111,33.94,47,29,18,7,4,11,15040,320.0
+2026-10-07,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,585,198,33.85,84,51,33,12,8,20,26887,320.0
+2026-10-08,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,383,130,33.94,55,33,22,8,5,13,17610,320.0
+2026-10-09,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,586,199,33.96,84,51,33,12,8,20,26911,320.0
+2026-10-10,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,502,170,33.86,72,44,28,10,7,17,23068,320.0
+2026-10-11,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,358,121,33.8,51,31,20,7,5,12,16450,323.0
+2026-10-12,3,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,645,217,33.64,95,58,37,15,10,25,29651,312.0
+2026-09-01,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,639,43,6.73,12,7,5,2,1,3,11592,966.0
+2026-09-02,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,799,54,6.76,15,9,6,2,2,4,14506,967.0
+2026-09-03,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,883,60,6.8,17,10,7,2,2,4,16029,943.0
+2026-09-04,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,460,31,6.74,9,5,4,1,1,2,8343,927.0
+2026-09-05,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,489,33,6.75,9,5,4,1,1,2,8876,986.0
+2026-09-06,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,587,40,6.81,11,7,4,2,1,3,10652,968.0
+2026-09-07,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,468,32,6.84,9,5,4,1,1,2,8500,944.0
+2026-09-08,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,741,50,6.75,14,8,6,2,2,4,13449,961.0
+2026-09-09,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,643,44,6.84,12,7,5,2,1,3,11664,972.0
+2026-09-10,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,919,62,6.75,17,10,7,3,2,5,16683,981.0
+2026-09-11,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,628,42,6.69,12,7,5,2,1,3,11392,949.0
+2026-09-12,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,479,32,6.68,9,5,4,1,1,2,8702,967.0
+2026-09-13,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,849,58,6.83,16,10,6,2,2,4,15418,964.0
+2026-09-14,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,444,30,6.76,8,5,3,1,1,2,8066,1008.0
+2026-09-15,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,486,33,6.79,9,5,4,1,1,2,8824,980.0
+2026-09-16,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,766,52,6.79,14,8,6,2,2,4,13907,993.0
+2026-09-17,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,608,41,6.74,11,7,4,2,1,3,11030,1003.0
+2026-09-18,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,534,36,6.74,10,6,4,2,1,3,9696,970.0
+2026-09-19,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,810,55,6.79,15,9,6,2,2,4,14711,981.0
+2026-09-20,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,720,49,6.81,14,8,6,2,2,4,13071,934.0
+2026-09-21,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,464,31,6.68,9,5,4,1,1,2,8414,935.0
+2026-09-22,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,725,49,6.76,14,8,6,2,2,4,13168,941.0
+2026-09-23,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,576,39,6.77,11,7,4,2,1,3,10450,950.0
+2026-09-24,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,526,36,6.84,10,6,4,2,1,3,9548,955.0
+2026-09-25,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,748,51,6.82,14,8,6,2,2,4,13569,969.0
+2026-09-26,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,751,51,6.79,14,8,6,2,2,4,13634,974.0
+2026-09-27,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,721,49,6.8,14,8,6,2,2,4,13080,934.0
+2026-09-28,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,616,42,6.82,12,7,5,2,1,3,11179,932.0
+2026-09-29,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,812,55,6.77,15,9,6,2,2,4,14730,982.0
+2026-09-30,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,521,35,6.72,10,6,4,2,1,3,9455,946.0
+2026-10-01,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,599,41,6.84,11,7,4,2,1,3,10872,988.0
+2026-10-02,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,813,55,6.77,15,9,6,2,2,4,14749,983.0
+2026-10-03,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,591,40,6.77,11,7,4,2,1,3,10720,975.0
+2026-10-04,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,852,58,6.81,16,10,6,2,2,4,15464,966.0
+2026-10-05,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,713,48,6.73,13,8,5,2,2,4,12941,995.0
+2026-10-06,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,821,56,6.82,15,9,6,2,2,4,14910,994.0
+2026-10-07,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,590,40,6.78,11,7,4,2,1,3,10717,974.0
+2026-10-08,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,893,60,6.72,17,10,7,2,2,4,16205,953.0
+2026-10-09,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,534,36,6.74,10,6,4,2,1,3,9690,969.0
+2026-10-10,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,449,30,6.68,8,5,3,1,1,2,8152,1019.0
+2026-10-11,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,761,52,6.83,14,8,6,2,2,4,13811,986.0
+2026-10-12,4,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,740,49,6.62,15,9,6,1,1,2,13431,895.0
