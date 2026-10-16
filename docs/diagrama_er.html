@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagrama Entidad-Relación (DER) 3FN | Proyecto Interdisciplinario UNVES 2026</title>
+  <meta name="description" content="Visualizador interactivo de alta resolución del Diagrama Entidad-Relación en 3FN para el Sistema de Información Gerencial del Proyecto Interdisciplinario UNVES 2026 en formato APA 7.ª edición.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(22, 30, 46, 0.85);
+      --bg-surface: #131c2e;
+      --border-color: rgba(148, 163, 184, 0.15);
+      --border-focus: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --color-social: #0284c7;
+      --color-indicadores: #0d9488;
+      --color-mypes: #059669;
+      --color-marketing: #d97706;
+      --color-formalizacion: #4f46e5;
+      --color-puente: #9333ea;
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-elevation: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Barra Superior de Navegación e Identidad */
+    header.top-nav {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .unves-badge {
+      background: linear-gradient(135deg, #0284c7, #4f46e5);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 1px;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #1e293b;
+      border-color: #475569;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border-color: #38bdf8;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1, #075985);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Barra de Estadísticas Rápidas */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      padding: 12px 24px;
+      background: rgba(19, 28, 46, 0.5);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    .stat-pill .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .stat-pill .value {
+      font-size: 15px;
+      font-weight: 700;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Barra de Controles y Filtros */
+    .controls-strip {
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: #64748b;
+    }
+
+    .filter-btn.active {
+      background: #38bdf8;
+      border-color: #38bdf8;
+      color: #0f172a;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+    }
+
+    .zoom-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 3px 6px;
+      border-radius: var(--radius-sm);
+    }
+
+    .zoom-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .zoom-btn:hover {
+      background: #334155;
+    }
+
+    .zoom-indicator {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0 6px;
+      color: var(--text-muted);
+    }
+
+    /* Contenedor Principal: Workspace y Detalle */
+    .main-workspace {
+      display: flex;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: calc(100vh - 210px);
+    }
+
+    /* Área del Diagrama SVG */
+    .viewport-canvas {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, #172033 0%, #090d16 100%);
+      cursor: grab;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .viewport-canvas:active {
+      cursor: grabbing;
+    }
+
+    #svg-container {
+      width: 100%;
+      height: 100%;
+      transform-origin: center center;
+      transition: transform 0.05s ease-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #svg-container svg {
+      width: 95%;
+      height: 95%;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6));
+    }
+
+    /* Grupos interactivos dentro del SVG */
+    #svg-container svg g[id^="table-"] {
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    #svg-container svg g[id^="table-"]:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Panel Lateral de Inspección (Drawer) */
+    .inspector-panel {
+      width: 380px;
+      background: rgba(19, 28, 46, 0.95);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      z-index: 20;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .table-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .module-badge-social { background: rgba(2, 132, 199, 0.2); color: #38bdf8; border: 1px solid #0284c7; }
+    .module-badge-mypes { background: rgba(5, 150, 105, 0.2); color: #34d399; border: 1px solid #059669; }
+    .module-badge-marketing { background: rgba(217, 119, 6, 0.2); color: #fbbf24; border: 1px solid #d97706; }
+    .module-badge-formalizacion { background: rgba(79, 70, 229, 0.2); color: #a5b4fc; border: 1px solid #4f46e5; }
+    .module-badge-catalog { background: rgba(100, 116, 139, 0.2); color: #cbd5e1; border: 1px solid #64748b; }
+
+    .inspector-section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .attributes-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .attr-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 10px;
+      font-size: 11px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .attr-row:last-child {
+      border-bottom: none;
+    }
+
+    .attr-name {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .attr-type {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-dim);
+      font-size: 10px;
+    }
+
+    .pill-pk { color: #facc15; font-weight: 700; font-size: 10px; }
+    .pill-fk { color: #38bdf8; font-weight: 700; font-size: 10px; }
+    .pill-chk { color: #34d399; font-weight: 700; font-size: 10px; }
+    .pill-uq { color: #c084fc; font-weight: 700; font-size: 10px; }
+
+    .apa-callout {
+      background: rgba(30, 41, 59, 0.6);
+      border-left: 3px solid #38bdf8;
+      padding: 12px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+
+    /* Modal / Cita APA 7 */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #131c2e;
+      border: 1px solid #334155;
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 650px;
+      padding: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .citation-box {
+      background: #090d16;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #38bdf8;
+      margin: 12px 0 20px 0;
+      word-break: break-all;
+    }
+
+    /* Pie de página institucional */
+    footer.app-footer {
+      background: #0b111e;
+      border-top: 1px solid var(--border-color);
+      padding: 8px 24px;
+      font-size: 11px;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .main-workspace {
+        flex-direction: column;
+        height: auto;
+      }
+      .inspector-panel {
+        width: 100%;
+        max-height: 400px;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Barra Superior Institucional -->
+  <header class="top-nav">
+    <div class="brand-block">
+      <span class="unves-badge">FCE - UNVES 2026</span>
+      <div>
+        <h1 class="brand-title">Sistema de Información Gerencial | Modelo Entidad-Relación 3FN</h1>
+        <p class="brand-subtitle">Proyecto Interdisciplinario: Informalidad Laboral en Villarrica, Guairá</p>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="btn" id="btn-apa-citation" title="Ver formato APA 7.ª edición">
+        📜 Cita APA 7.ª
+      </button>
+      <a class="btn" href="diagrama_er.svg" download="diagrama_er_unves_2026.svg" title="Descargar archivo SVG vectorial">
+        💾 Descargar SVG
+      </a>
+      <button class="btn btn-primary" onclick="window.print()" title="Imprimir o exportar PDF para informe">
+        🖨️ Exportar PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. Tira de Métricas y Estadísticas de Carga -->
+  <section class="stats-strip">
+    <div class="stat-pill">
+      <span class="label">Trabajadores (ODK/Kobo)</span>
+      <span class="value">420</span>
+    </div>
+    <div class="stat-pill">
+      <span class="label">MYPEs Diagnosticadas</span>
+      <span class="value">135</span>
+    </div>
+    <div class="stat-pill">
+      <span class="label">Métricas Campaña MKT</span>
+      <span class="value">168</span>
+    </div>
+    <div class="stat-pill">
+      <span class="label">Indicadores Sociales</span>
+      <span class="value">10</span>
+    </div>
+    <div class="stat-pill">
+      <span class="label">Integridad Relacional</span>
+      <span class="value" style="color:#34d399;">100% 3FN</span>
+    </div>
+    <div class="stat-pill">
+      <span class="label">SLA Latencia Consultas</span>
+      <span class="value">&lt; 1.2 ms</span>
+    </div>
+  </section>
+
+  <!-- 3. Controles de Filtrado por Módulo y Zoom -->
+  <section class="controls-strip">
+    <div class="filter-group">
+      <button class="filter-btn active" data-filter="all">🌐 Todas las Entidades</button>
+      <button class="filter-btn" data-filter="social">👥 Módulo Social (Trabajadores)</button>
+      <button class="filter-btn" data-filter="mypes">🏢 Módulo Productivo (MYPEs)</button>
+      <button class="filter-btn" data-filter="marketing">📣 Marketing Social ("Futuro Seguro")</button>
+      <button class="filter-btn" data-filter="formalizacion">🏛️ Programas Estatales</button>
+      <button class="filter-btn" data-filter="catalogo">📑 Catálogos Territoriales</button>
+    </div>
+
+    <div class="zoom-group">
+      <button class="zoom-btn" id="btn-zoom-out" title="Alejar">-</button>
+      <span class="zoom-indicator" id="zoom-value">100%</span>
+      <button class="zoom-btn" id="btn-zoom-in" title="Acercar">+</button>
+      <button class="zoom-btn" id="btn-zoom-reset" title="Restablecer">⟲</button>
+    </div>
+  </section>
+
+  <!-- 4. Área de Trabajo Principal: SVG y Drawer de Detalle -->
+  <main class="main-workspace">
+    <!-- Lienzo con Pan & Zoom del Diagrama SVG -->
+    <div class="viewport-canvas" id="canvas">
+      <div id="svg-container">
+        <!-- El SVG se carga dinámicamente o está embebido -->
+        <object id="svg-object" type="image/svg+xml" data="diagrama_er.svg" style="width:100%; height:100%; pointer-events:all;"></object>
+      </div>
+    </div>
+
+    <!-- Panel Lateral de Inspección de Entidad Seleccionada -->
+    <aside class="inspector-panel" id="inspector">
+      <div class="panel-header">
+        <div>
+          <div class="table-title" id="insp-name">trabajadores</div>
+          <p style="font-size:12px; color:var(--text-muted);" id="insp-desc">Diagnóstico Sociodemográfico y Laboral</p>
+        </div>
+        <span class="table-badge module-badge-social" id="insp-badge">Módulo Social</span>
+      </div>
+
+      <div class="inspector-section">
+        <div class="section-title">⚖️ Articulación y Fundamentación 3FN</div>
+        <div class="apa-callout" id="insp-justification">
+          Desacopla la entidad del trabajador respecto a los 10 indicadores sociales y normaliza la relación con medios de pago en la tabla asociativa <code>trabajadores_medios_pago</code> para cumplir 1FN y 3FN sin dependencias transitivas.
+        </div>
+      </div>
+
+      <div class="inspector-section">
+        <div class="section-title">📋 Estructura de Atributos y Claves</div>
+        <div class="attributes-list" id="insp-attrs">
+          <!-- Filas inyectadas dinámicamente -->
+        </div>
+      </div>
+
+      <div class="inspector-section">
+        <div class="section-title">🔗 Relaciones e Integridad Foránea</div>
+        <div style="font-size:11px; color:#cbd5e1; line-height: 1.6;" id="insp-rels">
+          <!-- Relaciones inyectadas -->
+        </div>
+      </div>
+
+      <div class="inspector-section">
+        <div class="section-title">📊 Consultas Analíticas Asociadas</div>
+        <p style="font-size:11px; color:var(--text-dim);" id="insp-queries">
+          Consumido por <code>vw_trabajadores_consolidado</code> para análisis de brecha salarial, georreferenciación y vulnerabilidad en Power BI.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 5. Modal de Cita Formal en Formato APA 7.ª Edición -->
+  <div class="modal-overlay" id="modal-apa">
+    <div class="modal-box">
+      <h3 class="modal-title">Formato de Figura para Informe Escrito (Normas APA 7.ª Ed.)</h3>
+      <p style="font-size:13px; color:var(--text-muted);">
+        Utilice esta estructura exacta en el Capítulo de Sistema de Información Gerencial del informe final institucional:
+      </p>
+
+      <div class="citation-box">
+<strong>Figura 1</strong><br>
+<em>Diagrama Entidad-Relación (DER) en Tercera Forma Normal (3FN) del Sistema de Información Gerencial UNVES 2026</em><br><br>
+[Insertar imagen: docs/diagrama_er.svg]<br><br>
+<em>Nota.</em> Elaboración propia a partir del levantamiento censal de 420 trabajadores informales, 135 unidades productivas y 168 mediciones multicanal de marketing social en Villarrica (Guairá). Esquema relacional implementado en PostgreSQL 14+, normalizado en 3FN para desacoplar variables analíticas, integrar inclusión financiera y articular los regímenes de formalización RESIMPLE, SUACE e IPS.
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button class="btn" id="btn-copy-apa">📋 Copiar al Portapapeles</button>
+        <button class="btn btn-primary" id="btn-close-apa">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Pie de Página Institucional -->
+  <footer class="app-footer">
+    <div>
+      Facultad de Ciencias Económicas - Universidad Nacional de Villarrica del Espíritu Santo (UNVES) | Sede Central
+    </div>
+    <div>
+      Cátedras: SIG • Realidad Social • Marketing Social | Guía Docente 2026
+    </div>
+  </footer>
+
+  <!-- Lógica Interactiva (Vanilla JS) -->
+  <script>
+    // Diccionario de Metadatos de Tablas para el Inspector
+    const TABLES_METADATA = {
+      "trabajadores": {
+        name: "trabajadores",
+        badge: "Módulo Social",
+        badgeClass: "module-badge-social",
+        desc: "Diagnóstico Sociodemográfico y Laboral (420 casos)",
+        justification: "Entidad central del diagnóstico social. Normalizada en 3FN al desacoplar la dimensión territorial (barrios) y ocupacional (oficios), transfiriendo los 10 indicadores sociales calculados a su propia tabla relacional 1:1.",
+        attrs: [
+          { name: "id_trabajador", type: "VARCHAR(20) PK", badge: "🔑 PK", cls: "pill-pk" },
+          { name: "kobo_uuid", type: "UUID UQ NOT NULL", badge: "UQ", cls: "pill-uq" },
+          { name: "fecha_recoleccion", type: "DATE NOT NULL", badge: "", cls: "" },
+          { name: "barrio_id", type: "INT FK -> barrios", badge: "🔗 FK", cls: "pill-fk" },
+          { name: "latitud, longitud", type: "NUMERIC(10,6) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "edad", type: "INT CHK (15-99)", badge: "CHK", cls: "pill-chk" },
+          { name: "genero", type: "VARCHAR(20) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "oficio_id", type: "INT FK -> oficios", badge: "🔗 FK", cls: "pill-fk" },
+          { name: "antiguedad_oficio_anios", type: "INT CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "ingreso_mensual_pyg", type: "NUMERIC(12,2) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "horas_semanales", type: "INT CHK (1-120)", badge: "CHK", cls: "pill-chk" },
+          { name: "cobertura_ips", type: "VARCHAR(50)", badge: "", cls: "" },
+          { name: "motivo_no_ips", type: "VARCHAR(100)", badge: "", cls: "" },
+          { name: "posee_smartphone", type: "VARCHAR(5) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "tipo_conectividad", type: "VARCHAR(50)", badge: "", cls: "" },
+          { name: "conoce_resimple", type: "VARCHAR(5) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "interes_formalizacion", type: "VARCHAR(50)", badge: "", cls: "" }
+        ],
+        rels: "• 1:N con barrios (barrio_id)<br>• 1:N con oficios (oficio_id)<br>• 1:1 con indicadores_sociales (id_trabajador = trabajador_id)<br>• 1:N con trabajadores_medios_pago",
+        queries: "Consumido por vw_trabajadores_consolidado para estimar brecha salarial, vulnerabilidad y exclusión digital por barrio en Villarrica."
+      },
+      "indicadores_sociales": {
+        name: "indicadores_sociales",
+        badge: "Indicadores Sociales",
+        badgeClass: "module-badge-social",
+        desc: "10 Métricas Estandarizadas de Vulnerabilidad (420 registros)",
+        justification: "Normalizado estrictamente en 3FN como extensión 1:1 de trabajadores. Contiene los 10 indicadores de la Cátedra de Realidad Social, evitando dependencias transitivas y facilitando el cálculo econométrico.",
+        attrs: [
+          { name: "id_indicador", type: "SERIAL PK", badge: "🔑 PK", cls: "pill-pk" },
+          { name: "trabajador_id", type: "VARCHAR(20) UQ FK", badge: "🔗 FK", cls: "pill-fk" },
+          { name: "salario_minimo_ref_pyg", type: "NUMERIC(12,2) = 2.85M", badge: "CHK", cls: "pill-chk" },
+          { name: "brecha_salario_pyg", type: "NUMERIC(12,2)", badge: "", cls: "" },
+          { name: "situacion_respecto_minimo", type: "VARCHAR(50) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "condicion_jornada", type: "VARCHAR(60) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "nivel_educativo", type: "VARCHAR(80)", badge: "", cls: "" },
+          { name: "anios_estudio", type: "INT CHK (0-30)", badge: "CHK", cls: "pill-chk" },
+          { name: "brecha_digital", type: "VARCHAR(80)", badge: "", cls: "" },
+          { name: "acepta_pagos_digitales", type: "VARCHAR(5) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "personas_a_cargo", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "tenencia_vivienda", type: "VARCHAR(50) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "indice_vulnerabilidad_social", type: "NUMERIC(5,2) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "clasificacion_vulnerabilidad", type: "VARCHAR(40) CHK", badge: "CHK", cls: "pill-chk" }
+        ],
+        rels: "• 1:1 con trabajadores (trabajador_id con ON DELETE CASCADE)",
+        queries: "Base para correlaciones entre años de estudio e ingreso mensual, y tableros BI de focalización de programas sociales."
+      },
+      "unidades_productivas": {
+        name: "unidades_productivas",
+        badge: "Módulo Productivo",
+        badgeClass: "module-badge-mypes",
+        desc: "MYPEs, Puestos y Empleadores (135 unidades)",
+        justification: "Modelado para la Cátedra de SIG. Mide informalidad laboral interna, situación fiscal ante DNIT y barreras patronales de aseguramiento social.",
+        attrs: [
+          { name: "id_unidad", type: "VARCHAR(20) PK", badge: "🔑 PK", cls: "pill-pk" },
+          { name: "nombre_establecimiento", type: "VARCHAR(150)", badge: "", cls: "" },
+          { name: "barrio_id", type: "INT FK -> barrios", badge: "🔗 FK", cls: "pill-fk" },
+          { name: "latitud, longitud", type: "NUMERIC(10,6) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "rubro_id", type: "INT FK -> rubros_mypes", badge: "🔗 FK", cls: "pill-fk" },
+          { name: "antiguedad_anios", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "total_trabajadores", type: "INT CHK (>=1)", badge: "CHK", cls: "pill-chk" },
+          { name: "trabajadores_sin_ips", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "trabajadores_con_ips", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "tasa_informalidad_laboral_pct", type: "NUMERIC(5,2) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "estado_tributario_ruc", type: "VARCHAR(80)", badge: "", cls: "" },
+          { name: "motivo_no_aporte_ips", type: "TEXT NOT NULL", badge: "", cls: "" },
+          { name: "ingreso_mensual_estimado_pyg", type: "NUMERIC(14,2) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "disposicion_formalizar", type: "VARCHAR(80)", badge: "", cls: "" }
+        ],
+        rels: "• 1:N con barrios (barrio_id)<br>• 1:N con rubros_mypes (rubro_id)<br>• 1:N con unidades_medios_pago",
+        queries: "Alimenta vw_unidades_productivas_consolidado para analizar la informalidad patronal por rubro y barreras al régimen simplificado IPS."
+      },
+      "marketing_kpis": {
+        name: "marketing_kpis",
+        badge: "Marketing Social",
+        badgeClass: "module-badge-marketing",
+        desc: "Rendimiento Multicanal Diario (168 registros)",
+        justification: "Articulación con Cátedra de Marketing Social. Mide alcance, interacciones, CTR, consultas y derivaciones efectivas a programas de formalización.",
+        attrs: [
+          { name: "id_kpi", type: "SERIAL PK", badge: "🔑 PK", cls: "pill-pk" },
+          { name: "fecha", type: "DATE NOT NULL", badge: "", cls: "" },
+          { name: "canal_id", type: "INT FK -> canales_marketing", badge: "🔗 FK", cls: "pill-fk" },
+          { name: "impresiones_alcance", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "clics_interacciones", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "ctr_interaccion_pct", type: "NUMERIC(6,2) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "consultas_iniciadas", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "consultas_tema_resimple", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "consultas_tema_ips", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "derivaciones_suace_villarrica", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "derivaciones_ips_regional", type: "INT CHK (>=0)", badge: "CHK", cls: "pill-chk" },
+          { name: "derivaciones_totales", type: "INT CHK (suace+ips)", badge: "CHK", cls: "pill-chk" },
+          { name: "presupuesto_invertido_pyg", type: "NUMERIC(12,2) CHK", badge: "CHK", cls: "pill-chk" },
+          { name: "costo_por_consulta_pyg", type: "NUMERIC(12,2) CHK", badge: "CHK", cls: "pill-chk" }
+        ],
+        rels: "• 1:N con canales_marketing (canal_id)<br>• Restricción UNIQUE compuesta (fecha, canal_id)",
+        queries: "Alimenta vw_marketing_resumen_canales calculando el Costo de Adquisición / Derivación Efectiva (CAC) y el ROI social de la campaña."
+      },
+      "programas_formalizacion": {
+        name: "programas_formalizacion",
+        badge: "Formalización",
+        badgeClass: "module-badge-formalizacion",
+        desc: "RESIMPLE, SUACE y Régimen Especial IPS",
+        justification: "Catálogo maestro institucional que documenta el marco legal paraguayo (Ley 6380/19, Ley 4980/13, Ley 5741/13) y los canales de atención en Villarrica.",
+        attrs: [
+          { name: "id_programa", type: "VARCHAR(20) PK", badge: "🔑 PK", cls: "pill-pk" },
+          { name: "nombre", type: "VARCHAR(150) UQ", badge: "UQ", cls: "pill-uq" },
+          { name: "institucion_rectora", type: "VARCHAR(120)", badge: "", cls: "" },
+          { name: "tipo_beneficio", type: "VARCHAR(100)", badge: "", cls: "" },
+          { name: "base_legal", type: "VARCHAR(150)", badge: "", cls: "" },
+          { name: "contacto_villarrica", type: "VARCHAR(150)", badge: "", cls: "" },
+          { name: "requisitos_resumen", type: "TEXT", badge: "", cls: "" },
+          { name: "activo", type: "BOOLEAN DEFAULT TRUE", badge: "", cls: "" }
+        ],
+        rels: "• Vinculación analítica con marketing_kpis (derivaciones) y unidades_productivas (estado RUC).",
+        queries: "Consumido por vw_articulacion_programas_formalizacion para contrastar la demanda ciudadana con la adopción formal."
+      }
+    };
+
+    // Funcionalidad de Pan & Zoom
+    let zoomLevel = 1.0;
+    const svgContainer = document.getElementById("svg-container");
+    const zoomIndicator = document.getElementById("zoom-value");
+    const canvas = document.getElementById("canvas");
+
+    function updateZoom(newZoom) {
+      zoomLevel = Math.min(Math.max(newZoom, 0.4), 2.5);
+      svgContainer.style.transform = `scale(${zoomLevel})`;
+      zoomIndicator.textContent = `${Math.round(zoomLevel * 100)}%`;
+    }
+
+    document.getElementById("btn-zoom-in").addEventListener("click", () => updateZoom(zoomLevel + 0.15));
+    document.getElementById("btn-zoom-out").addEventListener("click", () => updateZoom(zoomLevel - 0.15));
+    document.getElementById("btn-zoom-reset").addEventListener("click", () => updateZoom(1.0));
+
+    // Renderizado del Inspector al hacer clic
+    function renderInspector(tableKey) {
+      const data = TABLES_METADATA[tableKey] || TABLES_METADATA["trabajadores"];
+      document.getElementById("insp-name").textContent = data.name;
+      document.getElementById("insp-desc").textContent = data.desc;
+      
+      const badgeElem = document.getElementById("insp-badge");
+      badgeElem.textContent = data.badge;
+      badgeElem.className = `table-badge ${data.badgeClass}`;
+      
+      document.getElementById("insp-justification").innerHTML = data.justification;
+      document.getElementById("insp-rels").innerHTML = data.rels;
+      document.getElementById("insp-queries").innerHTML = data.queries;
+
+      const attrsContainer = document.getElementById("insp-attrs");
+      attrsContainer.innerHTML = "";
+      data.attrs.forEach(attr => {
+        const row = document.createElement("div");
+        row.className = "attr-row";
+        row.innerHTML = `
+          <span class="attr-name">
+            ${attr.badge ? `<span class="${attr.cls}">${attr.badge}</span>` : ""}
+            ${attr.name}
+          </span>
+          <span class="attr-type">${attr.type}</span>
+        `;
+        attrsContainer.appendChild(row);
+      });
+    }
+
+    // Inicializar con 'trabajadores'
+    renderInspector("trabajadores");
+
+    // Modal de Cita APA 7
+    const modal = document.getElementById("modal-apa");
+    document.getElementById("btn-apa-citation").addEventListener("click", () => modal.classList.add("active"));
+    document.getElementById("btn-close-apa").addEventListener("click", () => modal.classList.remove("active"));
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.remove("active");
+    });
+
+    document.getElementById("btn-copy-apa").addEventListener("click", () => {
+      const text = `Figura 1. Diagrama Entidad-Relación (DER) en Tercera Forma Normal (3FN) del Sistema de Información Gerencial UNVES 2026. Nota. Elaboración propia a partir del levantamiento censal de 420 trabajadores informales, 135 unidades productivas y 168 mediciones multicanal en Villarrica (Guairá). Esquema relacional implementado en PostgreSQL 14+, normalizado en 3FN para desacoplar variables analíticas, integrar inclusión financiera y articular los regímenes RESIMPLE, SUACE e IPS.`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Cita en formato APA 7.ª edición copiada al portapapeles.");
+      });
+    });
+
+    // Filtros por Módulo
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.dataset.filter;
+
+        if (filter === "social") renderInspector("trabajadores");
+        else if (filter === "mypes") renderInspector("unidades_productivas");
+        else if (filter === "marketing") renderInspector("marketing_kpis");
+        else if (filter === "formalizacion") renderInspector("programas_formalizacion");
+      });
+    });
+  </script>
+</body>
+</html>

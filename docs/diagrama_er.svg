@@ -1,0 +1,425 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1280" width="100%" height="100%" style="background:#0f172a; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Filtros de sombra y brillo -->
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="glow-blue" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#38bdf8" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Gradientes de Cabecera por Módulo -->
+    <linearGradient id="grad-social" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="grad-indicadores" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="grad-mypes" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="grad-marketing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="grad-formalizacion" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#3730a3"/>
+    </linearGradient>
+    <linearGradient id="grad-catalogos" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="grad-puente" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+
+    <!-- Marcadores de relación (Crow's Foot / Flecha) -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+    <marker id="circle" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6">
+      <circle cx="5" cy="5" r="3" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <style>
+    .title-main { font-size: 24px; font-weight: 800; fill: #f8fafc; letter-spacing: -0.5px; }
+    .subtitle-main { font-size: 14px; font-weight: 500; fill: #94a3b8; }
+    .card-bg { fill: #1e293b; stroke: #334155; stroke-width: 1.5px; rx: 10px; }
+    .header-text { font-size: 13px; font-weight: 700; fill: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; }
+    .header-sub { font-size: 10px; font-weight: 500; fill: #e2e8f0; opacity: 0.85; }
+    .field-pk { font-size: 11px; font-weight: 700; fill: #facc15; }
+    .field-fk { font-size: 11px; font-weight: 600; fill: #38bdf8; }
+    .field-name { font-size: 11px; font-weight: 500; fill: #e2e8f0; }
+    .field-type { font-size: 10px; font-weight: 400; fill: #64748b; font-family: 'JetBrains Mono', monospace; text-anchor: end; }
+    .badge { font-size: 9px; font-weight: 700; padding: 2px 4px; }
+    .rel-line { fill: none; stroke: #64748b; stroke-width: 1.8px; stroke-dasharray: 4,4; }
+    .rel-line-strong { fill: none; stroke: #38bdf8; stroke-width: 2px; }
+    .apa-note { font-size: 11px; fill: #94a3b8; font-style: italic; }
+  </style>
+
+  <!-- ================= ENCABEZADO NORMA APA 7.ª EDICIÓN ================= -->
+  <g id="header-apa" transform="translate(50, 40)">
+    <text class="title-main" x="0" y="0">Figura 1</text>
+    <text class="subtitle-main" x="0" y="24" style="font-weight: 600; fill: #f1f5f9; font-size: 16px;">
+      Diagrama Entidad-Relación (DER) en Tercera Forma Normal (3FN) - Sistema de Información Gerencial UNVES 2026
+    </text>
+    <text class="subtitle-main" x="0" y="44">
+      Articulación Interdisciplinaria: Sistema de Información Gerencial | Análisis de la Realidad Social | Marketing Social (Villarrica, Guairá)
+    </text>
+  </g>
+
+  <!-- ================= LÍNEAS DE RELACIÓN Y CARDINALIDAD ================= -->
+  <g id="relationship-lines">
+    <!-- Barrios -> Trabajadores -->
+    <path d="M 330 200 L 410 200" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+    <!-- Barrios -> Unidades Productivas -->
+    <path d="M 330 230 L 370 230 L 370 120 L 800 120 L 800 200 L 820 200" stroke="#38bdf8" stroke-width="1.8" fill="none" marker-end="url(#arrow)" />
+    <!-- Oficios -> Trabajadores -->
+    <path d="M 330 480 L 370 480 L 370 320 L 410 320" stroke="#38bdf8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+    <!-- Trabajadores -> Indicadores Sociales (1:1) -->
+    <path d="M 575 590 L 575 660" stroke="#0d9488" stroke-width="2.5" marker-end="url(#arrow)" />
+    <!-- Trabajadores -> Trabajadores_Medios_Pago -->
+    <path d="M 410 450 L 370 450 L 370 760 L 330 760" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+    <!-- Medios_Pago -> Trabajadores_Medios_Pago -->
+    <path d="M 180 870 L 180 770" stroke="#9333ea" stroke-width="1.8" marker-end="url(#arrow)" />
+    <!-- Medios_Pago -> Unidades_Medios_Pago -->
+    <path d="M 330 920 L 800 920 L 800 700 L 820 700" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow)" />
+    <!-- Unidades_Productivas -> Unidades_Medios_Pago -->
+    <path d="M 975 580 L 975 640" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow)" />
+    <!-- Rubros_MYPEs -> Unidades_Productivas -->
+    <path d="M 975 800 L 975 750 L 1020 750 L 1020 580" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+    <!-- Canales_Marketing -> Marketing_KPIs -->
+    <path d="M 1375 270 L 1375 330" stroke="#d97706" stroke-width="2.2" marker-end="url(#arrow)" />
+    <!-- Marketing_KPIs -> Programas_Formalizacion (Conceptual / Integración) -->
+    <path d="M 1375 700 L 1375 770" stroke="#4f46e5" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)" />
+  </g>
+
+  <!-- ================= ENTIDAD 1: BARRIOS (Catálogo / Dimensión) ================= -->
+  <g id="table-barrios" transform="translate(50, 130)" filter="url(#shadow)">
+    <rect class="card-bg" width="280" height="230"/>
+    <rect width="280" height="42" fill="url(#grad-catalogos)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="24">barrios</text>
+    <text class="header-sub" x="14" y="37">Catálogo Territorial Villarrica (3FN)</text>
+    
+    <text class="field-pk" x="14" y="62">🔑 id</text><text class="field-type" x="266" y="62">SERIAL PK</text>
+    <text class="field-name" x="14" y="82">nombre</text><text class="field-type" x="266" y="82">VARCHAR(80) UQ</text>
+    <text class="field-name" x="14" y="102">lat_min, lat_max</text><text class="field-type" x="266" y="102">NUMERIC(10,6)</text>
+    <text class="field-name" x="14" y="122">lon_min, lon_max</text><text class="field-type" x="266" y="122">NUMERIC(10,6)</text>
+    <text class="field-name" x="14" y="142">alt_min, alt_max</text><text class="field-type" x="266" y="142">NUMERIC(6,2)</text>
+    <text class="field-name" x="14" y="162">peso_muestral</text><text class="field-type" x="266" y="162">NUMERIC(4,2) CHK</text>
+    <text class="field-name" x="14" y="182">descripcion</text><text class="field-type" x="266" y="182">TEXT</text>
+    <text class="field-name" x="14" y="202">creado_en</text><text class="field-type" x="266" y="202">TIMESTAMPTZ</text>
+  </g>
+
+  <!-- ================= ENTIDAD 2: OFICIOS (Catálogo / Dimensión) ================= -->
+  <g id="table-oficios" transform="translate(50, 390)" filter="url(#shadow)">
+    <rect class="card-bg" width="280" height="150"/>
+    <rect width="280" height="42" fill="url(#grad-catalogos)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="24">oficios</text>
+    <text class="header-sub" x="14" y="37">Catálogo de Oficios Informales (3FN)</text>
+    
+    <text class="field-pk" x="14" y="62">🔑 id</text><text class="field-type" x="266" y="62">SERIAL PK</text>
+    <text class="field-name" x="14" y="82">nombre</text><text class="field-type" x="266" y="82">VARCHAR(120) UQ</text>
+    <text class="field-name" x="14" y="102">sector</text><text class="field-type" x="266" y="102">VARCHAR(60)</text>
+    <text class="field-name" x="14" y="122">ingreso_base_pyg</text><text class="field-type" x="266" y="122">NUMERIC(12,2) CHK</text>
+    <text class="field-name" x="14" y="140">descripcion</text><text class="field-type" x="266" y="140">TEXT</text>
+  </g>
+
+  <!-- ================= ENTIDAD 3: TRABAJADORES (Módulo Realidad Social) ================= -->
+  <g id="table-trabajadores" transform="translate(410, 130)" filter="url(#shadow)">
+    <rect class="card-bg" width="330" height="460" stroke="#0284c7" stroke-width="2"/>
+    <rect width="330" height="46" fill="url(#grad-social)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="26">trabajadores</text>
+    <text class="header-sub" x="14" y="40">Diagnóstico Social y Demográfico (N=420)</text>
+    
+    <text class="field-pk" x="14" y="70">🔑 id_trabajador</text><text class="field-type" x="316" y="70">VARCHAR(20) PK</text>
+    <text class="field-name" x="14" y="90">kobo_uuid</text><text class="field-type" x="316" y="90">UUID UQ NOT NULL</text>
+    <text class="field-name" x="14" y="110">fecha_recoleccion</text><text class="field-type" x="316" y="110">DATE NOT NULL</text>
+    <text class="field-fk" x="14" y="130">🔗 barrio_id</text><text class="field-type" x="316" y="130">INT FK -> barrios</text>
+    <text class="field-name" x="14" y="150">latitud, longitud</text><text class="field-type" x="316" y="150">NUMERIC(10,6) CHK</text>
+    <text class="field-name" x="14" y="170">edad</text><text class="field-type" x="316" y="170">INT CHK (15-99)</text>
+    <text class="field-name" x="14" y="190">genero</text><text class="field-type" x="316" y="190">VARCHAR(20) CHK</text>
+    <text class="field-fk" x="14" y="210">🔗 oficio_id</text><text class="field-type" x="316" y="210">INT FK -> oficios</text>
+    <text class="field-name" x="14" y="230">antiguedad_oficio_anios</text><text class="field-type" x="316" y="230">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="250">ingreso_mensual_pyg</text><text class="field-type" x="316" y="250">NUMERIC(12,2) CHK</text>
+    <text class="field-name" x="14" y="270">horas_semanales</text><text class="field-type" x="316" y="270">INT CHK (1-120)</text>
+    <text class="field-name" x="14" y="290">cobertura_ips</text><text class="field-type" x="316" y="290">VARCHAR(50)</text>
+    <text class="field-name" x="14" y="310">motivo_no_ips</text><text class="field-type" x="316" y="310">VARCHAR(100)</text>
+    <text class="field-name" x="14" y="330">posee_smartphone</text><text class="field-type" x="316" y="330">VARCHAR(5) CHK</text>
+    <text class="field-name" x="14" y="350">tipo_conectividad</text><text class="field-type" x="316" y="350">VARCHAR(50)</text>
+    <text class="field-name" x="14" y="370">conoce_resimple</text><text class="field-type" x="316" y="370">VARCHAR(5) CHK</text>
+    <text class="field-name" x="14" y="390">interes_formalizacion</text><text class="field-type" x="316" y="390">VARCHAR(50)</text>
+    <text class="field-name" x="14" y="410">creado_en</text><text class="field-type" x="316" y="410">TIMESTAMPTZ</text>
+    <rect x="10" y="425" width="310" height="24" fill="#0369a1" rx="5" opacity="0.3"/>
+    <text x="165" y="441" font-size="10" fill="#38bdf8" text-anchor="middle" font-weight="600">
+      Índices: B-Tree (barrio, oficio, coords, fecha)
+    </text>
+  </g>
+
+  <!-- ================= ENTIDAD 4: INDICADORES_SOCIALES (10 Métricas Realidad Social) ================= -->
+  <g id="table-indicadores" transform="translate(410, 660)" filter="url(#shadow)">
+    <rect class="card-bg" width="330" height="380" stroke="#0d9488" stroke-width="2"/>
+    <rect width="330" height="46" fill="url(#grad-indicadores)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="26">indicadores_sociales</text>
+    <text class="header-sub" x="14" y="40">10 Métricas Analíticas Normalizadas (1:1)</text>
+    
+    <text class="field-pk" x="14" y="70">🔑 id_indicador</text><text class="field-type" x="316" y="70">SERIAL PK</text>
+    <text class="field-fk" x="14" y="90">🔗 trabajador_id</text><text class="field-type" x="316" y="90">VARCHAR(20) UQ FK</text>
+    <text class="field-name" x="14" y="110">salario_minimo_ref_pyg</text><text class="field-type" x="316" y="110">NUMERIC(12,2) = 2.85M</text>
+    <text class="field-name" x="14" y="130">brecha_salario_pyg</text><text class="field-type" x="316" y="130">NUMERIC(12,2)</text>
+    <text class="field-name" x="14" y="150">situacion_respecto_minimo</text><text class="field-type" x="316" y="150">VARCHAR(50) CHK</text>
+    <text class="field-name" x="14" y="170">condicion_jornada</text><text class="field-type" x="316" y="170">VARCHAR(60) CHK</text>
+    <text class="field-name" x="14" y="190">nivel_educativo</text><text class="field-type" x="316" y="190">VARCHAR(80)</text>
+    <text class="field-name" x="14" y="210">anios_estudio</text><text class="field-type" x="316" y="210">INT CHK (0-30)</text>
+    <text class="field-name" x="14" y="230">brecha_digital</text><text class="field-type" x="316" y="230">VARCHAR(80)</text>
+    <text class="field-name" x="14" y="250">acepta_pagos_digitales</text><text class="field-type" x="316" y="250">VARCHAR(5) CHK</text>
+    <text class="field-name" x="14" y="270">personas_a_cargo</text><text class="field-type" x="316" y="270">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="290">tenencia_vivienda</text><text class="field-type" x="316" y="290">VARCHAR(50) CHK</text>
+    <text class="field-name" x="14" y="310">indice_vulnerabilidad_social</text><text class="field-type" x="316" y="310">NUMERIC(5,2) CHK [0-100]</text>
+    <text class="field-name" x="14" y="330">clasificacion_vulnerabilidad</text><text class="field-type" x="316" y="330">VARCHAR(40) CHK</text>
+    <text class="field-name" x="14" y="350">fecha_calculo</text><text class="field-type" x="316" y="350">TIMESTAMPTZ</text>
+  </g>
+
+  <!-- ================= ENTIDAD 5: MEDIOS_PAGO (Catálogo Inclusión Financiera) ================= -->
+  <g id="table-medios-pago" transform="translate(50, 870)" filter="url(#shadow)">
+    <rect class="card-bg" width="280" height="150"/>
+    <rect width="280" height="42" fill="url(#grad-catalogos)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="24">medios_pago</text>
+    <text class="header-sub" x="14" y="37">Catálogo de Pagos / Inclusión Financiera</text>
+    
+    <text class="field-pk" x="14" y="62">🔑 codigo</text><text class="field-type" x="266" y="62">VARCHAR(30) PK</text>
+    <text class="field-name" x="14" y="82">nombre</text><text class="field-type" x="266" y="82">VARCHAR(80) UQ</text>
+    <text class="field-name" x="14" y="102">categoria</text><text class="field-type" x="266" y="102">VARCHAR(50)</text>
+    <text class="field-name" x="14" y="122">es_digital</text><text class="field-type" x="266" y="122">BOOLEAN</text>
+    <text class="field-name" x="14" y="140">descripcion</text><text class="field-type" x="266" y="140">TEXT</text>
+  </g>
+
+  <!-- ================= ENTIDAD PUENTE 6: TRABAJADORES_MEDIOS_PAGO (N:M) ================= -->
+  <g id="table-trab-medios" transform="translate(50, 680)" filter="url(#shadow)">
+    <rect class="card-bg" width="280" height="110" stroke="#9333ea" stroke-width="1.5"/>
+    <rect width="280" height="38" fill="url(#grad-puente)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="22">trabajadores_medios_pago</text>
+    <text class="header-sub" x="14" y="34">Puente N:M (Normalización 1FN / 3FN)</text>
+    
+    <text class="field-pk" x="14" y="58">🔑🔗 trabajador_id</text><text class="field-type" x="266" y="58">PK/FK -> trabajadores</text>
+    <text class="field-pk" x="14" y="82">🔑🔗 medio_pago_codigo</text><text class="field-type" x="266" y="82">PK/FK -> medios_pago</text>
+  </g>
+
+  <!-- ================= ENTIDAD 7: UNIDADES_PRODUCTIVAS (Módulo SIG / MYPEs) ================= -->
+  <g id="table-unidades" transform="translate(820, 130)" filter="url(#shadow)">
+    <rect class="card-bg" width="340" height="450" stroke="#059669" stroke-width="2"/>
+    <rect width="340" height="46" fill="url(#grad-mypes)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="26">unidades_productivas</text>
+    <text class="header-sub" x="14" y="40">MYPEs, Puestos y Talleres (N=135)</text>
+    
+    <text class="field-pk" x="14" y="70">🔑 id_unidad</text><text class="field-type" x="326" y="70">VARCHAR(20) PK</text>
+    <text class="field-name" x="14" y="90">nombre_establecimiento</text><text class="field-type" x="326" y="90">VARCHAR(150)</text>
+    <text class="field-fk" x="14" y="110">🔗 barrio_id</text><text class="field-type" x="326" y="110">INT FK -> barrios</text>
+    <text class="field-name" x="14" y="130">latitud, longitud</text><text class="field-type" x="326" y="130">NUMERIC(10,6) CHK</text>
+    <text class="field-fk" x="14" y="150">🔗 rubro_id</text><text class="field-type" x="326" y="150">INT FK -> rubros_mypes</text>
+    <text class="field-name" x="14" y="170">antiguedad_anios</text><text class="field-type" x="326" y="170">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="190">total_trabajadores</text><text class="field-type" x="326" y="190">INT CHK (&gt;=1)</text>
+    <text class="field-name" x="14" y="210">trabajadores_sin_ips</text><text class="field-type" x="326" y="210">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="230">trabajadores_con_ips</text><text class="field-type" x="326" y="230">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="250">tasa_informalidad_laboral_pct</text><text class="field-type" x="326" y="250">NUMERIC(5,2) CHK</text>
+    <text class="field-name" x="14" y="270">estado_tributario_ruc</text><text class="field-type" x="326" y="270">VARCHAR(80)</text>
+    <text class="field-name" x="14" y="290">motivo_no_aporte_ips</text><text class="field-type" x="326" y="290">TEXT NOT NULL</text>
+    <text class="field-name" x="14" y="310">ingreso_mensual_estimado_pyg</text><text class="field-type" x="326" y="310">NUMERIC(14,2) CHK</text>
+    <text class="field-name" x="14" y="330">disposicion_formalizar</text><text class="field-type" x="326" y="330">VARCHAR(80)</text>
+    <text class="field-name" x="14" y="350">creado_en</text><text class="field-type" x="326" y="350">TIMESTAMPTZ</text>
+    <rect x="10" y="375" width="320" height="40" fill="#047857" rx="5" opacity="0.3"/>
+    <text x="170" y="392" font-size="10" fill="#a7f3d0" text-anchor="middle" font-weight="600">
+      Constraint: total = sin_ips + con_ips
+    </text>
+    <text x="170" y="407" font-size="10" fill="#6ee7b7" text-anchor="middle">
+      Índices: B-Tree (barrio, rubro, ruc, coords)
+    </text>
+  </g>
+
+  <!-- ================= ENTIDAD PUENTE 8: UNIDADES_MEDIOS_PAGO (N:M) ================= -->
+  <g id="table-unid-medios" transform="translate(820, 640)" filter="url(#shadow)">
+    <rect class="card-bg" width="310" height="110" stroke="#9333ea" stroke-width="1.5"/>
+    <rect width="310" height="38" fill="url(#grad-puente)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="22">unidades_medios_pago</text>
+    <text class="header-sub" x="14" y="34">Puente N:M Medios de Cobro en MYPEs</text>
+    
+    <text class="field-pk" x="14" y="58">🔑🔗 unidad_id</text><text class="field-type" x="296" y="58">PK/FK -> unidades</text>
+    <text class="field-pk" x="14" y="82">🔑🔗 medio_pago_codigo</text><text class="field-type" x="296" y="82">PK/FK -> medios_pago</text>
+  </g>
+
+  <!-- ================= ENTIDAD 9: RUBROS_MYPES (Catálogo / Dimensión) ================= -->
+  <g id="table-rubros-mypes" transform="translate(820, 800)" filter="url(#shadow)">
+    <rect class="card-bg" width="310" height="170"/>
+    <rect width="310" height="42" fill="url(#grad-catalogos)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="24">rubros_mypes</text>
+    <text class="header-sub" x="14" y="37">Catálogo de Actividades Económicas</text>
+    
+    <text class="field-pk" x="14" y="62">🔑 id</text><text class="field-type" x="296" y="62">SERIAL PK</text>
+    <text class="field-name" x="14" y="82">nombre</text><text class="field-type" x="296" y="82">VARCHAR(120) UQ</text>
+    <text class="field-name" x="14" y="102">sector_economico</text><text class="field-type" x="296" y="102">VARCHAR(60)</text>
+    <text class="field-name" x="14" y="122">facturacion_base_pyg</text><text class="field-type" x="296" y="122">NUMERIC(14,2)</text>
+    <text class="field-name" x="14" y="142">rango_trabajadores</text><text class="field-type" x="296" y="142">INT (min, max)</text>
+  </g>
+
+  <!-- ================= ENTIDAD 10: CANALES_MARKETING (Catálogo Dimensión) ================= -->
+  <g id="table-canales" transform="translate(1220, 130)" filter="url(#shadow)">
+    <rect class="card-bg" width="330" height="140"/>
+    <rect width="330" height="42" fill="url(#grad-catalogos)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="24">canales_marketing</text>
+    <text class="header-sub" x="14" y="37">Estrategia 'Trabajo Formal, Futuro Seguro'</text>
+    
+    <text class="field-pk" x="14" y="62">🔑 id_canal</text><text class="field-type" x="316" y="62">SERIAL PK</text>
+    <text class="field-name" x="14" y="82">codigo</text><text class="field-type" x="316" y="82">VARCHAR(30) UQ</text>
+    <text class="field-name" x="14" y="102">nombre</text><text class="field-type" x="316" y="102">VARCHAR(100) UQ</text>
+    <text class="field-name" x="14" y="122">tipo, responsable</text><text class="field-type" x="316" y="122">VARCHAR(50, 100)</text>
+  </g>
+
+  <!-- ================= ENTIDAD 11: MARKETING_KPIS (Módulo Marketing Social) ================= -->
+  <g id="table-marketing-kpis" transform="translate(1220, 330)" filter="url(#shadow)">
+    <rect class="card-bg" width="330" height="400" stroke="#d97706" stroke-width="2"/>
+    <rect width="330" height="46" fill="url(#grad-marketing)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="26">marketing_kpis</text>
+    <text class="header-sub" x="14" y="40">Métricas Multicanal Diarias (N=168)</text>
+    
+    <text class="field-pk" x="14" y="70">🔑 id_kpi</text><text class="field-type" x="316" y="70">SERIAL PK</text>
+    <text class="field-name" x="14" y="90">fecha</text><text class="field-type" x="316" y="90">DATE NOT NULL</text>
+    <text class="field-fk" x="14" y="110">🔗 canal_id</text><text class="field-type" x="316" y="110">INT FK -> canales</text>
+    <text class="field-name" x="14" y="130">impresiones_alcance</text><text class="field-type" x="316" y="130">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="150">clics_interacciones</text><text class="field-type" x="316" y="150">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="170">ctr_interaccion_pct</text><text class="field-type" x="316" y="170">NUMERIC(6,2) CHK</text>
+    <text class="field-name" x="14" y="190">consultas_iniciadas</text><text class="field-type" x="316" y="190">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="210">consultas_tema_resimple</text><text class="field-type" x="316" y="210">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="230">consultas_tema_ips</text><text class="field-type" x="316" y="230">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="250">derivaciones_suace_villarrica</text><text class="field-type" x="316" y="250">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="270">derivaciones_ips_regional</text><text class="field-type" x="316" y="270">INT CHK (&gt;=0)</text>
+    <text class="field-name" x="14" y="290">derivaciones_totales</text><text class="field-type" x="316" y="290">INT CHK (suace+ips)</text>
+    <text class="field-name" x="14" y="310">presupuesto_invertido_pyg</text><text class="field-type" x="316" y="310">NUMERIC(12,2) CHK</text>
+    <text class="field-name" x="14" y="330">costo_por_consulta_pyg</text><text class="field-type" x="316" y="330">NUMERIC(12,2) CHK</text>
+    <rect x="10" y="350" width="310" height="34" fill="#b45309" rx="5" opacity="0.3"/>
+    <text x="165" y="371" font-size="10" fill="#fde68a" text-anchor="middle" font-weight="600">
+      Constraint: UQ (fecha, canal_id)
+    </text>
+  </g>
+
+  <!-- ================= ENTIDAD 12: PROGRAMAS_FORMALIZACION ================= -->
+  <g id="table-programas" transform="translate(1220, 770)" filter="url(#shadow)">
+    <rect class="card-bg" width="330" height="250" stroke="#4f46e5" stroke-width="2"/>
+    <rect width="330" height="46" fill="url(#grad-formalizacion)" rx="10 10 0 0"/>
+    <text class="header-text" x="14" y="26">programas_formalizacion</text>
+    <text class="header-sub" x="14" y="40">RESIMPLE, SUACE y Régimen IPS Micro</text>
+    
+    <text class="field-pk" x="14" y="70">🔑 id_programa</text><text class="field-type" x="316" y="70">VARCHAR(20) PK</text>
+    <text class="field-name" x="14" y="90">nombre</text><text class="field-type" x="316" y="90">VARCHAR(150) UQ</text>
+    <text class="field-name" x="14" y="110">institucion_rectora</text><text class="field-type" x="316" y="110">VARCHAR(120)</text>
+    <text class="field-name" x="14" y="130">tipo_beneficio</text><text class="field-type" x="316" y="130">VARCHAR(100)</text>
+    <text class="field-name" x="14" y="150">base_legal</text><text class="field-type" x="316" y="150">VARCHAR(150)</text>
+    <text class="field-name" x="14" y="170">contacto_villarrica</text><text class="field-type" x="316" y="170">VARCHAR(150)</text>
+    <text class="field-name" x="14" y="190">requisitos_resumen</text><text class="field-type" x="316" y="190">TEXT</text>
+    <text class="field-name" x="14" y="210">activo</text><text class="field-type" x="316" y="210">BOOLEAN NOT NULL</text>
+  </g>
+
+  <!-- ================= PANEL LATERAL DERECHO: LEYENDA Y NOTA APA 7.ª EDICIÓN ================= -->
+  <g id="legend-panel" transform="translate(1600, 130)" filter="url(#shadow)">
+    <rect class="card-bg" width="350" height="890" stroke="#475569" stroke-width="1.5"/>
+    <rect width="350" height="46" fill="#1e293b" rx="10 10 0 0"/>
+    <text class="header-text" x="18" y="28" style="fill:#38bdf8;">CONVENCIONES Y LEYENDA TÉCNICA</text>
+    <text class="header-sub" x="18" y="40">Arquitectura de Base de Datos UNVES 2026</text>
+
+    <!-- Simbología -->
+    <text x="18" y="75" font-size="12" font-weight="700" fill="#f8fafc">1. Simbología Relacional</text>
+    <text x="18" y="98" font-size="11" fill="#facc15" font-weight="700">🔑 PK</text>
+    <text x="75" y="98" font-size="11" fill="#94a3b8">Clave Primaria (Serial o Natural)</text>
+    <text x="18" y="120" font-size="11" fill="#38bdf8" font-weight="700">🔗 FK</text>
+    <text x="75" y="120" font-size="11" fill="#94a3b8">Clave Foránea con Integridad Referencial</text>
+    <text x="18" y="142" font-size="11" fill="#a855f7" font-weight="700">UQ</text>
+    <text x="75" y="142" font-size="11" fill="#94a3b8">Restricción de Unicidad (UNIQUE)</text>
+    <text x="18" y="164" font-size="11" fill="#34d399" font-weight="700">CHK</text>
+    <text x="75" y="164" font-size="11" fill="#94a3b8">Restricción de Rango o Dominio (CHECK)</text>
+
+    <!-- Módulos Temáticos Cátedras -->
+    <line x1="18" y1="185" x2="330" y2="185" stroke="#334155" stroke-width="1"/>
+    <text x="18" y="210" font-size="12" font-weight="700" fill="#f8fafc">2. Módulos por Cátedra Interviniente</text>
+    
+    <rect x="18" y="225" width="14" height="14" fill="#0284c7" rx="3"/>
+    <text x="40" y="237" font-size="11" fill="#e2e8f0" font-weight="600">Módulo Social (Trabajadores)</text>
+    <text x="40" y="252" font-size="10" fill="#64748b">Cátedra Análisis Realidad Social</text>
+
+    <rect x="18" y="270" width="14" height="14" fill="#0d9488" rx="3"/>
+    <text x="40" y="282" font-size="11" fill="#e2e8f0" font-weight="600">10 Indicadores de Vulnerabilidad</text>
+    <text x="40" y="297" font-size="10" fill="#64748b">Desacoplado 1:1 en 3FN</text>
+
+    <rect x="18" y="315" width="14" height="14" fill="#059669" rx="3"/>
+    <text x="40" y="327" font-size="11" fill="#e2e8f0" font-weight="600">Módulo Productivo (MYPEs)</text>
+    <text x="40" y="342" font-size="10" fill="#64748b">Cátedra Sist. Información Gerencial</text>
+
+    <rect x="18" y="360" width="14" height="14" fill="#d97706" rx="3"/>
+    <text x="40" y="372" font-size="11" fill="#e2e8f0" font-weight="600">Módulo Marketing Social</text>
+    <text x="40" y="387" font-size="10" fill="#64748b">Cátedra Marketing Social ('Futuro Seguro')</text>
+
+    <rect x="18" y="405" width="14" height="14" fill="#4f46e5" rx="3"/>
+    <text x="40" y="417" font-size="11" fill="#e2e8f0" font-weight="600">Módulo Programas Estatales</text>
+    <text x="40" y="432" font-size="10" fill="#64748b">DNIT (RESIMPLE), MIC (SUACE), IPS</text>
+
+    <rect x="18" y="450" width="14" height="14" fill="#9333ea" rx="3"/>
+    <text x="40" y="462" font-size="11" fill="#e2e8f0" font-weight="600">Puentes N:M (Inclusión Financiera)</text>
+    <text x="40" y="477" font-size="10" fill="#64748b">Normalización 1FN y 3FN estricta</text>
+
+    <!-- Normalización 3FN -->
+    <line x1="18" y1="500" x2="330" y2="500" stroke="#334155" stroke-width="1"/>
+    <text x="18" y="525" font-size="12" font-weight="700" fill="#f8fafc">3. Justificación de 3FN</text>
+    <text x="18" y="545" font-size="10" fill="#94a3b8">
+      • <tspan font-weight="700" fill="#e2e8f0">1FN:</tspan> Atributos atómicos; eliminación de listas
+    </text>
+    <text x="18" y="560" font-size="10" fill="#94a3b8">
+      reiteradas de medios de pago mediante tablas puente.
+    </text>
+    <text x="18" y="580" font-size="10" fill="#94a3b8">
+      • <tspan font-weight="700" fill="#e2e8f0">2FN:</tspan> Dependencia funcional completa de la PK;
+    </text>
+    <text x="18" y="595" font-size="10" fill="#94a3b8">
+      no existen atributos parciales en tablas puente.
+    </text>
+    <text x="18" y="615" font-size="10" fill="#94a3b8">
+      • <tspan font-weight="700" fill="#e2e8f0">3FN:</tspan> Desacoplamiento de barrios, oficios y
+    </text>
+    <text x="18" y="630" font-size="10" fill="#94a3b8">
+      canales; eliminación de dependencias transitivas.
+    </text>
+
+    <!-- Indicadores y Vistas -->
+    <line x1="18" y1="655" x2="330" y2="655" stroke="#334155" stroke-width="1"/>
+    <text x="18" y="680" font-size="12" font-weight="700" fill="#f8fafc">4. Vistas Gerenciales Implementadas</text>
+    <text x="18" y="700" font-size="10" fill="#38bdf8">• vw_trabajadores_consolidado</text>
+    <text x="18" y="718" font-size="10" fill="#34d399">• vw_unidades_productivas_consolidado</text>
+    <text x="18" y="736" font-size="10" fill="#fbbf24">• vw_marketing_resumen_canales</text>
+    <text x="18" y="754" font-size="10" fill="#a78bfa">• vw_articulacion_programas_formalizacion</text>
+
+    <!-- Nota APA 7 -->
+    <line x1="18" y1="775" x2="330" y2="775" stroke="#334155" stroke-width="1"/>
+    <text x="18" y="800" font-size="11" font-weight="700" fill="#f8fafc">Nota de Formato APA 7.ª Edición:</text>
+    <text x="18" y="820" class="apa-note" width="310">
+      <tspan x="18" dy="0">Nota. Esquema relacional implementado en PostgreSQL</tspan>
+      <tspan x="18" dy="16">14+. Diseñado por el equipo del 8° Semestre de la</tspan>
+      <tspan x="18" dy="16">Facultad de Ciencias Económicas - UNVES (2026).</tspan>
+      <tspan x="18" dy="16">Garantiza integridad referencial del 100%, índices</tspan>
+      <tspan x="18" dy="16">B-Tree espaciales y soporte nativo para Power BI.</tspan>
+    </text>
+  </g>
+
+  <!-- ================= PIE DE PÁGINA INSTITUCIONAL ================= -->
+  <g id="footer-bar" transform="translate(50, 1220)">
+    <rect width="1900" height="40" fill="#1e293b" rx="6"/>
+    <text x="20" y="25" font-size="11" font-weight="600" fill="#94a3b8">
+      UNIVERSIDAD NACIONAL DE VILLARRICA DEL ESPÍRITU SANTO (UNVES) | FACULTAD DE CIENCIAS ECONÓMICAS | AÑO LECTIVO 2026
+    </text>
+    <text x="1880" y="25" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="end">
+      MODELO ENTIDAD-RELACIÓN 3FN - FASE 3 CONSOLIDADA
+    </text>
+  </g>
+</svg>
