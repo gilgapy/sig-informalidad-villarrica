@@ -124,10 +124,10 @@ class Phase5IntegrityValidator:
         # Tablas APA 7 esperadas (Tablas 1 a 5)
         expected_tables = [
             ("Tabla 1", "Estadísticas Descriptivas de las Variables Socioeconómicas"),
-            ("Tabla 2", "Estimación del Modelo Econométrico de Capital Humano de Mincer"),
-            ("Tabla 3", "Estadísticas Descriptivas del Índice de Vulnerabilidad Social e Ingresos por Barrio"),
-            ("Tabla 4", "Análisis de Brecha Salarial de Género"),
-            ("Tabla 5", "Rendimiento Consolidado de la Campaña de Marketing Social")
+            ("Tabla 2", "Estimación del Modelo de Capital Humano de Mincer"),
+            ("Tabla 3", "Índice de Vulnerabilidad Social e Ingresos por Barrio"),
+            ("Tabla 4", "Brecha Salarial de Género"),
+            ("Tabla 5", "Rendimiento Consolidado de la Campaña")
         ]
 
         for table_tag, table_title in expected_tables:
@@ -136,13 +136,18 @@ class Phase5IntegrityValidator:
             else:
                 self.record_fail("APA7-Table", f"No se encontró {table_tag} o su título correspondiente en el informe.")
 
-        # Figuras APA 7 esperadas (Figuras 1 a 5)
+        # Figuras APA 7 esperadas (Figuras 1 a 10)
         expected_figures = [
-            ("Figura 1", "Diagrama de Dispersión y Línea de Ajuste entre Años de Escolaridad e Ingreso Mensual"),
-            ("Figura 2", "Distribución Espacial y Nivel de Vulnerabilidad Social Promedio en los Barrios"),
-            ("Figura 3", "Distribución Comparativa de Ingresos Mensuales por Género"),
-            ("Figura 4", "Tasa Promedio de Informalidad Laboral en las Micro y Pequeñas Empresas"),
-            ("Figura 5", "Embudo de Conversión Multicanal y Eficiencia de Adquisición")
+            ("Figura 1", "Correlación entre Años de Escolaridad e Ingreso Mensual"),
+            ("Figura 2", "Índice de Vulnerabilidad Social en los Siete Barrios"),
+            ("Figura 3", "Distribución de Ingresos Mensuales por Género"),
+            ("Figura 4", "Tasa Media de Informalidad Laboral en las MYPEs por Rubro"),
+            ("Figura 5", "Diagrama Entidad-Relación"),
+            ("Figura 6", "Pestaña 1: Diagnóstico Social y Territorio"),
+            ("Figura 7", "Pestaña 2: Gestión Productiva y MYPEs"),
+            ("Figura 8", "Pestaña 3: Marketing Social"),
+            ("Figura 9", "Pestaña 4: Explorador de Microdatos"),
+            ("Figura 10", "Embudo de Conversión Multicanal")
         ]
 
         for fig_tag, fig_title in expected_figures:
@@ -263,10 +268,11 @@ class Phase5IntegrityValidator:
 
             # Correlación de Pearson
             pearson_r = r_data["correlacion_escolaridad_ingreso"]["pearson"]["r"]
-            if abs(pearson_r - 0.0163) < 0.005:
+            informe_text = (DOCS_DIR / "informe_final_unves_2026.md").read_text(encoding="utf-8")
+            if f"r = {pearson_r:.4f}" in informe_text:
                 self.record_pass("Consistency-Pearson", f"Correlación de Pearson validada: r = {pearson_r:.4f}")
             else:
-                self.record_fail("Consistency-Pearson", f"Discrepancia en Pearson r: {pearson_r}")
+                self.record_fail("Consistency-Pearson", f"El informe no reporta el r de Pearson calculado en R: {pearson_r:.4f}")
 
             # Marketing: Presupuesto y Derivaciones
             if int(derivaciones_mkt) == 2217:
@@ -279,9 +285,10 @@ class Phase5IntegrityValidator:
             else:
                 self.record_fail("Consistency-Presupuesto", f"Presupuesto inesperado: {presupuesto_mkt}")
 
-            # Verificar que el informe mencione exactamente estos valores
-            informe_text = (DOCS_DIR / "informe_final_unves_2026.md").read_text(encoding="utf-8")
-            for term in ["2.345.060", "3.044.000", "0.0163", "2.217", "5.504.000", "85.24%"]:
+            # Verificar que el informe mencione exactamente los valores calculados
+            ingreso_medio_txt = f"{round(media_r):,}".replace(",", ".")
+            pct_bajo_minimo_txt = f"{r_data['descriptivos_trabajadores']['proporciones']['pct_bajo_minimo']:.2f}%"
+            for term in [ingreso_medio_txt, "3.044.000", f"{pearson_r:.4f}", "2.217", "5.504.000", pct_bajo_minimo_txt]:
                 if term in informe_text:
                     self.record_pass("Consistency-ReportText", f"Informe contiene valor matemático validado: '{term}'")
                 else:

@@ -1,169 +1,169 @@
 id_kpi,fecha,codigo_canal,canal_nombre,tipo_canal,impresiones_alcance,clics_interacciones,ctr_interaccion_pct,consultas_iniciadas,consultas_tema_resimple,consultas_tema_ips,derivaciones_suace_villarrica,derivaciones_ips_regional,derivaciones_totales_formalizacion,presupuesto_invertido_pyg
-127,2026-09-01,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,506,34,6.72,10,6,4,1,1,2,9186.0
-1,2026-09-01,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2138,106,4.96,17,10,7,3,2,5,54004.0
-85,2026-09-01,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,390,132,33.85,56,34,22,8,5,13,17902.0
-43,2026-09-01,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,176,141,80.11,72,44,28,11,7,18,10822.0
-128,2026-09-02,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,917,62,6.76,17,10,7,3,2,5,16637.0
-2,2026-09-02,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3626,180,4.96,29,18,11,5,3,8,91607.0
-86,2026-09-02,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,419,142,33.89,60,36,24,9,5,14,19239.0
-44,2026-09-02,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,292,234,80.14,119,72,47,18,12,30,17929.0
-129,2026-09-03,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,702,48,6.84,13,8,5,2,1,3,12741.0
-3,2026-09-03,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2825,140,4.96,23,14,9,4,2,6,71364.0
-87,2026-09-03,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,354,120,33.9,51,31,20,7,5,12,16289.0
-45,2026-09-03,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,195,156,80.0,80,49,31,12,8,20,11990.0
-130,2026-09-04,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,422,29,6.87,8,5,3,1,1,2,7658.0
-4,2026-09-04,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3544,176,4.97,29,18,11,5,3,8,89525.0
-88,2026-09-04,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,643,218,33.9,92,56,36,13,9,22,29540.0
-46,2026-09-04,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,166,133,80.12,68,41,27,10,7,17,10185.0
-131,2026-09-05,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,620,42,6.77,12,7,5,2,1,3,11250.0
-5,2026-09-05,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3717,185,4.98,30,18,12,5,3,8,93899.0
-89,2026-09-05,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,377,128,33.95,54,33,21,8,5,13,17342.0
-47,2026-09-05,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,196,157,80.1,80,49,31,12,8,20,12038.0
-132,2026-09-06,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,932,63,6.76,18,11,7,3,2,5,16917.0
-6,2026-09-06,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2067,103,4.98,17,10,7,2,2,4,52219.0
-90,2026-09-06,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,384,130,33.85,55,33,22,8,5,13,17642.0
-48,2026-09-06,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,343,275,80.17,140,85,55,22,14,36,21115.0
-133,2026-09-07,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,732,50,6.83,14,8,6,2,2,4,13294.0
-7,2026-09-07,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3774,187,4.95,31,19,12,5,3,8,95326.0
-91,2026-09-07,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,614,208,33.88,88,53,35,13,8,21,28220.0
-49,2026-09-07,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,213,170,79.81,87,53,34,13,9,22,13084.0
-134,2026-09-08,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,624,42,6.73,12,7,5,2,1,3,11328.0
-8,2026-09-08,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2999,149,4.97,24,15,9,4,2,6,75766.0
-92,2026-09-08,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,399,135,33.83,57,35,22,9,5,14,18336.0
-50,2026-09-08,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,158,127,80.38,65,39,26,10,7,17,9726.0
-135,2026-09-09,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,643,44,6.84,12,7,5,2,1,3,11662.0
-9,2026-09-09,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3232,160,4.95,26,16,10,4,3,7,81643.0
-93,2026-09-09,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,434,147,33.87,62,38,24,9,6,15,19964.0
-51,2026-09-09,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,292,234,80.14,119,72,47,19,12,31,17976.0
-136,2026-09-10,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,558,38,6.81,10,6,4,2,1,3,10129.0
-10,2026-09-10,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2631,131,4.98,21,13,8,4,2,6,66452.0
-94,2026-09-10,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,642,218,33.96,92,56,36,13,9,22,29505.0
-52,2026-09-10,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,271,217,80.07,111,67,44,17,11,28,16665.0
-137,2026-09-11,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,679,46,6.77,13,8,5,2,1,3,12319.0
-11,2026-09-11,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3780,188,4.97,31,19,12,5,3,8,95496.0
-95,2026-09-11,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,562,191,33.99,80,49,31,12,7,19,25826.0
-53,2026-09-11,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,154,123,79.87,63,38,25,10,6,16,9446.0
-138,2026-09-12,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,769,52,6.76,14,8,6,2,2,4,13965.0
-12,2026-09-12,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3523,175,4.97,29,18,11,5,3,8,88994.0
-96,2026-09-12,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,498,169,33.94,71,43,28,10,7,17,22907.0
-54,2026-09-12,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,239,191,79.92,97,59,38,15,10,25,14684.0
-139,2026-09-13,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,644,44,6.83,12,7,5,2,1,3,11686.0
-13,2026-09-13,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2242,111,4.95,18,11,7,3,2,5,56639.0
-97,2026-09-13,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,334,113,33.83,48,29,19,7,4,11,15339.0
-55,2026-09-13,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,218,175,80.28,89,54,35,14,9,23,13416.0
-140,2026-09-14,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,807,55,6.82,15,9,6,2,2,4,14639.0
-14,2026-09-14,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3703,184,4.97,30,18,12,5,3,8,93550.0
-98,2026-09-14,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,539,183,33.95,77,47,30,12,7,19,24791.0
-56,2026-09-14,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,269,216,80.3,110,67,43,17,11,28,16557.0
-141,2026-09-15,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,714,48,6.72,13,8,5,2,2,4,12955.0
-15,2026-09-15,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4166,207,4.97,34,21,13,5,4,9,105231.0
-99,2026-09-15,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,625,212,33.92,90,55,35,13,8,21,28740.0
-57,2026-09-15,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,313,251,80.19,128,78,50,20,13,33,19258.0
-142,2026-09-16,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,462,31,6.71,9,5,4,1,1,2,8389.0
-16,2026-09-16,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3219,160,4.97,26,16,10,4,3,7,81306.0
-100,2026-09-16,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,540,183,33.89,77,47,30,12,7,19,24832.0
-58,2026-09-16,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,180,144,80.0,73,44,29,12,7,19,11049.0
-143,2026-09-17,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,603,41,6.8,11,7,4,2,1,3,10945.0
-17,2026-09-17,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2993,149,4.98,24,15,9,4,2,6,75614.0
-101,2026-09-17,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,587,199,33.9,84,51,33,12,8,20,26971.0
-59,2026-09-17,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,266,213,80.08,108,66,42,17,11,28,16331.0
-144,2026-09-18,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,419,28,6.68,8,5,3,1,1,2,7612.0
-18,2026-09-18,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3958,197,4.98,32,19,13,5,4,9,99987.0
-102,2026-09-18,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,646,219,33.9,93,56,37,13,9,22,29695.0
-60,2026-09-18,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,248,199,80.24,101,61,40,16,10,26,15273.0
-145,2026-09-19,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,881,60,6.81,17,10,7,2,2,4,15993.0
-19,2026-09-19,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3530,175,4.96,29,18,11,5,3,8,89181.0
-103,2026-09-19,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,418,142,33.97,60,36,24,9,5,14,19196.0
-61,2026-09-19,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,321,257,80.06,131,80,51,21,13,34,19734.0
-146,2026-09-20,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,508,34,6.69,10,6,4,2,1,3,9228.0
-20,2026-09-20,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3209,159,4.95,26,16,10,4,3,7,81061.0
-104,2026-09-20,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,407,138,33.91,58,35,23,9,5,14,18713.0
-62,2026-09-20,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,241,193,80.08,98,59,39,15,10,25,14802.0
-147,2026-09-21,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,585,40,6.84,11,7,4,2,1,3,10611.0
-21,2026-09-21,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2133,106,4.97,17,10,7,3,2,5,53887.0
-105,2026-09-21,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,603,204,33.83,86,52,34,13,8,21,27702.0
-63,2026-09-21,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,323,259,80.19,132,80,52,21,13,34,19873.0
-148,2026-09-22,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,783,53,6.77,15,9,6,2,2,4,14213.0
-22,2026-09-22,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4006,199,4.97,33,20,13,5,4,9,101191.0
-106,2026-09-22,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,560,190,33.93,80,49,31,12,7,19,25744.0
-64,2026-09-22,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,287,230,80.14,117,71,46,18,12,30,17650.0
-149,2026-09-23,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,856,58,6.78,16,10,6,2,2,4,15540.0
-23,2026-09-23,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3868,192,4.96,31,19,12,5,3,8,97717.0
-107,2026-09-23,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,601,204,33.94,86,52,34,13,8,21,27625.0
-65,2026-09-23,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,237,190,80.17,97,59,38,15,10,25,14583.0
-150,2026-09-24,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,533,36,6.75,10,6,4,2,1,3,9672.0
-24,2026-09-24,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3156,157,4.97,26,16,10,4,3,7,79729.0
-108,2026-09-24,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,575,195,33.91,82,50,32,12,8,20,26437.0
-66,2026-09-24,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,274,219,79.93,112,68,44,18,11,29,16840.0
-151,2026-09-25,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,629,43,6.84,12,7,5,2,1,3,11425.0
-25,2026-09-25,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3582,178,4.97,29,18,11,5,3,8,90484.0
-109,2026-09-25,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,621,210,33.82,89,54,35,13,8,21,28522.0
-67,2026-09-25,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,206,165,80.1,84,51,33,13,8,21,12644.0
-152,2026-09-26,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,928,63,6.79,17,10,7,3,2,5,16847.0
-26,2026-09-26,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2428,121,4.98,20,12,8,3,2,5,61342.0
-110,2026-09-26,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,504,171,33.93,72,44,28,10,7,17,23155.0
-68,2026-09-26,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,158,126,79.75,64,39,25,10,6,16,9691.0
-153,2026-09-27,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,843,57,6.76,16,10,6,2,2,4,15301.0
-27,2026-09-27,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2147,107,4.98,17,10,7,3,2,5,54233.0
-111,2026-09-27,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,464,157,33.84,66,40,26,10,6,16,21336.0
-69,2026-09-27,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,334,268,80.24,136,83,53,21,14,35,20566.0
-154,2026-09-28,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,783,53,6.77,15,9,6,2,2,4,14212.0
-28,2026-09-28,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4017,199,4.95,33,20,13,5,4,9,101475.0
-112,2026-09-28,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,645,219,33.95,92,56,36,13,9,22,29657.0
-70,2026-09-28,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,284,228,80.28,116,70,46,18,12,30,17485.0
-155,2026-09-29,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,608,41,6.74,11,7,4,2,1,3,11028.0
-29,2026-09-29,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2195,109,4.97,18,11,7,3,2,5,55453.0
-113,2026-09-29,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,490,166,33.88,70,42,28,10,7,17,22495.0
-71,2026-09-29,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,240,192,80.0,98,59,39,15,10,25,14742.0
-156,2026-09-30,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,593,40,6.75,11,7,4,2,1,3,10760.0
-30,2026-09-30,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2242,111,4.95,18,11,7,3,2,5,56639.0
-114,2026-09-30,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,572,194,33.92,82,50,32,12,8,20,26291.0
-72,2026-09-30,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,342,274,80.12,140,85,55,22,14,36,21048.0
-157,2026-10-01,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,483,33,6.83,9,5,4,1,1,2,8771.0
-31,2026-10-01,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3761,187,4.97,31,19,12,5,3,8,95016.0
-115,2026-10-01,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,409,139,33.99,59,36,23,9,5,14,18788.0
-73,2026-10-01,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,255,204,80.0,104,63,41,16,11,27,15693.0
-158,2026-10-02,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,749,51,6.81,14,8,6,2,2,4,13599.0
-32,2026-10-02,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,1989,99,4.98,16,10,6,2,2,4,50246.0
-116,2026-10-02,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,360,122,33.89,51,31,20,7,5,12,16523.0
-74,2026-10-02,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,267,214,80.15,109,66,43,17,11,28,16412.0
-159,2026-10-03,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,556,38,6.83,10,6,4,2,1,3,10097.0
-33,2026-10-03,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3859,192,4.98,31,19,12,5,3,8,97496.0
-117,2026-10-03,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,473,160,33.83,68,41,27,10,6,16,21738.0
-75,2026-10-03,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,214,171,79.91,87,53,34,13,9,22,13148.0
-160,2026-10-04,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,519,35,6.74,10,6,4,2,1,3,9421.0
-34,2026-10-04,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2872,143,4.98,23,14,9,4,2,6,72557.0
-118,2026-10-04,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,499,169,33.87,71,43,28,10,7,17,22912.0
-76,2026-10-04,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,185,148,80.0,75,46,29,12,7,19,11353.0
-161,2026-10-05,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,462,31,6.71,9,5,4,1,1,2,8387.0
-35,2026-10-05,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3635,180,4.95,30,18,12,5,3,8,91835.0
-119,2026-10-05,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,495,168,33.94,71,43,28,10,7,17,22747.0
-77,2026-10-05,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,157,126,80.25,64,39,25,10,6,16,9668.0
-162,2026-10-06,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,551,37,6.72,10,6,4,2,1,3,9995.0
-36,2026-10-06,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4373,217,4.96,36,22,14,5,4,9,110469.0
-120,2026-10-06,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,322,109,33.85,46,28,18,7,4,11,14808.0
-78,2026-10-06,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,331,265,80.06,135,82,53,21,14,35,20334.0
-163,2026-10-07,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,412,28,6.8,8,5,3,1,1,2,7477.0
-37,2026-10-07,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3185,158,4.96,26,16,10,4,3,7,80466.0
-121,2026-10-07,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,599,203,33.89,86,52,34,13,8,21,27507.0
-79,2026-10-07,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,226,181,80.09,92,56,36,15,9,24,13931.0
-164,2026-10-08,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,921,62,6.73,17,10,7,3,2,5,16716.0
-38,2026-10-08,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3286,163,4.96,27,16,11,4,3,7,83008.0
-122,2026-10-08,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,658,223,33.89,94,57,37,14,9,23,30246.0
-80,2026-10-08,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,165,132,80.0,67,41,26,10,7,17,10123.0
-165,2026-10-09,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,907,61,6.73,17,10,7,2,2,4,16463.0
-39,2026-10-09,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3531,175,4.96,29,18,11,5,3,8,89189.0
-123,2026-10-09,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,493,167,33.87,71,43,28,10,7,17,22639.0
-81,2026-10-09,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,259,208,80.31,106,64,42,16,11,27,15944.0
-166,2026-10-10,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,469,32,6.82,9,5,4,1,1,2,8517.0
-40,2026-10-10,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4216,209,4.96,34,21,13,5,4,9,106493.0
-124,2026-10-10,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,338,114,33.73,48,29,19,7,5,12,15512.0
-82,2026-10-10,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,174,139,79.89,71,43,28,11,7,18,10693.0
-167,2026-10-11,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,555,38,6.85,10,6,4,2,1,3,10075.0
-41,2026-10-11,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2600,129,4.96,21,13,8,4,2,6,65693.0
-125,2026-10-11,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,422,143,33.89,60,36,24,9,5,14,19383.0
-83,2026-10-11,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,258,207,80.23,105,64,41,16,11,27,15885.0
-168,2026-10-12,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,901,59,6.55,17,10,7,2,1,3,16340.0
-42,2026-10-12,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3031,149,4.92,26,16,10,3,2,5,76518.0
-126,2026-10-12,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,375,128,34.13,57,35,22,9,6,15,17244.0
-84,2026-10-12,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,316,253,80.06,130,79,51,20,13,33,19614.0
+127,2026-09-01,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,639,43,6.73,12,7,5,2,1,3,11592.0
+1,2026-09-01,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2811,140,4.98,23,14,9,4,2,6,71020.0
+85,2026-09-01,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,389,132,33.93,56,34,22,8,5,13,17873.0
+43,2026-09-01,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,198,159,80.3,81,49,32,13,8,21,12181.0
+128,2026-09-02,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,799,54,6.76,15,9,6,2,2,4,14506.0
+2,2026-09-02,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3355,167,4.98,27,16,11,4,3,7,84740.0
+86,2026-09-02,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,425,144,33.88,61,37,24,9,6,15,19517.0
+44,2026-09-02,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,216,173,80.09,88,53,35,14,9,23,13262.0
+129,2026-09-03,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,883,60,6.8,17,10,7,2,2,4,16029.0
+3,2026-09-03,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3532,175,4.95,29,18,11,5,3,8,89219.0
+87,2026-09-03,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,632,214,33.86,90,55,35,13,9,22,29029.0
+45,2026-09-03,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,267,214,80.15,109,66,43,17,11,28,16416.0
+130,2026-09-04,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,460,31,6.74,9,5,4,1,1,2,8343.0
+4,2026-09-04,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3203,159,4.96,26,16,10,4,3,7,80903.0
+88,2026-09-04,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,474,161,33.97,68,41,27,10,6,16,21787.0
+46,2026-09-04,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,300,241,80.33,123,75,48,19,12,31,18467.0
+131,2026-09-05,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,489,33,6.75,9,5,4,1,1,2,8876.0
+5,2026-09-05,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3781,188,4.97,31,19,12,5,3,8,95502.0
+89,2026-09-05,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,542,184,33.95,78,47,31,12,7,19,24924.0
+47,2026-09-05,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,165,132,80.0,67,41,26,10,7,17,10123.0
+132,2026-09-06,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,587,40,6.81,11,7,4,2,1,3,10652.0
+6,2026-09-06,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2584,128,4.95,21,13,8,4,2,6,65288.0
+90,2026-09-06,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,557,189,33.93,80,49,31,12,7,19,25590.0
+48,2026-09-06,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,180,144,80.0,73,44,29,12,7,19,11062.0
+133,2026-09-07,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,468,32,6.84,9,5,4,1,1,2,8500.0
+7,2026-09-07,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2437,121,4.97,20,12,8,3,2,5,61565.0
+91,2026-09-07,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,644,218,33.85,92,56,36,13,9,22,29576.0
+49,2026-09-07,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,332,266,80.12,136,83,53,21,14,35,20426.0
+134,2026-09-08,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,741,50,6.75,14,8,6,2,2,4,13449.0
+8,2026-09-08,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3337,166,4.97,27,16,11,4,3,7,84302.0
+92,2026-09-08,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,604,205,33.94,86,52,34,13,8,21,27747.0
+50,2026-09-08,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,149,119,79.87,61,37,24,10,6,16,9174.0
+135,2026-09-09,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,643,44,6.84,12,7,5,2,1,3,11664.0
+9,2026-09-09,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3690,183,4.96,30,18,12,5,3,8,93224.0
+93,2026-09-09,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,387,131,33.85,55,33,22,8,5,13,17798.0
+51,2026-09-09,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,241,193,80.08,98,59,39,15,10,25,14794.0
+136,2026-09-10,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,919,62,6.75,17,10,7,3,2,5,16683.0
+10,2026-09-10,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4045,201,4.97,33,20,13,5,4,9,102195.0
+94,2026-09-10,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,489,166,33.95,70,42,28,10,7,17,22486.0
+52,2026-09-10,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,318,255,80.19,130,79,51,20,13,33,19579.0
+137,2026-09-11,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,628,42,6.69,12,7,5,2,1,3,11392.0
+11,2026-09-11,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2220,110,4.95,18,11,7,3,2,5,56084.0
+95,2026-09-11,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,613,208,33.93,88,53,35,13,8,21,28181.0
+53,2026-09-11,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,254,203,79.92,104,63,41,16,11,27,15618.0
+138,2026-09-12,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,479,32,6.68,9,5,4,1,1,2,8702.0
+12,2026-09-12,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3828,190,4.96,31,19,12,5,3,8,96711.0
+96,2026-09-12,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,511,173,33.86,73,44,29,11,7,18,23474.0
+54,2026-09-12,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,235,188,80.0,96,58,38,15,10,25,14435.0
+139,2026-09-13,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,849,58,6.83,16,10,6,2,2,4,15418.0
+13,2026-09-13,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,1963,97,4.94,16,10,6,2,2,4,49582.0
+97,2026-09-13,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,586,199,33.96,84,51,33,12,8,20,26930.0
+55,2026-09-13,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,329,264,80.24,134,81,53,21,13,34,20246.0
+140,2026-09-14,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,444,30,6.76,8,5,3,1,1,2,8066.0
+14,2026-09-14,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2310,115,4.98,19,12,7,3,2,5,58350.0
+98,2026-09-14,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,433,147,33.95,62,38,24,9,6,15,19916.0
+56,2026-09-14,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,178,142,79.78,72,44,28,12,7,19,10926.0
+141,2026-09-15,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,486,33,6.79,9,5,4,1,1,2,8824.0
+15,2026-09-15,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3206,159,4.96,26,16,10,4,3,7,80976.0
+99,2026-09-15,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,580,197,33.97,83,50,33,12,8,20,26643.0
+57,2026-09-15,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,244,195,79.92,99,60,39,15,10,25,14977.0
+142,2026-09-16,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,766,52,6.79,14,8,6,2,2,4,13907.0
+16,2026-09-16,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4338,215,4.96,35,21,14,5,4,9,109582.0
+100,2026-09-16,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,624,212,33.97,89,54,35,13,8,21,28694.0
+58,2026-09-16,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,196,157,80.1,80,49,31,13,8,21,12081.0
+143,2026-09-17,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,608,41,6.74,11,7,4,2,1,3,11030.0
+17,2026-09-17,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4466,222,4.97,36,22,14,6,4,10,112810.0
+101,2026-09-17,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,643,218,33.9,92,56,36,13,9,22,29551.0
+59,2026-09-17,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,184,147,79.89,75,46,29,12,7,19,11313.0
+144,2026-09-18,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,534,36,6.74,10,6,4,2,1,3,9696.0
+18,2026-09-18,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2942,146,4.96,24,15,9,4,2,6,74310.0
+102,2026-09-18,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,506,171,33.79,72,44,28,10,7,17,23241.0
+60,2026-09-18,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,263,211,80.23,107,65,42,16,11,27,16173.0
+145,2026-09-19,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,810,55,6.79,15,9,6,2,2,4,14711.0
+19,2026-09-19,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3004,149,4.96,24,15,9,4,2,6,75877.0
+103,2026-09-19,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,564,191,33.87,81,49,32,12,7,19,25930.0
+61,2026-09-19,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,331,265,80.06,135,82,53,21,14,35,20384.0
+146,2026-09-20,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,720,49,6.81,14,8,6,2,2,4,13071.0
+20,2026-09-20,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3176,158,4.97,26,16,10,4,3,7,80224.0
+104,2026-09-20,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,394,134,34.01,56,34,22,9,5,14,18113.0
+62,2026-09-20,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,335,269,80.3,137,83,54,21,14,35,20634.0
+147,2026-09-21,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,464,31,6.68,9,5,4,1,1,2,8414.0
+21,2026-09-21,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2576,128,4.97,21,13,8,4,2,6,65080.0
+105,2026-09-21,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,375,127,33.87,54,33,21,8,5,13,17248.0
+63,2026-09-21,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,256,205,80.08,104,63,41,16,11,27,15735.0
+148,2026-09-22,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,725,49,6.76,14,8,6,2,2,4,13168.0
+22,2026-09-22,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3768,187,4.96,31,19,12,5,3,8,95193.0
+106,2026-09-22,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,445,151,33.93,64,39,25,9,6,15,20452.0
+64,2026-09-22,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,240,192,80.0,98,59,39,15,10,25,14737.0
+149,2026-09-23,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,576,39,6.77,11,7,4,2,1,3,10450.0
+23,2026-09-23,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3993,198,4.96,32,19,13,5,4,9,100873.0
+107,2026-09-23,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,401,136,33.92,57,35,22,9,5,14,18438.0
+65,2026-09-23,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,273,219,80.22,111,67,44,18,11,29,16784.0
+150,2026-09-24,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,526,36,6.84,10,6,4,2,1,3,9548.0
+24,2026-09-24,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2117,105,4.96,17,10,7,3,2,5,53474.0
+108,2026-09-24,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,562,190,33.81,80,49,31,12,7,19,25807.0
+66,2026-09-24,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,247,198,80.16,101,61,40,16,10,26,15213.0
+151,2026-09-25,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,748,51,6.82,14,8,6,2,2,4,13569.0
+25,2026-09-25,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3705,184,4.97,30,18,12,5,3,8,93585.0
+109,2026-09-25,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,389,132,33.93,56,34,22,8,5,13,17880.0
+67,2026-09-25,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,156,125,80.13,64,39,25,10,6,16,9623.0
+152,2026-09-26,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,751,51,6.79,14,8,6,2,2,4,13634.0
+26,2026-09-26,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3278,163,4.97,27,16,11,4,3,7,82810.0
+110,2026-09-26,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,372,126,33.87,53,32,21,8,5,13,17101.0
+68,2026-09-26,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,270,216,80.0,110,67,43,17,11,28,16609.0
+153,2026-09-27,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,721,49,6.8,14,8,6,2,2,4,13080.0
+27,2026-09-27,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3266,162,4.96,27,16,11,4,3,7,82508.0
+111,2026-09-27,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,447,152,34.0,64,39,25,9,6,15,20537.0
+69,2026-09-27,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,224,180,80.36,92,56,36,14,9,23,13801.0
+154,2026-09-28,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,616,42,6.82,12,7,5,2,1,3,11179.0
+28,2026-09-28,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3378,168,4.97,27,16,11,4,3,7,85342.0
+112,2026-09-28,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,451,153,33.92,65,39,26,9,6,15,20722.0
+70,2026-09-28,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,233,187,80.26,95,58,37,15,9,24,14341.0
+155,2026-09-29,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,812,55,6.77,15,9,6,2,2,4,14730.0
+29,2026-09-29,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2349,117,4.98,19,12,7,3,2,5,59336.0
+113,2026-09-29,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,581,197,33.91,83,50,33,12,8,20,26702.0
+71,2026-09-29,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,229,183,79.91,93,56,37,15,9,24,14084.0
+156,2026-09-30,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,521,35,6.72,10,6,4,2,1,3,9455.0
+30,2026-09-30,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3670,182,4.96,30,18,12,5,3,8,92698.0
+114,2026-09-30,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,366,124,33.88,52,32,20,8,5,13,16818.0
+72,2026-09-30,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,255,204,80.0,104,63,41,16,11,27,15684.0
+157,2026-10-01,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,599,41,6.84,11,7,4,2,1,3,10872.0
+31,2026-10-01,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3812,189,4.96,31,19,12,5,3,8,96303.0
+115,2026-10-01,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,471,160,33.97,67,41,26,10,6,16,21641.0
+73,2026-10-01,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,188,150,79.79,77,47,30,12,8,20,11544.0
+158,2026-10-02,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,813,55,6.77,15,9,6,2,2,4,14749.0
+32,2026-10-02,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4136,205,4.96,34,21,13,5,4,9,104492.0
+116,2026-10-02,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,632,214,33.86,90,55,35,13,9,22,29036.0
+74,2026-10-02,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,237,190,80.17,97,59,38,15,10,25,14568.0
+159,2026-10-03,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,591,40,6.77,11,7,4,2,1,3,10720.0
+33,2026-10-03,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2934,146,4.98,24,15,9,4,2,6,74105.0
+117,2026-10-03,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,562,191,33.99,81,49,32,12,7,19,25837.0
+75,2026-10-03,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,196,157,80.1,80,49,31,13,8,21,12073.0
+160,2026-10-04,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,852,58,6.81,16,10,6,2,2,4,15464.0
+34,2026-10-04,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2118,105,4.96,17,10,7,3,2,5,53509.0
+118,2026-10-04,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,327,111,33.94,47,29,18,7,4,11,15008.0
+76,2026-10-04,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,238,191,80.25,97,59,38,15,10,25,14654.0
+161,2026-10-05,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,713,48,6.73,13,8,5,2,2,4,12941.0
+35,2026-10-05,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4086,203,4.97,33,20,13,5,4,9,103209.0
+119,2026-10-05,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,526,178,33.84,75,46,29,11,7,18,24156.0
+77,2026-10-05,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,342,274,80.12,139,84,55,22,14,36,21016.0
+162,2026-10-06,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,821,56,6.82,15,9,6,2,2,4,14910.0
+36,2026-10-06,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3287,163,4.96,27,16,11,4,3,7,83026.0
+120,2026-10-06,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,327,111,33.94,47,29,18,7,4,11,15040.0
+78,2026-10-06,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,251,201,80.08,102,62,40,16,10,26,15445.0
+163,2026-10-07,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,590,40,6.78,11,7,4,2,1,3,10717.0
+37,2026-10-07,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2948,146,4.95,24,15,9,4,2,6,74483.0
+121,2026-10-07,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,585,198,33.85,84,51,33,12,8,20,26887.0
+79,2026-10-07,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,267,214,80.15,109,66,43,17,11,28,16401.0
+164,2026-10-08,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,893,60,6.72,17,10,7,2,2,4,16205.0
+38,2026-10-08,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3156,157,4.97,26,16,10,4,3,7,79713.0
+122,2026-10-08,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,383,130,33.94,55,33,22,8,5,13,17610.0
+80,2026-10-08,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,153,123,80.39,63,38,25,10,6,16,9429.0
+165,2026-10-09,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,534,36,6.74,10,6,4,2,1,3,9690.0
+39,2026-10-09,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,3963,197,4.97,32,19,13,5,4,9,100109.0
+123,2026-10-09,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,586,199,33.96,84,51,33,12,8,20,26911.0
+81,2026-10-09,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,259,207,79.92,106,64,42,16,11,27,15911.0
+166,2026-10-10,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,449,30,6.68,8,5,3,1,1,2,8152.0
+40,2026-10-10,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,4137,205,4.96,34,21,13,5,4,9,104495.0
+124,2026-10-10,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,502,170,33.86,72,44,28,10,7,17,23068.0
+82,2026-10-10,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,231,185,80.09,94,57,37,15,9,24,14223.0
+167,2026-10-11,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,761,52,6.83,14,8,6,2,2,4,13811.0
+41,2026-10-11,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,1968,98,4.98,16,10,6,2,2,4,49712.0
+125,2026-10-11,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,358,121,33.8,51,31,20,7,5,12,16450.0
+83,2026-10-11,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,326,261,80.06,133,81,52,21,13,34,20021.0
+168,2026-10-12,AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,740,49,6.62,15,9,6,1,1,2,13431.0
+42,2026-10-12,META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,2115,105,4.96,17,10,7,3,2,5,53481.0
+126,2026-10-12,PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,645,217,33.64,95,58,37,15,10,25,29651.0
+84,2026-10-12,WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,257,206,80.16,106,64,42,15,9,24,15833.0

@@ -308,7 +308,8 @@ cat("6. TABLA 4: ANÁLISIS DE BRECHA SALARIAL DE GÉNERO\n")
 cat("------------------------------------------------------------------------------\n")
 cat(sprintf("Ingreso medio Femenino:   Gs. %s (sd = Gs. %s)\n", format(round(media_fem), big.mark = "."), format(round(sd(ingreso_fem)), big.mark = ".")))
 cat(sprintf("Ingreso medio Masculino:  Gs. %s (sd = Gs. %s)\n", format(round(media_masc), big.mark = "."), format(round(sd(ingreso_masc)), big.mark = ".")))
-cat(sprintf("Diferencial de género:    Gs. %s (Brecha: %.2f%% a favor de los hombres)\n", format(round(diferencial_genero_pyg), big.mark = "."), brecha_genero_pct))
+grupo_favorecido <- if (diferencial_genero_pyg >= 0) "los hombres" else "las mujeres"
+cat(sprintf("Diferencial de género:    Gs. %s (Brecha: %.2f%% a favor de %s)\n", format(round(diferencial_genero_pyg), big.mark = "."), brecha_genero_pct, grupo_favorecido))
 cat(sprintf("Prueba t de Welch:        t = %.3f, gl = %.1f, p = %.4f\n", t_test_genero$statistic, t_test_genero$parameter, t_test_genero$p.value))
 cat(sprintf("Prueba U de Mann-Whitney: W = %.1f, p = %.4f\n\n", wilcox_genero$statistic, wilcox_genero$p.value))
 

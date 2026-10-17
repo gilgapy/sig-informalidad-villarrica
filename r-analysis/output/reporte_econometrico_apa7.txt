@@ -15,28 +15,28 @@ Período de recolección en terreno:   Setiembre - Octubre 2026 (Villarrica, Gua
 
 2. TABLA 1: ESTADÍSTICAS DESCRIPTIVAS DE VARIABLES SOCIOECONÓMICAS (APA 7)
 ------------------------------------------------------------------------------
-                     Variable   N         Media     Desv_Est   Mediana
-        Ingreso Mensual (PYG) 420  2.345060e+06 7.256937e+05 2332500.0
-          Años de Escolaridad 420  8.957143e+00 3.490604e+00       9.0
-                  Edad (Años) 420  4.258095e+01 1.438362e+01      43.0
-              Horas Semanales 420  4.571667e+01 1.282294e+01      45.0
- Índice Vulnerabilidad Social 420  5.177619e+01 1.488099e+01      52.5
-        Brecha Salarial (PYG) 420 -6.989405e+05 7.256937e+05 -711500.0
-        IQR      Min     Max
- 1061250.00  1200000 4160000
-       6.00        4      15
-      25.00       18      67
-      23.25       24      67
-      20.00       10      96
- 1061250.00 -1844000 1116000
+                     Variable   N         Media     Desv_Est Mediana    IQR
+        Ingreso Mensual (PYG) 420  2.338369e+06 7.218700e+05 2255000 942500
+          Años de Escolaridad 420  9.054762e+00 3.500338e+00       9      6
+                  Edad (Años) 420  4.315000e+01 1.426493e+01      44     24
+              Horas Semanales 420  4.663095e+01 1.263361e+01      46     22
+ Índice Vulnerabilidad Social 420  5.177857e+01 1.499677e+01      52     20
+        Brecha Salarial (PYG) 420 -7.056310e+05 7.218700e+05 -789000 942500
+      Min     Max
+  1200000 4180000
+        4      15
+       18      67
+       24      67
+       14      94
+ -1844000 1136000
 
 Nota. Elaboración propia con base en el relevamiento de campo KoboToolbox/ODK (UNVES 2026).
 El 85.24% de los trabajadores percibe ingresos estrictamente inferiores al salario mínimo legal.
 
 3. ANÁLISIS DE CORRELACIÓN Y RETORNOS DE LA ESCOLARIDAD
 ------------------------------------------------------------------------------
-Coeficiente de correlación de Pearson:  r = 0.0163 (t = 0.334, gl = 418, p = 0.7388, IC 95%: [-0.0795, 0.1118])
-Coeficiente de correlación de Spearman: rho = 0.0091 (S = 12235080.4, p = 0.8519)
+Coeficiente de correlación de Pearson:  r = 0.0092 (t = 0.189, gl = 418, p = 0.8501, IC 95%: [-0.0865, 0.1048])
+Coeficiente de correlación de Spearman: rho = -0.0005 (S = 12354634.3, p = 0.9911)
 
 Interpretación APA 7:
 La relación lineal y monótona entre los años de escolaridad formal y el ingreso mensual en el sector informal
@@ -52,22 +52,22 @@ lm(formula = log(ingreso_mensual_pyg) ~ anios_estudio + antiguedad_oficio_anios 
     edad + factor(genero), data = df_trab)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--0.6391 -0.2655  0.0445  0.2204  0.6324 
+     Min       1Q   Median       3Q      Max 
+-0.64440 -0.22283  0.00603  0.19971  0.65018 
 
 Coefficients:
                           Estimate Std. Error t value Pr(>|t|)    
-(Intercept)             14.6583813  0.0686960 213.381   <2e-16 ***
-anios_estudio            0.0007787  0.0044063   0.177    0.860    
-antiguedad_oficio_anios -0.0007132  0.0021435  -0.333    0.740    
-edad                    -0.0005723  0.0012988  -0.441    0.660    
-factor(genero)masculino -0.0178138  0.0357807  -0.498    0.619    
+(Intercept)              1.461e+01  6.753e-02 216.425   <2e-16 ***
+anios_estudio            4.292e-04  4.295e-03   0.100    0.920    
+antiguedad_oficio_anios  1.594e-03  2.077e-03   0.767    0.443    
+edad                     7.292e-06  1.237e-03   0.006    0.995    
+factor(genero)masculino -2.443e-02  3.450e-02  -0.708    0.479    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 0.3143 on 415 degrees of freedom
-Multiple R-squared:  0.002186,	Adjusted R-squared:  -0.007432 
-F-statistic: 0.2272 on 4 and 415 DF,  p-value: 0.9231
+Residual standard error: 0.3076 on 415 degrees of freedom
+Multiple R-squared:  0.0033,	Adjusted R-squared:  -0.006307 
+F-statistic: 0.3435 on 4 and 415 DF,  p-value: 0.8485
 
 
 Nota. Variable dependiente: log(ingreso_mensual_pyg). Errores estándar entre paréntesis.
@@ -75,26 +75,26 @@ Nota. Variable dependiente: log(ingreso_mensual_pyg). Errores estándar entre pa
 5. TABLA 3: ANÁLISIS DE VULNERABILIDAD SOCIAL POR BARRIO
 ------------------------------------------------------------------------------
            barrio  n media_vuln  sd_vuln mediana_vuln iqr_vuln media_ingreso
-           Centro 90   54.95556 13.68499         57.0    18.00       2232833
-       San Miguel 63   52.68254 13.57990         52.0    15.50       2359365
-         Estación 51   52.64706 16.04472         52.0    20.50       2256078
-          Ybaroty 68   51.39706 17.34044         53.0    26.75       2448824
- Lomas Valentinas 32   50.00000 12.54926         47.5    17.50       2316562
-         Tuyutimí 39   49.23077 15.43827         48.0    23.50       2520000
-    Santa Librada 77   49.10390 14.42456         52.0    22.00       2355065
+          Ybaroty 68   53.88235 15.26143         56.5    19.25       2226029
+ Lomas Valentinas 32   53.75000 15.09326         52.0    24.75       2331719
+         Tuyutimí 39   52.79487 15.66622         54.0    19.50       2349615
+         Estación 51   52.74510 14.69536         52.0    19.50       2198824
+           Centro 90   51.22222 15.37602         52.5    22.00       2382111
+       San Miguel 63   50.15873 14.53606         51.0    19.00       2404286
+    Santa Librada 77   49.92208 14.65818         51.0    17.00       2422013
  sd_ingreso pct_bajo_minimo
-   665982.4        91.11111
-   731789.9        87.30159
-   751996.2        82.35294
-   799412.2        76.47059
-   645907.0        87.50000
-   766179.9        82.05128
-   708410.7        87.01299
+   714383.4        86.76471
+   691166.2        87.50000
+   727472.5        87.17949
+   713748.3        88.23529
+   769072.5        82.22222
+   677231.0        84.12698
+   723988.5        84.41558
 
-Prueba de Normalidad (Shapiro-Wilk): W = 0.9942, p = 0.1084
-Prueba de Homocedasticidad (Bartlett): K2 = 8.032, p = 0.2357
-ANOVA de una vía (Efecto Barrio):      F(6, 413) = 1.449, p = 0.1944
-Prueba Kruskal-Wallis:                 H(6) = 8.632, p = 0.1954
+Prueba de Normalidad (Shapiro-Wilk): W = 0.9930, p = 0.0481
+Prueba de Homocedasticidad (Bartlett): K2 = 0.536, p = 0.9974
+ANOVA de una vía (Efecto Barrio):      F(6, 413) = 0.717, p = 0.6359
+Prueba Kruskal-Wallis:                 H(6) = 4.925, p = 0.5534
 
 Interpretación APA 7:
 El índice de vulnerabilidad social no presenta diferencias estadísticamente significativas entre barrios (p > .05),
@@ -103,11 +103,11 @@ de Villarrica, tanto en zonas céntricas comerciales como en barrios periférico
 
 6. TABLA 4: ANÁLISIS DE BRECHA SALARIAL DE GÉNERO
 ------------------------------------------------------------------------------
-Ingreso medio Femenino:   Gs. 2.373.107 (sd = Gs. 732.251)
-Ingreso medio Masculino:  Gs. 2.335.946 (sd = Gs. 724.481)
-Diferencial de género:    Gs. -37.160 (Brecha: -1.59% a favor de los hombres)
-Prueba t de Welch:        t = 0.449, gl = 171.6, p = 0.6543
-Prueba U de Mann-Whitney: W = 16906.5, p = 0.5875
+Ingreso medio Femenino:   Gs. 2.396.729 (sd = Gs. 776.595)
+Ingreso medio Masculino:  Gs. 2.318.419 (sd = Gs. 702.381)
+Diferencial de género:    Gs. -78.310 (Brecha: -3.38% a favor de las mujeres)
+Prueba t de Welch:        t = 0.922, gl = 169.1, p = 0.3578
+Prueba U de Mann-Whitney: W = 17651.0, p = 0.4038
 
 7. RESUMEN DE LA CAMPAÑA DE MARKETING SOCIAL 'TRABAJO FORMAL, FUTURO SEGURO'
 ------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ Prueba U de Mann-Whitney: W = 16906.5, p = 0.5875
             WHATSAPP           WhatsApp Business Cátedra UNVES
          tipo_canal total_alcance total_interacciones ctr_promedio_pct
       OOH / Impreso         27768                1880             6.77
-       Digital Pago        134988                6702             4.97
+       Digital Pago        134988                6702             4.96
    BTL / Presencial         20890                7082            33.90
  Digital Mensajería         10243                8205            80.09
  total_consultas total_derivaciones presupuesto_total_pyg

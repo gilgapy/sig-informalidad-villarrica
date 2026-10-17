@@ -1,5 +1,5 @@
 codigo_canal,canal_nombre,tipo_canal,dias_medidos,total_alcance,total_interacciones,ctr_promedio_pct,total_consultas,total_consultas_resimple,total_consultas_ips,total_derivaciones_suace,total_derivaciones_ips,total_derivaciones,presupuesto_total_pyg,costo_promedio_por_consulta_pyg,costo_por_derivacion_efectiva_pyg
-AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,42,27768,1880,6.77,522,312,210,80,57,137,504000.0,966.0,3679.0
-META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,42,134988,6702,4.97,1098,671,427,176,116,292,3410000.0,3106.0,11678.0
-PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,42,20890,7082,33.9,2992,1816,1176,439,279,718,960000.0,321.0,1337.0
-WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,42,10243,8205,80.09,4180,2538,1642,649,421,1070,630000.0,151.0,589.0
+AFICHES_QR,Afiches con QR y Medios Locales,OOH / Impreso,42,27768,1880,6.77,522,310,212,76,61,137,504000.0,966.0,3679.0
+META_ADS,Meta Ads (Facebook & Instagram),Digital Pago,42,134988,6702,4.96,1098,668,430,174,118,292,3410000.0,3106.0,11678.0
+PUNTOS_PRESENCIALES,Puntos Presenciales / Ferias Comunitarias,BTL / Presencial,42,20890,7082,33.9,2992,1818,1174,438,280,718,960000.0,321.0,1337.0
+WHATSAPP,WhatsApp Business Cátedra UNVES,Digital Mensajería,42,10243,8205,80.09,4180,2536,1644,652,418,1070,630000.0,151.0,589.0
