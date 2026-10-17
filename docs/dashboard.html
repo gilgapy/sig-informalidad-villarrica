@@ -599,6 +599,19 @@
       background: #111827 !important;
     }
 
+    .barrio-etiqueta {
+      background: rgba(17, 24, 39, 0.85);
+      color: #f9fafb;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      box-shadow: none;
+    }
+    .barrio-etiqueta::before { display: none; }
+
     /* ==========================================================================
        TABLES AND MICRODATA EXPLORER
        ========================================================================== */
@@ -1283,16 +1296,18 @@
 
     const SALARIO_MINIMO_LEGAL = 3044000;
 
-    // Coordenadas de los 7 barrios de Villarrica
+    // Centro de los 7 barrios de Villarrica según OpenStreetMap (Tuyutimí figura como "Tuyutí Mi")
     const BARRIOS_BOUNDS = {
-      "Centro": { lat: -25.7530, lon: -56.4480, color: "#3b82f6" },
-      "Ybaroty": { lat: -25.7500, lon: -56.4570, color: "#10b981" },
-      "San Miguel": { lat: -25.7415, lon: -56.4415, color: "#f59e0b" },
-      "Santa Librada": { lat: -25.7630, lon: -56.4510, color: "#ef4444" },
-      "Estación": { lat: -25.7645, lon: -56.4370, color: "#8b5cf6" },
-      "Lomas Valentinas": { lat: -25.7480, lon: -56.4340, color: "#06b6d4" },
-      "Tuyutimí": { lat: -25.7715, lon: -56.4610, color: "#ec4899" }
+      "Centro": { lat: -25.7824, lon: -56.4471, color: "#3b82f6" },
+      "Ybaroty": { lat: -25.7698, lon: -56.4455, color: "#10b981" },
+      "San Miguel": { lat: -25.7765, lon: -56.4378, color: "#f59e0b" },
+      "Santa Librada": { lat: -25.7917, lon: -56.4493, color: "#ef4444" },
+      "Estación": { lat: -25.7937, lon: -56.4605, color: "#8b5cf6" },
+      "Lomas Valentinas": { lat: -25.7808, lon: -56.4586, color: "#06b6d4" },
+      "Tuyutimí": { lat: -25.7723, lon: -56.4582, color: "#ec4899" }
     };
+    const MAPA_CENTRO = [-25.7815, -56.4490];
+    const RADIO_BARRIO_M = 330;
 
     // Formateador de Moneda Guaraníes (PYG)
     function formatPYG(num) {
@@ -2184,7 +2199,7 @@
 
       // Centrado en Villarrica del Espíritu Santo
       AppState.map = L.map('villarricaMap', {
-        center: [-25.7530, -56.4480],
+        center: MAPA_CENTRO,
         zoom: 14,
         zoomControl: true
       });
@@ -2199,6 +2214,12 @@
         maxZoom: 16
       }).addTo(AppState.map);
 
+      // Nombres de calles y lugares encima del mapa base
+      const referenciaUrl = AppState.theme === 'dark'
+        ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}'
+        : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}';
+      L.tileLayer(referenciaUrl, { maxZoom: 16, pane: 'shadowPane' }).addTo(AppState.map);
+
       AppState.markersLayer = L.layerGroup().addTo(AppState.map);
       AppState.polygonsLayer = L.layerGroup().addTo(AppState.map);
 
@@ -2208,12 +2229,12 @@
           color: b.color,
           fillColor: b.color,
           fillOpacity: 0.12,
-          radius: 450,
+          radius: RADIO_BARRIO_M,
           weight: 1.5,
           dashArray: '4, 4'
         }).addTo(AppState.polygonsLayer);
 
-        circle.bindTooltip(`<strong>Barrio ${barrioName}</strong>`, { permanent: false, direction: 'top' });
+        circle.bindTooltip(barrioName, { permanent: true, direction: 'top', offset: [0, -14], className: 'barrio-etiqueta' });
       });
     }
 
