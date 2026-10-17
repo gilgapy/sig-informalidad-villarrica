@@ -22,7 +22,7 @@ CANALES = [
     {"id": 4, "codigo": "AFICHES_QR", "nombre": "Afiches con QR y Medios Locales", "tipo": "OOH / Impreso", "alcance_tot": 27768, "inter_tot": 1880, "cons_tot": 522, "deriv_tot": 137, "presup": 504000}
 ]
 
-PROGRAMAS = ["PROG-RESIMPLE", "PROG-IPS", "PROG-SUACE"]
+PROGRAMAS = ["RESIMPLE", "IPS_MICRO", "SUACE"]
 
 def generar_dataset_marketing(output_path: str = "data/processed/marketing_campana_metricas.csv") -> List[Dict[str, Any]]:
     rng = np.random.default_rng(20261016)
@@ -101,7 +101,7 @@ def generar_dataset_marketing(output_path: str = "data/processed/marketing_campa
                     "codigo_derivacion": f"DER-2026-SUACE-{deriv_id_counter:04d}",
                     "fecha_derivacion": f_str,
                     "canal_codigo": canal["codigo"],
-                    "programa_id": "PROG-SUACE",
+                    "programa_id": "SUACE",
                     "programa_nombre": "Sistema Unificado de Apertura y Cierre de Empresas (SUACE)",
                     "trabajador_asociado": f"TRAB-{rng.integers(1, 421):04d}",
                     "estado_tramite": rng.choice(["Derivado Efectivo", "En Asistencia", "Formalizado"], p=[0.72, 0.18, 0.10]),
@@ -115,7 +115,7 @@ def generar_dataset_marketing(output_path: str = "data/processed/marketing_campa
                     "codigo_derivacion": f"DER-2026-IPS-{deriv_id_counter:04d}",
                     "fecha_derivacion": f_str,
                     "canal_codigo": canal["codigo"],
-                    "programa_id": "PROG-IPS",
+                    "programa_id": "IPS_MICRO",
                     "programa_nombre": "Instituto de Previsión Social (IPS)",
                     "trabajador_asociado": f"TRAB-{rng.integers(1, 421):04d}",
                     "estado_tramite": rng.choice(["Derivado Efectivo", "En Asistencia", "Formalizado"], p=[0.68, 0.22, 0.10]),
