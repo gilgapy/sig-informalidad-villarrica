@@ -344,6 +344,43 @@ theme_apa7 <- function(base_size = 11, base_family = "sans") {
     )
 }
 
+# El título y el subtítulo de cada figura van en el informe (APA 7), no dentro de la imagen.
+# ragg escribe los metadatos de resolución (300 DPI) en el PNG; el dispositivo quartz no lo hace.
+guardar_figura <- function(grafico, archivo, ancho, alto) {
+  ragg::agg_png(file.path(output_dir, archivo), width = ancho, height = alto, res = 300, background = "white")
+  print(grafico)
+  invisible(dev.off())
+}
+
+formato_miles <- function(x) formatC(round(x), format = "d", big.mark = ".")
+formato_gs <- function(x) paste0("Gs. ", formato_miles(x))
+
+colores_canal <- c(
+  "Afiches con QR y Medios Locales" = "#3B82F6",
+  "Meta Ads (Facebook & Instagram)" = "#10B981",
+  "Puntos Presenciales / Ferias Comunitarias" = "#F59E0B",
+  "WhatsApp Business Cátedra UNVES" = "#8B5CF6"
+)
+
+# Barras horizontales de frecuencias (porcentaje y n) con el estilo de la Figura 4
+grafico_frecuencias <- function(categorias, eje_x, eje_y, nota, ancho_rotulo = 42) {
+  tabla <- as.data.frame(table(categorias), stringsAsFactors = FALSE) %>%
+    rename(categoria = categorias, n = Freq) %>%
+    mutate(
+      pct = n / sum(n) * 100,
+      categoria = stringr::str_wrap(categoria, width = ancho_rotulo)
+    )
+  ggplot(tabla, aes(x = reorder(categoria, n), y = pct)) +
+    geom_col(fill = "#3B82F6", color = "#1E3A8A", width = 0.65) +
+    geom_text(aes(label = sprintf("%.1f%% (n=%d)", pct, n)),
+              hjust = -0.1, size = 3.1, color = "black", fontface = "bold") +
+    coord_flip() +
+    scale_y_continuous(limits = c(0, max(tabla$pct) * 1.3), labels = function(x) paste0(x, "%")) +
+    labs(x = eje_x, y = eje_y, caption = nota) +
+    theme_apa7() +
+    theme(plot.caption.position = "plot")
+}
+
 # --- FIGURA 1: Correlación Escolaridad vs. Ingreso Mensual ---
 p1 <- ggplot(df_trab, aes(x = anios_estudio, y = ingreso_mensual_pyg / 1e6)) +
   geom_point(alpha = 0.45, color = "#1E3A8A", size = 2) +
@@ -358,31 +395,25 @@ p1 <- ggplot(df_trab, aes(x = anios_estudio, y = ingreso_mensual_pyg / 1e6)) +
   scale_x_continuous(breaks = seq(0, 18, 2), limits = c(1, 18)) +
   scale_y_continuous(breaks = seq(1, 5, 0.5), labels = function(x) paste0(x, "M")) +
   labs(
-    title = "Figura 1. Correlación entre Años de Escolaridad e Ingreso Mensual",
-    subtitle = "Dispersión con recta ajustada MCO y nivel de salario mínimo legal en trabajadores informales",
     x = "Años de Educación Formal Acumulada",
     y = "Ingreso Mensual Percibido (Millones de Gs.)",
     caption = "Nota. N = 420 trabajadores informales. Elaboración propia según datos de relevamiento KoboCollect UNVES (2026)."
   ) +
   theme_apa7()
 
-png(file.path(output_dir, "figura1_correlacion_escolaridad_ingreso.png"), width = 2400, height = 1600, res = 300)
-print(p1)
-invisible(dev.off())
+guardar_figura(p1, "figura1_correlacion_escolaridad_ingreso.png", 2400, 1600)
 
 
 # --- FIGURA 2: Distribución del Índice de Vulnerabilidad Social por Barrio ---
 p2 <- ggplot(df_trab, aes(x = reorder(barrio, -indice_vulnerabilidad_social, FUN = median), y = indice_vulnerabilidad_social)) +
   geom_boxplot(fill = "#E0E7FF", color = "#1E3A8A", outlier.shape = 21, outlier.fill = "#DC2626", outlier.size = 1.8, width = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 23, size = 2.5, fill = "#B91C1C", color = "black") +
-  annotate("label", x = 4, y = 92,
+  annotate("label", x = 4, y = 96,
            label = sprintf("ANOVA: F(6, 413) = %.3f, p = %.3f\nKruskal-Wallis: H(6) = %.3f, p = %.3f",
                            f_stat, p_val_anova, kruskal_vuln$statistic, kruskal_vuln$p.value),
            fill = "white", color = "black", size = 3.1) +
   scale_y_continuous(breaks = seq(10, 100, 10), limits = c(10, 100)) +
   labs(
-    title = "Figura 2. Índice Sintético de Vulnerabilidad Social en los 7 Barrios de Villarrica",
-    subtitle = "Diagrama de cajas y bigotes con medias (rombos rojos) y medianas por cuadrante censal",
     x = "Barrio de Relevamiento Censal",
     y = "Índice de Vulnerabilidad Social (Escala 0 a 100)",
     caption = "Nota. N = 420. Diferencias no significativas entre barrios a nivel alpha = .05. Proyecto UNVES (2026)."
@@ -390,9 +421,7 @@ p2 <- ggplot(df_trab, aes(x = reorder(barrio, -indice_vulnerabilidad_social, FUN
   theme_apa7() +
   theme(axis.text.x = element_text(angle = 20, hjust = 1))
 
-png(file.path(output_dir, "figura2_vulnerabilidad_social_barrios.png"), width = 2400, height = 1600, res = 300)
-print(p2)
-invisible(dev.off())
+guardar_figura(p2, "figura2_vulnerabilidad_social_barrios.png", 2400, 1600)
 
 
 # --- FIGURA 3: Densidad de Ingresos por Género y Brecha con Salario Mínimo ---
@@ -408,8 +437,6 @@ p3 <- ggplot(df_trab, aes(x = ingreso_mensual_pyg / 1e6, fill = genero, color = 
                            brecha_genero_pct, t_test_genero$p.value, wilcox_genero$p.value),
            size = 3.2, hjust = 1, fontface = "italic") +
   labs(
-    title = "Figura 3. Curva de Densidad de Ingresos por Género frente al Salario Mínimo Legal",
-    subtitle = "Línea verde discontinua: Salario Mínimo (Gs. 3.044.000). Líneas punteadas: Medias grupales.",
     x = "Ingreso Mensual Estimado (Millones de Guaraníes)",
     y = "Densidad de Probabilidad Kernel",
     fill = "Género",
@@ -419,9 +446,7 @@ p3 <- ggplot(df_trab, aes(x = ingreso_mensual_pyg / 1e6, fill = genero, color = 
   ) +
   theme_apa7()
 
-png(file.path(output_dir, "figura3_brecha_ingreso_genero_minimo.png"), width = 2400, height = 1600, res = 300)
-print(p3)
-invisible(dev.off())
+guardar_figura(p3, "figura3_brecha_ingreso_genero_minimo.png", 2400, 1600)
 
 
 # --- FIGURA 4: Tasa de Informalidad Laboral en MYPEs por Rubro ---
@@ -432,8 +457,6 @@ p4 <- ggplot(stats_mypes_rubro, aes(x = reorder(rubro_actividad, tasa_informalid
   coord_flip() +
   scale_y_continuous(limits = c(0, 128), breaks = seq(0, 100, 20), labels = function(x) paste0(x, "%")) +
   labs(
-    title = "Figura 4. Tasa Media de Informalidad Laboral Patronal por Rubro de MYPEs",
-    subtitle = "Porcentaje de asalariados sin inscripción en el Instituto de Previsión Social (IPS)",
     x = "Rama de Actividad Económica",
     y = "Tasa de Informalidad Laboral Media (%)",
     caption = "Nota. N = 135 unidades productivas relevadas en Villarrica. Cátedra SIG - UNVES (2026)."
@@ -441,9 +464,7 @@ p4 <- ggplot(stats_mypes_rubro, aes(x = reorder(rubro_actividad, tasa_informalid
   theme_apa7() +
   theme(plot.title.position = "plot", plot.caption.position = "plot")
 
-png(file.path(output_dir, "figura4_informalidad_mypes_rubro.png"), width = 2600, height = 1700, res = 300)
-print(p4)
-invisible(dev.off())
+guardar_figura(p4, "figura4_informalidad_mypes_rubro.png", 2600, 1700)
 
 
 # --- FIGURA 5: Embudo Multicanal y Conversión de la Campaña de Marketing Social ---
@@ -462,8 +483,6 @@ p5 <- ggplot(funnel_data, aes(x = Etapa, y = Valor, fill = Canal)) +
   geom_col(position = "dodge", color = "black", linewidth = 0.3) +
   scale_fill_manual(values = c("#3B82F6", "#10B981", "#F59E0B", "#8B5CF6")) +
   labs(
-    title = "Figura 5. Rendimiento y Conversión del Embudo Multicanal de Marketing Social",
-    subtitle = "Comparativa del alcance normalizado, consultas ciudadanas y derivaciones formales a SUACE/IPS",
     x = "Etapa del Embudo de Marketing Social",
     y = "Volumen Registrado",
     fill = "Canal Estratégico",
@@ -473,9 +492,108 @@ p5 <- ggplot(funnel_data, aes(x = Etapa, y = Valor, fill = Canal)) +
   theme_apa7() +
   theme(plot.title.position = "plot", plot.caption.position = "plot")
 
-png(file.path(output_dir, "figura5_embudo_marketing_multicanal.png"), width = 2600, height = 1600, res = 300)
-print(p5)
-invisible(dev.off())
+guardar_figura(p5, "figura5_embudo_marketing_multicanal.png", 2600, 1600)
+
+
+# --- FIGURA 6: Situación Tributaria (RUC) de las MYPEs ---
+p6 <- grafico_frecuencias(
+  df_mype$estado_tributario_ruc,
+  eje_x = "Situación ante el RUC",
+  eje_y = "Porcentaje de MYPEs (%)",
+  nota = sprintf("Nota. N = %d unidades productivas relevadas en Villarrica. Cátedra SIG - UNVES (2026).", nrow(df_mype))
+)
+guardar_figura(p6, "figura6_situacion_tributaria_ruc_mypes.png", 2600, 1300)
+
+
+# --- FIGURA 7: Barreras Patronales al Aporte al IPS (MYPEs) ---
+p7 <- grafico_frecuencias(
+  df_mype$motivo_no_aporte_ips,
+  eje_x = "Motivo patronal declarado",
+  eje_y = "Porcentaje de MYPEs (%)",
+  nota = sprintf("Nota. N = %d unidades productivas; un motivo principal por establecimiento. Cátedra SIG - UNVES (2026).", nrow(df_mype))
+)
+guardar_figura(p7, "figura7_barreras_patronales_ips.png", 2600, 1600)
+
+
+# --- FIGURA 8: Motivos de No Aporte al IPS de los Trabajadores sin Cobertura ---
+trab_sin_ips <- df_trab %>% filter(cobertura_ips == "Sin seguro IPS")
+p8 <- grafico_frecuencias(
+  trab_sin_ips$motivo_no_ips,
+  eje_x = "Motivo declarado",
+  eje_y = "Porcentaje de trabajadores sin IPS (%)",
+  nota = sprintf("Nota. n = %d trabajadores sin cobertura del IPS (de N = %d relevados). Proyecto UNVES (2026).",
+                 nrow(trab_sin_ips), nrow(df_trab))
+)
+guardar_figura(p8, "figura8_motivos_no_aporte_ips_trabajadores.png", 2600, 1600)
+
+
+# --- FIGURA 9: Costo por Consulta y por Derivación según Canal ---
+costos_canal <- df_mkt_res %>%
+  select(canal_nombre, costo_promedio_por_consulta_pyg, costo_por_derivacion_efectiva_pyg) %>%
+  pivot_longer(-canal_nombre, names_to = "indicador", values_to = "costo") %>%
+  mutate(
+    indicador = factor(indicador,
+                       levels = c("costo_promedio_por_consulta_pyg", "costo_por_derivacion_efectiva_pyg"),
+                       labels = c("Costo por consulta", "Costo por derivación")),
+    canal = reorder(stringr::str_wrap(canal_nombre, 24), costo)
+  )
+
+p9 <- ggplot(costos_canal, aes(x = canal, y = costo, fill = canal_nombre)) +
+  geom_col(color = "black", linewidth = 0.3, width = 0.65, show.legend = FALSE) +
+  geom_text(aes(label = formato_gs(costo)), hjust = -0.1, size = 3.0, color = "black", fontface = "bold") +
+  coord_flip() +
+  facet_wrap(~ indicador, scales = "free_x") +
+  scale_fill_manual(values = colores_canal) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.45)),
+                     labels = formato_miles) +
+  labs(
+    x = "Canal de la campaña",
+    y = "Costo unitario (Gs.)",
+    caption = "Nota. Presupuesto total del canal dividido por sus consultas o derivaciones en 42 días de campaña. Cátedra Marketing Social - UNVES (2026)."
+  ) +
+  theme_apa7() +
+  theme(
+    strip.background = element_blank(),
+    strip.text = element_text(face = "bold", size = rel(0.95)),
+    panel.spacing.x = unit(1.2, "lines"),
+    plot.caption.position = "plot"
+  )
+guardar_figura(p9, "figura9_costo_por_canal_marketing.png", 2600, 1400)
+
+
+# --- FIGURA 10: Evolución Diaria de Consultas y Derivaciones ---
+evolucion_diaria <- df_mkt_dia %>%
+  mutate(fecha = as.Date(fecha)) %>%
+  group_by(fecha) %>%
+  summarise(
+    Consultas = sum(consultas_iniciadas),
+    Derivaciones = sum(derivaciones_totales_formalizacion),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(-fecha, names_to = "serie", values_to = "valor")
+
+# Marcas semanales desde el inicio de la campaña, más el último día
+fechas_eje <- unique(c(seq(min(evolucion_diaria$fecha), max(evolucion_diaria$fecha), by = "1 week"), max(evolucion_diaria$fecha)))
+
+p10 <- ggplot(evolucion_diaria, aes(x = fecha, y = valor, color = serie, shape = serie)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 1.6) +
+  scale_color_manual(values = c("Consultas" = "#1E3A8A", "Derivaciones" = "#B91C1C")) +
+  scale_shape_manual(values = c("Consultas" = 16, "Derivaciones" = 17)) +
+  scale_x_date(breaks = fechas_eje, date_labels = "%d/%m", expand = expansion(mult = 0.02)) +
+  scale_y_continuous(limits = c(0, NA), breaks = seq(0, 300, 50)) +
+  labs(
+    x = "Fecha (2026)",
+    y = "Cantidad diaria (cuatro canales)",
+    color = "Serie",
+    shape = "Serie",
+    caption = sprintf("Nota. %d días de campaña (%s al %s); suma diaria de los cuatro canales. Cátedra Marketing Social - UNVES (2026).",
+                      n_distinct(evolucion_diaria$fecha),
+                      format(min(evolucion_diaria$fecha), "%d/%m"), format(max(evolucion_diaria$fecha), "%d/%m"))
+  ) +
+  theme_apa7() +
+  theme(plot.caption.position = "plot")
+guardar_figura(p10, "figura10_evolucion_diaria_marketing.png", 2600, 1400)
 
 cat("Gráficos analíticos generados exitosamente en alta resolución (300 DPI) en:", output_dir, "\n")
 cat("==============================================================================\n")
