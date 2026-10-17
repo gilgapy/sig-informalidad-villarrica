@@ -273,9 +273,35 @@ El relevamiento de $N = 135$ unidades productivas registró una dotación conjun
 
 *Nota.* Porcentaje de trabajadores dependientes sin inscripción en el IPS; $n$ = cantidad de MYPEs por rubro.
 
-En materia tributaria, el 51.1% de los establecimientos carece de inscripción en el Registro Único del Contribuyente (RUC), el 38.5% está inscripto en el RESIMPLE y el 10.4% en el régimen general. En cuanto a medios de cobro, el 30.4% opera exclusivamente en efectivo, mientras que el resto combina el efectivo con billeteras móviles, QR o transferencias, en línea con el avance de la digitalización de pagos reportado por el Banco Central del Paraguay (BCP, 2025).
+En materia tributaria, el 51.1% de los establecimientos carece de inscripción en el Registro Único del Contribuyente (RUC), el 38.5% está inscripto en el RESIMPLE y el 10.4% en el régimen general (Figura 5). En cuanto a medios de cobro, el 30.4% opera exclusivamente en efectivo, mientras que el resto combina el efectivo con billeteras móviles, QR o transferencias, en línea con el avance de la digitalización de pagos reportado por el Banco Central del Paraguay (BCP, 2025).
 
-Respecto de los motivos patronales de no inscripción en el IPS (IPS, 2024), el principal es el desconocimiento de los trámites y exigencias de inscripción (23.0%), seguido del costo del aporte mensual frente a la facturación (22.2%), la contratación por jornada transitoria o a destajo (20.0%), la preferencia de los propios trabajadores por cobrar el jornal íntegro (17.8%) y la burocracia documental (17.0%). Entre los 400 trabajadores sin cobertura, los motivos declarados de no aporte fueron: ingreso insuficiente para afrontar el costo mensual (31.0%), mala atención y falta de medicamentos en el hospital regional del IPS (28.0%), desconocimiento de los trámites del régimen de independientes (17.0%), falta de confianza en el retorno jubilatorio (14.0%) y que el empleador no realiza la inscripción (10.0%).
+**Figura 5**
+
+*Situación Tributaria de las MYPEs ante el Registro Único del Contribuyente (RUC)*
+
+![](../r-analysis/output/figura6_situacion_tributaria_ruc_mypes.png){width=100%}
+
+*Nota.* Porcentaje y cantidad ($n$) de MYPEs según su situación de inscripción tributaria; $N = 135$. Elaboración en R con datos del relevamiento UNVES (2026).
+
+Respecto de los motivos patronales de no inscripción en el IPS (IPS, 2024), el principal es el desconocimiento de los trámites y exigencias de inscripción (23.0%), seguido del costo del aporte mensual frente a la facturación (22.2%), la contratación por jornada transitoria o a destajo (20.0%), la preferencia de los propios trabajadores por cobrar el jornal íntegro (17.8%) y la burocracia documental (17.0%), como se observa en la Figura 6.
+
+**Figura 6**
+
+*Barreras Patronales para la Inscripción de los Trabajadores en el IPS*
+
+![](../r-analysis/output/figura7_barreras_patronales_ips.png){width=100%}
+
+*Nota.* Motivo principal declarado por cada establecimiento; $N = 135$ MYPEs. Elaboración en R con datos del relevamiento UNVES (2026).
+
+Entre los 400 trabajadores sin cobertura, los motivos declarados de no aporte fueron: ingreso insuficiente para afrontar el costo mensual (31.0%), mala atención y falta de medicamentos en el hospital regional del IPS (28.0%), desconocimiento de los trámites del régimen de independientes (17.0%), falta de confianza en el retorno jubilatorio (14.0%) y que el empleador no realiza la inscripción (10.0%). La Figura 7 presenta esta distribución.
+
+**Figura 7**
+
+*Motivos de No Aporte al IPS Declarados por los Trabajadores sin Cobertura*
+
+![](../r-analysis/output/figura8_motivos_no_aporte_ips_trabajadores.png){width=100%}
+
+*Nota.* Base: $n = 400$ trabajadores sin seguro del IPS (95.24% de la muestra); se excluyen los 20 trabajadores asegurados. Elaboración en R con datos del relevamiento UNVES (2026).
 
 
 ```{=openxml}
@@ -307,7 +333,7 @@ El esquema relacional (`db/schema.sql`) está normalizado en Tercera Forma Norma
 - **2 tablas asociativas N:M:** `trabajadores_medios_pago` y `unidades_medios_pago`.
 - **4 vistas analíticas:** `vw_trabajadores_consolidado`, `vw_unidades_productivas_consolidado`, `vw_marketing_resumen_canales` y `vw_articulacion_programas_formalizacion`.
 
-**Figura 5**
+**Figura 8**
 
 *Diagrama Entidad-Relación del Sistema de Información Gerencial (3FN)*
 
@@ -334,39 +360,39 @@ La verificación de calidad (Sesión 12) se ejecutó con el script `db/test_db_i
 
 ## 5.6 Dashboard Gerencial Interactivo
 
-El dashboard (`docs/dashboard.html`) consolida los indicadores en cuatro pestañas con filtros simultáneos por barrio, género, rubro y canal de marketing. Las Figuras 6 a 9 muestran cada una de ellas.
+El dashboard (`docs/dashboard.html`) consolida los indicadores en cuatro pestañas con filtros simultáneos por barrio, género, rubro y canal de marketing. Las Figuras 9 a 12 muestran cada una de ellas como evidencia del funcionamiento del sistema; el análisis de los datos se presenta con gráficos propios en los capítulos I y III.
 
-**Figura 6**
+**Figura 9**
 
 *Dashboard Gerencial — Pestaña 1: Diagnóstico Social y Territorio*
 
 ![](img/dashboard_social.png){width=100%}
 
-*Nota.* Indicadores de informalidad, ingreso medio, porcentaje bajo el salario mínimo e IVS; mapa georreferenciado de los 420 trabajadores.
+*Nota.* Captura de pantalla del sistema. Indicadores de informalidad, ingreso medio, porcentaje bajo el salario mínimo e IVS; mapa georreferenciado de los 420 trabajadores.
 
-**Figura 7**
+**Figura 10**
 
 *Dashboard Gerencial — Pestaña 2: Gestión Productiva y MYPEs*
 
 ![](img/dashboard_mypes.png){width=100%}
 
-*Nota.* Informalidad patronal por rubro, facturación según situación RUC, barreras patronales y disposición a formalizarse.
+*Nota.* Captura de pantalla del sistema. Informalidad patronal por rubro, facturación según situación RUC, barreras patronales y disposición a formalizarse.
 
-**Figura 8**
+**Figura 11**
 
 *Dashboard Gerencial — Pestaña 3: Marketing Social "Trabajo Formal, Futuro Seguro"*
 
 ![](img/dashboard_marketing.png){width=100%}
 
-*Nota.* Embudo de conversión, evolución diaria de consultas y derivaciones, costo por canal y articulación con programas públicos.
+*Nota.* Captura de pantalla del sistema. Embudo de conversión, evolución diaria de consultas y derivaciones, costo por canal y articulación con programas públicos.
 
-**Figura 9**
+**Figura 12**
 
 *Dashboard Gerencial — Pestaña 4: Explorador de Microdatos y Vistas*
 
 ![](img/dashboard_explorer.png){width=100%}
 
-*Nota.* Consulta de los registros individuales de las vistas analíticas, con búsqueda por texto.
+*Nota.* Captura de pantalla del sistema. Consulta de los registros individuales de las vistas analíticas, con búsqueda por texto.
 
 
 ```{=openxml}
@@ -389,13 +415,13 @@ La campaña operó durante 42 días continuos (del 01 de setiembre al 12 de octu
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | WhatsApp Business | 10.243 | 8.205 | 80,09% | 4.180 | 1.070 | 630.000 | 151 | 589 |
 | Puntos Presenciales / Ferias | 20.890 | 7.082 | 33,90% | 2.992 | 718 | 960.000 | 321 | 1.337 |
-| Meta Ads (Facebook/Instagram) | 134.988 | 6.702 | 4,96% | 1.098 | 292 | 3.410.000 | 3.106 | 11.678 |
+| Meta Ads (Facebook / Instagram) | 134.988 | 6.702 | 4,96% | 1.098 | 292 | 3.410.000 | 3.106 | 11.678 |
 | Afiches QR y Medios Locales | 27.768 | 1.880 | 6,77% | 522 | 137 | 504.000 | 966 | 3.679 |
 | **Total** | **193.889** | **23.869** | **12,31%** | **8.792** | **2.217** | **5.504.000** | **626** | **2.483** |
 
 *Nota.* Moneda: guaraníes (PYG). Tipología de canales: WhatsApp (mensajería digital), Puntos Presenciales (BTL), Meta Ads (digital pago), Afiches QR (OOH / impreso). CTR = tasa de interacción (interacciones / alcance). De las 8.792 consultas, 5.332 trataron sobre RESIMPLE y 3.460 sobre IPS. Las 2.217 derivaciones se dirigieron a la ventanilla SUACE (1.340) y a la Agencia Regional del IPS (877).
 
-**Figura 10**
+**Figura 13**
 
 *Embudo de Conversión Multicanal de la Campaña "Trabajo Formal, Futuro Seguro"*
 
@@ -403,12 +429,30 @@ La campaña operó durante 42 días continuos (del 01 de setiembre al 12 de octu
 
 *Nota.* El alcance se presenta dividido por 100 para hacerlo comparable con las demás etapas. Embudo agregado: alcance 193.889 (100%) → interacciones 23.869 (12.3%) → consultas 8.792 (4.5%) → derivaciones 2.217 (1.1%).
 
+La Figura 14 muestra la evolución diaria de la campaña: las consultas oscilaron entre 161 y 260 por día y las derivaciones entre 40 y 67, sin una tendencia marcada a lo largo de las seis semanas.
+
+**Figura 14**
+
+*Evolución Diaria de Consultas y Derivaciones de la Campaña (01/09 al 12/10 de 2026)*
+
+![](../r-analysis/output/figura10_evolucion_diaria_marketing.png){width=100%}
+
+*Nota.* Suma diaria de los cuatro canales durante los 42 días de campaña (8.792 consultas y 2.217 derivaciones en total). Elaboración en R a partir de la tabla `marketing_kpis`.
+
 ## 6.2 Costo-Eficiencia por Canal
 
-Los datos muestran una marcada asimetría de costo-eficiencia entre canales:
+Los datos muestran una marcada asimetría de costo-eficiencia entre canales (Figura 15):
 
 1. **Canales de alta proximidad y confianza:** WhatsApp Business y las ferias presenciales concentraron el 80.65% de las derivaciones efectivas (1.788 de 2.217) con apenas el 28.89% del presupuesto (Gs. 1.590.000). El costo por derivación en WhatsApp fue de Gs. 589.
 2. **Canales de difusión masiva:** Meta Ads absorbió el 61.95% de los fondos (Gs. 3.410.000) pero generó solo el 13.17% de las derivaciones (292), con un costo por derivación de Gs. 11.678, unas 20 veces superior al de WhatsApp. En el segmento informal, la pauta digital masiva resulta insuficiente si no va acompañada de un canal de atención asistida y personalizada.
+
+**Figura 15**
+
+*Costo por Consulta y por Derivación según Canal de la Campaña*
+
+![](../r-analysis/output/figura9_costo_por_canal_marketing.png){width=100%}
+
+*Nota.* Moneda: guaraníes (PYG). Presupuesto de cada canal dividido por sus consultas o derivaciones en los 42 días de campaña; los valores coinciden con la Tabla 5. Cada panel tiene su propia escala.
 
 
 ```{=openxml}
@@ -490,5 +534,5 @@ Universidad Nacional de Villarrica del Espíritu Santo. (2026). *Proyecto interd
 | E-06 | Formulario XLSForm de KoboToolbox | `kobo/encuesta_informalidad_villarrica_2026.xlsx` |
 | E-07 | Script de análisis estadístico en R | `r-analysis/scripts/analisis_econometrico.R` |
 | E-08 | Reporte estadístico APA 7 | `r-analysis/output/reporte_econometrico_apa7.txt` |
-| E-09 | Figuras 1 a 5 (PNG 300 DPI y SVG) | `r-analysis/output/` |
+| E-09 | Gráficos estadísticos en R (PNG 300 DPI; SVG de los cinco gráficos base) | `r-analysis/output/` |
 | E-10 | Capturas del dashboard | `docs/img/` |

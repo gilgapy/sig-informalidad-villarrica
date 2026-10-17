@@ -136,22 +136,27 @@ class Phase5IntegrityValidator:
             else:
                 self.record_fail("APA7-Table", f"No se encontró {table_tag} o su título correspondiente en el informe.")
 
-        # Figuras APA 7 esperadas (Figuras 1 a 10)
+        # Figuras APA 7 esperadas (Figuras 1 a 15, en orden de aparición)
         expected_figures = [
             ("Figura 1", "Correlación entre Años de Escolaridad e Ingreso Mensual"),
             ("Figura 2", "Índice de Vulnerabilidad Social en los Siete Barrios"),
             ("Figura 3", "Distribución de Ingresos Mensuales por Género"),
             ("Figura 4", "Tasa Media de Informalidad Laboral en las MYPEs por Rubro"),
-            ("Figura 5", "Diagrama Entidad-Relación"),
-            ("Figura 6", "Pestaña 1: Diagnóstico Social y Territorio"),
-            ("Figura 7", "Pestaña 2: Gestión Productiva y MYPEs"),
-            ("Figura 8", "Pestaña 3: Marketing Social"),
-            ("Figura 9", "Pestaña 4: Explorador de Microdatos"),
-            ("Figura 10", "Embudo de Conversión Multicanal")
+            ("Figura 5", "Situación Tributaria de las MYPEs"),
+            ("Figura 6", "Barreras Patronales para la Inscripción"),
+            ("Figura 7", "Motivos de No Aporte al IPS"),
+            ("Figura 8", "Diagrama Entidad-Relación"),
+            ("Figura 9", "Pestaña 1: Diagnóstico Social y Territorio"),
+            ("Figura 10", "Pestaña 2: Gestión Productiva y MYPEs"),
+            ("Figura 11", "Pestaña 3: Marketing Social"),
+            ("Figura 12", "Pestaña 4: Explorador de Microdatos"),
+            ("Figura 13", "Embudo de Conversión Multicanal"),
+            ("Figura 14", "Evolución Diaria de Consultas y Derivaciones"),
+            ("Figura 15", "Costo por Consulta y por Derivación según Canal")
         ]
 
         for fig_tag, fig_title in expected_figures:
-            if fig_tag in content and fig_title in content:
+            if re.search(rf"\*\*{fig_tag}\*\*\n\n\*[^*\n]*{re.escape(fig_title)}", content):
                 self.record_pass("APA7-Figure", f"{fig_tag} documentada con formato y título APA 7: '{fig_title}'")
             else:
                 self.record_fail("APA7-Figure", f"No se encontró {fig_tag} o su título en el informe.")
@@ -200,6 +205,11 @@ class Phase5IntegrityValidator:
             OUTPUT_DIR / "figura4_informalidad_mypes_rubro.svg",
             OUTPUT_DIR / "figura5_embudo_marketing_multicanal.png",
             OUTPUT_DIR / "figura5_embudo_marketing_multicanal.svg",
+            OUTPUT_DIR / "figura6_situacion_tributaria_ruc_mypes.png",
+            OUTPUT_DIR / "figura7_barreras_patronales_ips.png",
+            OUTPUT_DIR / "figura8_motivos_no_aporte_ips_trabajadores.png",
+            OUTPUT_DIR / "figura9_costo_por_canal_marketing.png",
+            OUTPUT_DIR / "figura10_evolucion_diaria_marketing.png",
             KOBO_DIR / "form_specification.md",
             KOBO_DIR / "survey_schema.json",
             DB_DIR / "schema.sql"
