@@ -65,9 +65,9 @@ Prof. Dra. Ramona Demattei (Marketing Social)
 
 El presente informe expone los resultados del Proyecto Interdisciplinario *"Transformación Digital y Diagnóstico Social en la Gestión Organizacional: La Informalidad Laboral en el Paraguay"*, desarrollado en el municipio de Villarrica, Departamento del Guairá, durante el segundo semestre del año lectivo 2026. La investigación articuló la recolección de datos primarios georreferenciados mediante dispositivos móviles (Open Data Kit / KoboToolbox), el modelado relacional en Tercera Forma Normal (PostgreSQL 16), el análisis estadístico inferencial bajo normas APA 7.ª edición y la implementación de una estrategia de marketing social multicanal orientada a la formalización laboral.
 
-A partir de un relevamiento territorial estratificado que abarcó a $N = 420$ trabajadores informales y $N = 135$ micro y pequeñas empresas (MYPEs) en siete barrios urbanos y periurbanos de Villarrica, se constató que el 85.24% de los trabajadores percibe ingresos inferiores al salario mínimo legal vigente (Gs. 3.044.000), con un ingreso medio de Gs. 2.345.060 y un déficit salarial medio de Gs. -698.940 respecto a dicho parámetro. En materia de seguridad social, el 95.24% de los trabajadores carece de cobertura en el Instituto de Previsión Social (IPS); solo el 4.76% (20 personas) cuenta con aseguramiento. La correlación entre años de escolaridad e ingresos resultó nula y no significativa ($r = 0.0163$, $p = .739$; $\rho = 0.0091$, $p = .852$), y la función semilogarítmica de capital humano de Mincer no alcanzó significancia conjunta ($F(4, 415) = 0.2272$, $p = .9231$, $R^2_{\text{ajustado}} = -0.0074$), con un coeficiente de escolaridad indistinguible de cero ($\beta = 0.00078$, $p = .860$). Este resultado es consistente con la hipótesis de una "trampa de informalidad".
+A partir de un relevamiento territorial estratificado que abarcó a $N = 420$ trabajadores informales y $N = 135$ micro y pequeñas empresas (MYPEs) en siete barrios urbanos y periurbanos de Villarrica, se constató que el 85.24% de los trabajadores percibe ingresos inferiores al salario mínimo legal vigente (Gs. 3.044.000), con un ingreso medio de Gs. 2.338.369 y un déficit salarial medio de Gs. -705.631 respecto a dicho parámetro. En materia de seguridad social, el 95.24% de los trabajadores carece de cobertura en el Instituto de Previsión Social (IPS); solo el 4.76% (20 personas) cuenta con aseguramiento. La correlación entre años de escolaridad e ingresos resultó nula y no significativa ($r = 0.0092$, $p = .850$; $\rho = -0.0005$, $p = .991$), y la función semilogarítmica de capital humano de Mincer no alcanzó significancia conjunta ($F(4, 415) = 0.3435$, $p = .8485$, $R^2_{\text{ajustado}} = -0.0063$), con un coeficiente de escolaridad indistinguible de cero ($\beta = 0.00043$, $p = .920$). Este resultado es consistente con la hipótesis de una "trampa de informalidad".
 
-En el tejido empresarial, las 135 MYPEs emplean a 396 trabajadores dependientes, de los cuales 389 no están inscriptos en el IPS (tasa media de informalidad laboral patronal del 98.4%). El 51.1% de los establecimientos opera sin RUC y el 30.4% cobra exclusivamente en efectivo. El principal motivo patronal de no inscripción es el desconocimiento de los trámites y exigencias de inscripción (23.0%), seguido del costo del aporte (22.2%). Frente a esta problemática, la campaña de marketing social *"Trabajo Formal, Futuro Seguro"* operó durante 42 días continuos (del 01 de setiembre al 12 de octubre de 2026) sobre cuatro canales (Meta Ads, WhatsApp Business, Puntos Presenciales y Afiches con QR). Con una inversión de Gs. 5.504.000, la campaña alcanzó a 193.889 personas, generó 23.869 interacciones y 8.792 consultas (5.337 sobre RESIMPLE y 3.455 sobre IPS), y canalizó 2.217 derivaciones efectivas hacia la ventanilla SUACE (1.344) y la Agencia Regional del IPS (873). Los canales de proximidad (WhatsApp y Puntos Presenciales) resultaron sustancialmente más costo-eficientes (Gs. 151 y Gs. 321 por consulta) que la pauta digital masiva (Gs. 3.106). Los hallazgos aportan evidencia para reorientar las políticas públicas locales hacia un modelo de ventanilla única descentralizada y educación tributaria aplicada.
+En el tejido empresarial, las 135 MYPEs emplean a 396 trabajadores dependientes, de los cuales 389 no están inscriptos en el IPS (tasa media de informalidad laboral patronal del 98.4%). El 51.1% de los establecimientos opera sin RUC y el 30.4% cobra exclusivamente en efectivo. El principal motivo patronal de no inscripción es el desconocimiento de los trámites y exigencias de inscripción (23.0%), seguido del costo del aporte (22.2%). Frente a esta problemática, la campaña de marketing social *"Trabajo Formal, Futuro Seguro"* operó durante 42 días continuos (del 01 de setiembre al 12 de octubre de 2026) sobre cuatro canales (Meta Ads, WhatsApp Business, Puntos Presenciales y Afiches con QR). Con una inversión de Gs. 5.504.000, la campaña alcanzó a 193.889 personas, generó 23.869 interacciones y 8.792 consultas (5.332 sobre RESIMPLE y 3.460 sobre IPS), y canalizó 2.217 derivaciones efectivas hacia la ventanilla SUACE (1.340) y la Agencia Regional del IPS (877). Los canales de proximidad (WhatsApp y Puntos Presenciales) resultaron sustancialmente más costo-eficientes (Gs. 151 y Gs. 321 por consulta) que la pauta digital masiva (Gs. 3.106). Los hallazgos aportan evidencia para reorientar las políticas públicas locales hacia un modelo de ventanilla única descentralizada y educación tributaria aplicada.
 
 *Palabras clave:* informalidad laboral, sistema de información gerencial, salario mínimo, trampa de informalidad, marketing social, políticas públicas, Villarrica.
 
@@ -155,9 +155,9 @@ Antes de cada entrevista se leyó y solicitó el consentimiento informado de la 
 
 ## 4.1 Brecha Salarial y Salario Mínimo Legal
 
-El salario mínimo legal vigente de referencia en el Paraguay asciende a Gs. 3.044.000 mensuales. La evaluación de los $N = 420$ trabajadores relevados revela que el ingreso medio mensual se sitúa en Gs. 2.345.060 ($DE = 725.694$), lo que implica una brecha salarial negativa promedio de Gs. -698.940 respecto al piso legal.
+El salario mínimo legal vigente de referencia en el Paraguay asciende a Gs. 3.044.000 mensuales. La evaluación de los $N = 420$ trabajadores relevados revela que el ingreso medio mensual se sitúa en Gs. 2.338.369 ($DE = 721.870$), lo que implica una brecha salarial negativa promedio de Gs. -705.631 respecto al piso legal.
 
-El 85.24% de los trabajadores informales (358 personas) percibe ingresos inferiores al salario mínimo legal; el 50% central se concentra entre Gs. 1.838.750 y Gs. 2.900.000 ($IQR = 1.061.250$), con una mediana de Gs. 2.332.500. En cuanto a la cobertura previsional, el 95.24% carece de seguro médico o jubilación en el IPS; la cobertura se limita al 4.76% (20 trabajadores), que aportan bajo la modalidad de cotización voluntaria independiente o figuran como beneficiarios familiares.
+El 85.24% de los trabajadores informales (358 personas) percibe ingresos inferiores al salario mínimo legal; el 50% central se concentra entre Gs. 1.778.750 y Gs. 2.721.250 ($IQR = 942.500$), con una mediana de Gs. 2.255.000. En cuanto a la cobertura previsional, el 95.24% carece de seguro médico o jubilación en el IPS; la cobertura se limita al 4.76% (20 trabajadores), que aportan bajo la modalidad de cotización voluntaria independiente o figuran como beneficiarios familiares.
 
 **Tabla 1**
 
@@ -165,18 +165,18 @@ El 85.24% de los trabajadores informales (358 personas) percibe ingresos inferio
 
 | Variable | Media | DE | Mediana | IQR | Mínimo | Máximo |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Ingreso Mensual (PYG) | 2.345.060 | 725.694 | 2.332.500 | 1.061.250 | 1.200.000 | 4.160.000 |
-| Brecha Salarial (PYG) | -698.940 | 725.694 | -711.500 | 1.061.250 | -1.844.000 | 1.116.000 |
-| Años de Escolaridad | 8,96 | 3,49 | 9,00 | 6,00 | 4,00 | 15,00 |
-| Edad (Años) | 42,58 | 14,38 | 43,00 | 25,00 | 18,00 | 67,00 |
-| Horas Semanales de Labor | 45,72 | 12,82 | 45,00 | 23,25 | 24,00 | 67,00 |
-| Índice Vulnerabilidad Social | 51,78 | 14,88 | 52,50 | 20,00 | 10,00 | 96,00 |
+| Ingreso Mensual (PYG) | 2.338.369 | 721.870 | 2.255.000 | 942.500 | 1.200.000 | 4.180.000 |
+| Brecha Salarial (PYG) | -705.631 | 721.870 | -789.000 | 942.500 | -1.844.000 | 1.136.000 |
+| Años de Escolaridad | 9,05 | 3,50 | 9,00 | 6,00 | 4,00 | 15,00 |
+| Edad (Años) | 43,15 | 14,26 | 44,00 | 24,00 | 18,00 | 67,00 |
+| Horas Semanales de Labor | 46,63 | 12,63 | 46,00 | 22,00 | 24,00 | 67,00 |
+| Índice Vulnerabilidad Social | 51,78 | 15,00 | 52,00 | 20,00 | 14,00 | 94,00 |
 
 *Nota.* Elaboración propia con base en el relevamiento KoboToolbox/ODK (UNVES, 2026). $DE$ = desviación estándar; $IQR$ = rango intercuartílico. Parámetro de comparación: salario mínimo legal = Gs. 3.044.000.
 
 ## 4.2 Retornos de la Educación en el Sector Informal
 
-Uno de los postulados de la economía laboral (Mincer, 1974) sostiene que cada año adicional de escolaridad formal genera retornos salariales positivos. Sin embargo, en el segmento informal de Villarrica, la correlación de Pearson entre años de estudio e ingreso mensual es prácticamente nula y no significativa ($r = 0.0163$, $t(418) = 0.334$, $p = .739$, IC 95% $[-0.0795, 0.1118]$). La correlación de Spearman corrobora la ausencia de relación monótona ($\rho = 0.0091$, $p = .852$).
+Uno de los postulados de la economía laboral (Mincer, 1974) sostiene que cada año adicional de escolaridad formal genera retornos salariales positivos. Sin embargo, en el segmento informal de Villarrica, la correlación de Pearson entre años de estudio e ingreso mensual es prácticamente nula y no significativa ($r = 0.0092$, $t(418) = 0.189$, $p = .850$, IC 95% $[-0.0865, 0.1048]$). La correlación de Spearman corrobora la ausencia de relación monótona ($\rho = -0.0005$, $p = .991$).
 
 Para evaluar los determinantes de las remuneraciones en el mercado informal local, se estimó la función de ingresos de Mincer:
 
@@ -188,15 +188,15 @@ $$\ln(\text{Ingreso}_i) = \beta_0 + \beta_1 (\text{Escolaridad}_i) + \beta_2 (\t
 
 | Coeficiente | Estimación ($\beta$) | Error Estándar | Estadístico $t$ | Valor $p$ |
 | :--- | :---: | :---: | :---: | :---: |
-| Intercepto ($\beta_0$) | 14,6584 | 0,0687 | 213,381 | $< .001$ |
-| Años de Escolaridad ($\beta_1$) | 0,0008 | 0,0044 | 0,177 | ,860 |
-| Antigüedad en Oficio ($\beta_2$) | -0,0007 | 0,0021 | -0,333 | ,740 |
-| Edad ($\beta_3$) | -0,0006 | 0,0013 | -0,441 | ,660 |
-| Género Masculino ($\beta_4$) | -0,0178 | 0,0358 | -0,498 | ,619 |
+| Intercepto ($\beta_0$) | 14,6145 | 0,0675 | 216,425 | $< .001$ |
+| Años de Escolaridad ($\beta_1$) | 0,0004 | 0,0043 | 0,100 | ,920 |
+| Antigüedad en Oficio ($\beta_2$) | 0,0016 | 0,0021 | 0,767 | ,443 |
+| Edad ($\beta_3$) | 0,0000 | 0,0012 | 0,006 | ,995 |
+| Género Masculino ($\beta_4$) | -0,0244 | 0,0345 | -0,708 | ,479 |
 
-*Nota.* Variable dependiente: $\ln$(ingreso mensual en PYG). $N = 420$. $R^2 = 0.0022$; $R^2_{\text{ajustado}} = -0.0074$; $F(4, 415) = 0.2272$, $p = .9231$.
+*Nota.* Variable dependiente: $\ln$(ingreso mensual en PYG). $N = 420$. $R^2 = 0.0033$; $R^2_{\text{ajustado}} = -0.0063$; $F(4, 415) = 0.3435$, $p = .8485$.
 
-Como se observa en la Tabla 2, el modelo carece de significancia estadística conjunta ($p = .9231$) y el coeficiente de escolaridad es indistinguible de cero ($\beta_1 = 0.00078$, $p = .860$). Este resultado es consistente con la existencia de una *trampa de informalidad*: en el segmento relevado, los años de formación básica o secundaria no se traducen en primas salariales cuando el trabajador carece de acceso a capital de trabajo, certificación de competencias o inserción formal en cadenas de valor. Cabe señalar que la ausencia de significancia no demuestra por sí sola un efecto nulo; indica que, con los datos disponibles, no se detecta una relación entre escolaridad e ingreso.
+Como se observa en la Tabla 2, el modelo carece de significancia estadística conjunta ($p = .8485$) y el coeficiente de escolaridad es indistinguible de cero ($\beta_1 = 0.00043$, $p = .920$). Este resultado es consistente con la existencia de una *trampa de informalidad*: en el segmento relevado, los años de formación básica o secundaria no se traducen en primas salariales cuando el trabajador carece de acceso a capital de trabajo, certificación de competencias o inserción formal en cadenas de valor. Cabe señalar que la ausencia de significancia no demuestra por sí sola un efecto nulo; indica que, con los datos disponibles, no se detecta una relación entre escolaridad e ingreso.
 
 **Figura 1**
 
@@ -216,17 +216,17 @@ Se evaluó si la vulnerabilidad socioeconómica, medida por el Índice de Vulner
 
 | Barrio | $n$ | IVS Medio | $DE$ | IVS Mediana | IQR | Ingreso Medio (PYG) | % Bajo Mínimo |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Centro | 90 | 54,96 | 13,68 | 57,00 | 18,00 | 2.232.833 | 91,11% |
-| San Miguel | 63 | 52,68 | 13,58 | 52,00 | 15,50 | 2.359.365 | 87,30% |
-| Estación | 51 | 52,65 | 16,04 | 52,00 | 20,50 | 2.256.078 | 82,35% |
-| Ybaroty | 68 | 51,40 | 17,34 | 53,00 | 26,75 | 2.448.824 | 76,47% |
-| Lomas Valentinas | 32 | 50,00 | 12,55 | 47,50 | 17,50 | 2.316.563 | 87,50% |
-| Tuyutimí | 39 | 49,23 | 15,44 | 48,00 | 23,50 | 2.520.000 | 82,05% |
-| Santa Librada | 77 | 49,10 | 14,42 | 52,00 | 22,00 | 2.355.065 | 87,01% |
+| Ybaroty | 68 | 53,88 | 15,26 | 56,50 | 19,25 | 2.226.029 | 86,76% |
+| Lomas Valentinas | 32 | 53,75 | 15,09 | 52,00 | 24,75 | 2.331.719 | 87,50% |
+| Tuyutimí | 39 | 52,79 | 15,67 | 54,00 | 19,50 | 2.349.615 | 87,18% |
+| Estación | 51 | 52,75 | 14,70 | 52,00 | 19,50 | 2.198.824 | 88,24% |
+| Centro | 90 | 51,22 | 15,38 | 52,50 | 22,00 | 2.382.111 | 82,22% |
+| San Miguel | 63 | 50,16 | 14,54 | 51,00 | 19,00 | 2.404.286 | 84,13% |
+| Santa Librada | 77 | 49,92 | 14,66 | 51,00 | 17,00 | 2.422.013 | 84,42% |
 
-*Nota.* IVS = Índice de Vulnerabilidad Social (0 a 100). Prueba de normalidad de Shapiro-Wilk: $W = 0.9942$, $p = .1084$; prueba de homocedasticidad de Bartlett: $K^2 = 8.0323$, $p = .2357$. ANOVA de una vía: $F(6, 413) = 1.449$, $p = .1944$. Prueba de Kruskal-Wallis: $H(6) = 8.6318$, $p = .1954$.
+*Nota.* IVS = Índice de Vulnerabilidad Social (0 a 100). Prueba de normalidad de Shapiro-Wilk: $W = 0.9930$, $p = .0481$; prueba de homocedasticidad de Bartlett: $K^2 = 0.5359$, $p = .9974$. ANOVA de una vía: $F(6, 413) = 0.717$, $p = .6359$. Prueba de Kruskal-Wallis: $H(6) = 4.9253$, $p = .5534$.
 
-Dado que los contrastes resultaron no significativos ($p > .05$), no se encontró evidencia de segmentación barrial: la precariedad laboral informal se presenta como un fenómeno estructural relativamente homogéneo, tanto en el microcentro comercial como en los sectores periféricos.
+Como la prueba de Shapiro-Wilk indica un leve desvío de la normalidad ($p = .048$), se toma como referencia la prueba no paramétrica de Kruskal-Wallis, que coincide con el ANOVA. Dado que ambos contrastes resultaron no significativos ($p > .05$), no se encontró evidencia de segmentación barrial: la precariedad laboral informal se presenta como un fenómeno estructural relativamente homogéneo, tanto en el microcentro comercial como en los sectores periféricos.
 
 **Figura 2**
 
@@ -238,7 +238,7 @@ Dado que los contrastes resultaron no significativos ($p > .05$), no se encontr�
 
 ## 4.4 Análisis Salarial por Género
 
-Las trabajadoras informales perciben un ingreso medio de Gs. 2.373.107 ($DE = 732.251$, $n = 103$), frente a Gs. 2.335.946 ($DE = 724.481$, $n = 317$) de los varones. La diferencia muestral (Gs. 37.160 a favor de las mujeres, 1.59%) no es estadísticamente significativa.
+Las trabajadoras informales perciben un ingreso medio de Gs. 2.396.729 ($DE = 776.595$, $n = 107$), frente a Gs. 2.318.419 ($DE = 702.381$, $n = 313$) de los varones. La diferencia muestral (Gs. 78.310 a favor de las mujeres, 3.38%) no es estadísticamente significativa.
 
 **Tabla 4**
 
@@ -246,10 +246,10 @@ Las trabajadoras informales perciben un ingreso medio de Gs. 2.373.107 ($DE = 73
 
 | Género | $n$ | Ingreso Medio (PYG) | $DE$ (PYG) | Mediana (PYG) | Diferencia vs. masculino (PYG) | Diferencial % |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Femenino | 103 | 2.373.107 | 732.251 | 2.340.000 | +37.160 | +1,59% |
-| Masculino | 317 | 2.335.946 | 724.481 | 2.330.000 | Ref. | Ref. |
+| Femenino | 107 | 2.396.729 | 776.595 | 2.300.000 | +78.310 | +3,38% |
+| Masculino | 313 | 2.318.419 | 702.381 | 2.240.000 | Ref. | Ref. |
 
-*Nota.* Prueba $t$ de Welch para varianzas heterogéneas: $t(171.60) = 0.4486$, $p = .6543$. Prueba de Mann-Whitney: $W = 16.906,5$, $p = .5875$.
+*Nota.* Prueba $t$ de Welch para varianzas heterogéneas: $t(169.08) = 0.9221$, $p = .3578$. Prueba de Mann-Whitney: $W = 17.651$, $p = .4038$.
 
 Ambos grupos se encuentran por debajo del salario mínimo legal en promedio, sin que se verifique una diferencia de ingresos por género estadísticamente detectable en el sector no registrado.
 
@@ -389,11 +389,11 @@ La campaña operó durante 42 días continuos (del 01 de setiembre al 12 de octu
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | WhatsApp Business | 10.243 | 8.205 | 80,09% | 4.180 | 1.070 | 630.000 | 151 | 589 |
 | Puntos Presenciales / Ferias | 20.890 | 7.082 | 33,90% | 2.992 | 718 | 960.000 | 321 | 1.337 |
-| Meta Ads (Facebook/Instagram) | 134.988 | 6.702 | 4,97% | 1.098 | 292 | 3.410.000 | 3.106 | 11.678 |
+| Meta Ads (Facebook/Instagram) | 134.988 | 6.702 | 4,96% | 1.098 | 292 | 3.410.000 | 3.106 | 11.678 |
 | Afiches QR y Medios Locales | 27.768 | 1.880 | 6,77% | 522 | 137 | 504.000 | 966 | 3.679 |
 | **Total** | **193.889** | **23.869** | **12,31%** | **8.792** | **2.217** | **5.504.000** | **626** | **2.483** |
 
-*Nota.* Moneda: guaraníes (PYG). Tipología de canales: WhatsApp (mensajería digital), Puntos Presenciales (BTL), Meta Ads (digital pago), Afiches QR (OOH / impreso). CTR = tasa de interacción (interacciones / alcance). De las 8.792 consultas, 5.337 trataron sobre RESIMPLE y 3.455 sobre IPS. Las 2.217 derivaciones se dirigieron a la ventanilla SUACE (1.344) y a la Agencia Regional del IPS (873).
+*Nota.* Moneda: guaraníes (PYG). Tipología de canales: WhatsApp (mensajería digital), Puntos Presenciales (BTL), Meta Ads (digital pago), Afiches QR (OOH / impreso). CTR = tasa de interacción (interacciones / alcance). De las 8.792 consultas, 5.332 trataron sobre RESIMPLE y 3.460 sobre IPS. Las 2.217 derivaciones se dirigieron a la ventanilla SUACE (1.340) y a la Agencia Regional del IPS (877).
 
 **Figura 10**
 
@@ -420,8 +420,8 @@ Los datos muestran una marcada asimetría de costo-eficiencia entre canales:
 ## 7.1 Conclusiones
 
 1. **Naturaleza estructural de la informalidad:** en Villarrica, la informalidad se presenta como un equilibrio de bajo nivel: el 85.24% de los trabajadores relevados percibe ingresos inferiores al salario mínimo legal y el 95.24% carece de seguro en el IPS. Del lado patronal, el 98.4% de los dependientes de las MYPEs no está inscripto.
-2. **Ausencia de retorno educativo detectable:** no se encontró relación entre años de escolaridad e ingreso ($r = 0.0163$, $p = .739$), lo que sugiere que la educación formal, por sí sola, no basta para salir de la precariedad sin acceso a capital de trabajo, herramientas tecnológicas o formalización tributaria.
-3. **Homogeneidad territorial:** la vulnerabilidad no difiere significativamente entre barrios ($F(6, 413) = 1.449$, $p = .194$), por lo que las intervenciones deben tener alcance distrital y no limitarse a la periferia.
+2. **Ausencia de retorno educativo detectable:** no se encontró relación entre años de escolaridad e ingreso ($r = 0.0092$, $p = .850$), lo que sugiere que la educación formal, por sí sola, no basta para salir de la precariedad sin acceso a capital de trabajo, herramientas tecnológicas o formalización tributaria.
+3. **Homogeneidad territorial:** la vulnerabilidad no difiere significativamente entre barrios ($H(6) = 4.93$, $p = .553$), por lo que las intervenciones deben tener alcance distrital y no limitarse a la periferia.
 4. **Desinformación como barrera central:** el desconocimiento de los trámites es el primer motivo patronal de no inscripción (23.0%) y figura entre los motivos de los trabajadores (17.0%).
 5. **Efectividad del SIG interdisciplinario:** la integración de captura móvil, base de datos normalizada y dashboard permitió identificar que los canales de proximidad son hasta 20 veces más eficientes por derivación, información directamente utilizable para reasignar recursos.
 

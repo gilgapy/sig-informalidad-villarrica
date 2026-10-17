@@ -464,7 +464,7 @@ El **Dashboard Gerencial e Interactivo de Formalización Laboral de Villarrica**
 | [ Selector Barrio: Todos/7 ] [ Selector Género: Todos ] [ Selector Rubro ] [ Selector Canal ]     |
 +----------------------------------------------------------------------------------------------------+
 | TARJETAS DE KPIS GERENCIALES (KPI CARDS):                                                          |
-| [ 420 Trabajadores ] [ Gs. 2.345.060 Media ] [ 85.2% < Mínimo ] [ 95.2% Sin IPS ] [ 2.217 Deriv. ] |
+| [ 420 Trabajadores ] [ Gs. 2.338.369 Media ] [ 85.2% < Mínimo ] [ 95.2% Sin IPS ] [ 2.217 Deriv. ] |
 +----------------------------------------------------------------------------------------------------+
 | PESTAÑAS NAVEGABLES:                                                                               |
 | [ 1. Diagnóstico Social ] [ 2. Censo MYPEs ] [ 3. Marketing Social ] [ 4. Explorador de Datos ]    |
@@ -494,7 +494,7 @@ Ubicada en la parte superior del tablero, permite filtrar simultáneamente todos
   * **Mapa georreferenciado (Leaflet):** los 420 trabajadores sobre el plano de Villarrica, coloreados por nivel de vulnerabilidad (baja, media, alta, crítica). Al hacer clic en un punto se muestra el detalle del caso (oficio, ingreso, brecha y medios de pago).
   * **Brecha salarial vs. salario mínimo:** ingreso medio por barrio frente al parámetro legal de Gs. 3.044.000.
   * **Vulnerabilidad social:** distribución por categoría de vulnerabilidad.
-  * **Inclusión digital y medios de pago:** tenencia de smartphone (86,2%), uso de pagos digitales, conocimiento de RESIMPLE e interés en formalizarse.
+  * **Inclusión digital y medios de pago:** tenencia de smartphone (85,7%), uso de pagos digitales, conocimiento de RESIMPLE e interés en formalizarse.
   * **Causas de no aporte a IPS:** motivos declarados por los trabajadores.
 
 ---
@@ -520,7 +520,7 @@ Ubicada en la parte superior del tablero, permite filtrar simultáneamente todos
     - Derivaciones Efectivas: 2.217 ciudadanos vinculados a SUACE e IPS.
   * **Comparativa de Costo de Adquisición (CAC):** Demuestra la alta costo-eficiencia de canales de proximidad (WhatsApp: Gs. 151 por consulta; Puntos Presenciales: Gs. 321) frente a la publicidad digital masiva (Meta Ads: Gs. 3.106).
   * **Evolución diaria de consultas y derivaciones (42 días):** serie temporal de la campaña.
-  * **Articulación con programas públicos:** derivaciones registradas por programa (SUACE 1.344; IPS 873) frente a las MYPEs ya vinculadas a cada régimen.
+  * **Articulación con programas públicos:** derivaciones registradas por programa (SUACE 1.340; IPS 877) frente a las MYPEs ya vinculadas a cada régimen.
 
 ---
 

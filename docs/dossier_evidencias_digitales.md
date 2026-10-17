@@ -60,7 +60,7 @@ El presente dossier compila y documenta formalmente la totalidad de los artefact
   1. *Filtros Reactivos en Cascada:* Selectores de Barrio (7 barrios + Todos), Género (Masculino, Femenino, Todos), Rubro MYPE y Canal de Marketing (`AFICHES_QR`, `META_ADS`, `PUNTOS_PRESENCIALES`, `WHATSAPP`). El recálculo de métricas se ejecuta en $< 50\text{ ms}$.
   2. *Tarjetas de KPIs Gerenciales:* 
      - Total Trabajadores Informales: 420
-     - Ingreso Mensual Promedio: Gs. 2.345.060
+     - Ingreso Mensual Promedio: Gs. 2.338.369
      - % con Ingresos Bajo Salario Mínimo (Gs. 3.044.000): 85.24%
      - Tasa de No Cobertura IPS en Trabajadores: 95.24% (4.76% con cobertura voluntaria o familiar)
      - Total MYPEs Censadas: 135 unidades (396 trabajadores dependientes)
@@ -79,7 +79,7 @@ El presente dossier compila y documenta formalmente la totalidad de los artefact
 +----------------------------------------------------------------------------------------------------+
 | FILTROS: [Barrio: Todos (7) v] [Género: Ambos v] [Rubro MYPE: Todos v] [Canal: Todos v]            |
 +----------------------------------------------------------------------------------------------------+
-| [ 420 TRABAJADORES ] [ GS. 2.345.060 MEDIO ] [ 85.2% < MÍNIMO ] [ 95.2% SIN IPS ] [ 2.217 DERIV. ] |
+| [ 420 TRABAJADORES ] [ GS. 2.338.369 MEDIO ] [ 85.2% < MÍNIMO ] [ 95.2% SIN IPS ] [ 2.217 DERIV. ] |
 +----------------------------------------------------------------------------------------------------+
 | PESTAÑAS:  (•) 1. Diagnóstico Social  ( ) 2. MYPEs  ( ) 3. Marketing  ( ) 4. Mapa Geoespacial      |
 +----------------------------------------------------------------------------------------------------+
@@ -115,12 +115,12 @@ Cada gráfico fue programado y generado mediante scripts automatizados en R v4.3
 1. **Figura 1: Correlación entre Años de Escolaridad e Ingreso Mensual (Trampa de Informalidad)**
    - PNG: [figura1_correlacion_escolaridad_ingreso.png](../r-analysis/output/figura1_correlacion_escolaridad_ingreso.png)
    - SVG: [figura1_correlacion_escolaridad_ingreso.svg](../r-analysis/output/figura1_correlacion_escolaridad_ingreso.svg)
-   - *Hallazgo Estadístico:* Coeficiente de Pearson $r = 0.0163$ ($p = .739$); Coeficiente de Spearman $\rho = 0.0091$ ($p = .852$). Pendiente horizontal que confirma el estancamiento de ingresos en la economía informal.
+   - *Hallazgo Estadístico:* Coeficiente de Pearson $r = 0.0092$ ($p = .850$); Coeficiente de Spearman $\rho = -0.0005$ ($p = .991$). Pendiente horizontal que confirma el estancamiento de ingresos en la economía informal.
 
 2. **Figura 2: Distribución de Vulnerabilidad Social por Barrio en Villarrica**
    - PNG: [figura2_vulnerabilidad_social_barrios.png](../r-analysis/output/figura2_vulnerabilidad_social_barrios.png)
    - SVG: [figura2_vulnerabilidad_social_barrios.svg](../r-analysis/output/figura2_vulnerabilidad_social_barrios.svg)
-   - *Hallazgo Estadístico:* ANOVA de una vía $F(6, 413) = 1.449$, $p = .194$; Kruskal-Wallis $H(6) = 8.632$, $p = .195$. Homogeneidad territorial de la vulnerabilidad urbana.
+   - *Hallazgo Estadístico:* ANOVA de una vía $F(6, 413) = 0.717$, $p = .636$; Kruskal-Wallis $H(6) = 4.925$, $p = .553$. Homogeneidad territorial de la vulnerabilidad urbana.
 
 3. **Figura 3: Distribución Salarial por Género y Brecha Respecto al Salario Mínimo**
    - PNG: [figura3_brecha_ingreso_genero_minimo.png](../r-analysis/output/figura3_brecha_ingreso_genero_minimo.png)
