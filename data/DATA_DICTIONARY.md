@@ -41,8 +41,8 @@
 | `datos_encuesta/personas_a_cargo` | Integer | Carga de dependencia económica familiar directa. |
 | `datos_encuesta/tenencia_vivienda` | Text (select_one) | Régimen habitacional (`propia`, `alquilada`, `prestada_familiar`). |
 | `geolocalizacion` | Geopoint | Cadena estándar ODK: `latitud longitud altitud precision`. |
-| `_geolocalizacion_latitude` | Float | Latitud geográfica WGS84 (-25.7380 a -25.7750). |
-| `_geolocalizacion_longitude` | Float | Longitud geográfica WGS84 (-56.4310 a -56.4650). |
+| `_geolocalizacion_latitude` | Float | Latitud geográfica WGS84 (-25.7962 a -25.7673). |
+| `_geolocalizacion_longitude` | Float | Longitud geográfica WGS84 (-56.4630 a -56.4353). |
 | `_geolocalizacion_altitude` | Float | Elevación sobre el nivel del mar en metros (128m a 152m). |
 | `_geolocalizacion_precision` | Float | Margen de error GPS en metros (3.2m a 9.8m). |
 

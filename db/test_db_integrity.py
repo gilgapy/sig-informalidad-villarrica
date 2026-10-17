@@ -186,7 +186,7 @@ def test_performance_and_indexes(cursor: psycopg2.extensions.cursor) -> Dict[str
             FROM trabajadores t
             JOIN barrios b ON t.barrio_id = b.id
             JOIN indicadores_sociales i ON t.id_trabajador = i.trabajador_id
-            WHERE t.latitud BETWEEN -25.760000 AND -25.740000;
+            WHERE t.latitud BETWEEN -25.790000 AND -25.770000;
         """,
         "Agregacion_Marketing_Temporal": """
             EXPLAIN ANALYZE

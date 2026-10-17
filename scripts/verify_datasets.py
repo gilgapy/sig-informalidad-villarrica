@@ -64,7 +64,7 @@ def verificar_dataset_kobo(df_kobo: pd.DataFrame) -> bool:
 
 def verificar_coordenadas_villarrica(df: pd.DataFrame, nombre_df: str) -> bool:
     """Valida que las coordenadas geográficas caigan estrictamente en Villarrica."""
-    lat_min, lat_max = -25.780, -25.735
+    lat_min, lat_max = -25.800, -25.760
     lon_min, lon_max = -56.470, -56.425
     
     col_lat = "latitud" if "latitud" in df.columns else "_geolocalizacion_latitude"

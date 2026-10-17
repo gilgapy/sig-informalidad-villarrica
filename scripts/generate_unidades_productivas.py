@@ -13,13 +13,13 @@ import numpy as np
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 BARRIOS = {
-    "Centro": {"lat": (-25.7560, -25.7500), "lon": (-56.4510, -56.4450), "n_mypes": 32},
-    "Santa Librada": {"lat": (-25.7660, -25.7600), "lon": (-56.4550, -56.4470), "n_mypes": 24},
-    "Ybaroty": {"lat": (-25.7530, -25.7470), "lon": (-56.4600, -56.4540), "n_mypes": 22},
-    "San Miguel": {"lat": (-25.7450, -25.7380), "lon": (-56.4450, -56.4380), "n_mypes": 21},
-    "Estación": {"lat": (-25.7680, -25.7610), "lon": (-56.4410, -56.4330), "n_mypes": 16},
-    "Tuyutimí": {"lat": (-25.7750, -25.7680), "lon": (-56.4650, -56.4570), "n_mypes": 11},
-    "Lomas Valentinas": {"lat": (-25.7510, -25.7450), "lon": (-56.4370, -56.4310), "n_mypes": 9}
+    "Centro": {"lat": (-25.7849, -25.7799), "lon": (-56.4496, -56.4446), "n_mypes": 32},
+    "Santa Librada": {"lat": (-25.7942, -25.7892), "lon": (-56.4518, -56.4468), "n_mypes": 24},
+    "Ybaroty": {"lat": (-25.7723, -25.7673), "lon": (-56.4480, -56.4430), "n_mypes": 22},
+    "San Miguel": {"lat": (-25.7790, -25.7740), "lon": (-56.4403, -56.4353), "n_mypes": 21},
+    "Estación": {"lat": (-25.7962, -25.7912), "lon": (-56.4630, -56.4580), "n_mypes": 16},
+    "Tuyutimí": {"lat": (-25.7748, -25.7698), "lon": (-56.4607, -56.4557), "n_mypes": 11},
+    "Lomas Valentinas": {"lat": (-25.7833, -25.7783), "lon": (-56.4611, -56.4561), "n_mypes": 9}
 }
 
 def generar_dataset_unidades(output_path: str = "data/processed/unidades_productivas.csv") -> List[Dict[str, Any]]:

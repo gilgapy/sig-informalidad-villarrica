@@ -54,20 +54,20 @@ def seed_catalogs(cursor: psycopg2.extensions.cursor) -> None:
 
     # 1. Catálogo de Barrios de Villarrica
     barrios_data = [
-        ("Centro", -25.7560, -25.7500, -56.4510, -56.4450, 140.0, 148.0, 0.22,
+        ("Centro", -25.7849, -25.7799, -56.4496, -56.4446, 140.0, 148.0, 0.22,
          "Zona comercial céntrica, comercios minoristas, trámites y servicios"),
-        ("Ybaroty", -25.7530, -25.7470, -56.4600, -56.4540, 135.0, 144.0, 0.18,
+        ("Ybaroty", -25.7723, -25.7673, -56.4480, -56.4430, 135.0, 144.0, 0.18,
          "Barrio tradicional histórico, talleres artesanales y negocios familiares"),
-        ("San Miguel", -25.7450, -25.7380, -56.4450, -56.4380, 132.0, 140.0, 0.16,
+        ("San Miguel", -25.7790, -25.7740, -56.4403, -56.4353, 132.0, 140.0, 0.16,
          "Zona residencial y mixta, talleres mecánicos y despensas"),
-        ("Santa Librada", -25.7660, -25.7600, -56.4550, -56.4470, 138.0, 146.0, 0.15,
+        ("Santa Librada", -25.7942, -25.7892, -56.4518, -56.4468, 138.0, 146.0, 0.15,
          "Zona densa con puestos de comida, confección y transporte local"),
-        ("Estación", -25.7680, -25.7610, -56.4410, -56.4330, 130.0, 139.0, 0.13,
+        ("Estación", -25.7962, -25.7912, -56.4630, -56.4580, 130.0, 139.0, 0.13,
          "Entorno del Parque M. Ortiz Guerrero y antigua estación, oficios diversos"),
-        ("Lomas Valentinas", -25.7510, -25.7450, -56.4370, -56.4310, 142.0, 152.0, 0.09,
-         "Zona este de la ciudad, comercio barrial y servicios independientes"),
-        ("Tuyutimí", -25.7750, -25.7680, -56.4650, -56.4570, 128.0, 137.0, 0.07,
-         "Sector periurbano suroeste, oficios de construcción y reciclaje")
+        ("Lomas Valentinas", -25.7833, -25.7783, -56.4611, -56.4561, 142.0, 152.0, 0.09,
+         "Zona oeste de la ciudad, comercio barrial y servicios independientes"),
+        ("Tuyutimí", -25.7748, -25.7698, -56.4607, -56.4557, 128.0, 137.0, 0.07,
+         "Sector periurbano noroeste, oficios de construcción y reciclaje")
     ]
     query_barrios = """
         INSERT INTO barrios (nombre, lat_min, lat_max, lon_min, lon_max, alt_min, alt_max, peso_muestral, descripcion)

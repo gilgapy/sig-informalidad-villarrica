@@ -35,53 +35,53 @@ BRIGADAS_UNVES: List[Dict[str, str]] = [
 # Delimitación Geográfica de los 7 Barrios Relevados en Villarrica (Guairá, Paraguay)
 BARRIOS_VILLARRICA: Dict[str, Dict] = {
     "Centro": {
-        "lat_range": (-25.7560, -25.7500),
-        "lon_range": (-56.4510, -56.4450),
+        "lat_range": (-25.7849, -25.7799),
+        "lon_range": (-56.4496, -56.4446),
         "alt_range": (140.0, 148.0),
         "peso_muestral": 0.22,
         "descripcion": "Zona comercial céntrica, comercios minoristas, trámites y servicios"
     },
     "Ybaroty": {
-        "lat_range": (-25.7530, -25.7470),
-        "lon_range": (-56.4600, -56.4540),
+        "lat_range": (-25.7723, -25.7673),
+        "lon_range": (-56.4480, -56.4430),
         "alt_range": (135.0, 144.0),
         "peso_muestral": 0.18,
         "descripcion": "Barrio tradicional histórico, talleres artesanales y negocios familiares"
     },
     "San Miguel": {
-        "lat_range": (-25.7450, -25.7380),
-        "lon_range": (-56.4450, -56.4380),
+        "lat_range": (-25.7790, -25.7740),
+        "lon_range": (-56.4403, -56.4353),
         "alt_range": (132.0, 140.0),
         "peso_muestral": 0.16,
         "descripcion": "Zona residencial y mixta, talleres mecánicos y despensas"
     },
     "Santa Librada": {
-        "lat_range": (-25.7660, -25.7600),
-        "lon_range": (-56.4550, -56.4470),
+        "lat_range": (-25.7942, -25.7892),
+        "lon_range": (-56.4518, -56.4468),
         "alt_range": (138.0, 146.0),
         "peso_muestral": 0.15,
         "descripcion": "Zona densa con puestos de comida, confección y transporte local"
     },
     "Estación": {
-        "lat_range": (-25.7680, -25.7610),
-        "lon_range": (-56.4410, -56.4330),
+        "lat_range": (-25.7962, -25.7912),
+        "lon_range": (-56.4630, -56.4580),
         "alt_range": (130.0, 139.0),
         "peso_muestral": 0.13,
         "descripcion": "Entorno del Parque M. Ortiz Guerrero y antigua estación, oficios diversos"
     },
     "Lomas Valentinas": {
-        "lat_range": (-25.7510, -25.7450),
-        "lon_range": (-56.4370, -56.4310),
+        "lat_range": (-25.7833, -25.7783),
+        "lon_range": (-56.4611, -56.4561),
         "alt_range": (142.0, 152.0),
         "peso_muestral": 0.09,
-        "descripcion": "Zona este de la ciudad, comercio barrial y servicios independientes"
+        "descripcion": "Zona oeste de la ciudad, comercio barrial y servicios independientes"
     },
     "Tuyutimí": {
-        "lat_range": (-25.7750, -25.7680),
-        "lon_range": (-56.4650, -56.4570),
+        "lat_range": (-25.7748, -25.7698),
+        "lon_range": (-56.4607, -56.4557),
         "alt_range": (128.0, 137.0),
         "peso_muestral": 0.07,
-        "descripcion": "Sector periurbano suroeste, oficios de construcción y reciclaje"
+        "descripcion": "Sector periurbano noroeste, oficios de construcción y reciclaje"
     }
 }
 
